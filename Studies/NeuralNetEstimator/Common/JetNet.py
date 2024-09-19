@@ -29,7 +29,9 @@ class JetNet():
 
     def ConfigureModel(self, dataset_shape):
         self.model = tf.keras.Sequential([tf.keras.layers.Dense(layer_size, activation='relu') for layer_size in self.topology])
-        self.model.add(tf.keras.layers.Dense(3))
+        # self.model.add(tf.keras.layers.Dense(3))
+        # to predict px, py, pz of H->bb (first three) and px, py, pz of H->WW (last three)
+        self.model.add(tf.keras.layers.Dense(6)) 
 
         self.model.compile(loss=MXLossFunc, optimizer=tf.keras.optimizers.Adam(self.lr))
         self.model.build(dataset_shape)

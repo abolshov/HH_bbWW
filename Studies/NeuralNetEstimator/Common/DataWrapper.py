@@ -38,6 +38,16 @@ class DataWrapper():
                                     'phi': branches['centralJet_phi'], 
                                     'mass': branches['centralJet_mass']})
 
+        lep1_p4 = vector.zip({'pt': branches['lep1_pt'], 
+                             'eta': branches['lep1_eta'], 
+                             'phi': branches['lep1_phi'], 
+                             'mass': branches['lep1_mass']})
+
+        met_p4 = vector.zip({'pt': branches['PuppiMET_pt'], 
+                            'eta': 0, 
+                            'phi': branches['PuppiMET_phi'], 
+                            'mass': 0})
+
         PxPyPzE = ['px', 'py', 'pz', 'E']
         func_map = {'px': Px, 'py': Py, 'pz': Pz, 'E': E}
 
@@ -52,16 +62,25 @@ class DataWrapper():
                     var_awkward_array = branches[branch_name]
                 d2[f"centralJet{i}_{var}"] = GetNumPyArray(var_awkward_array, self.n_jets, i)
 
-        HVV_p4 = vector.zip({'pt': branches['genHVV_pt'],
-                            'eta': branches['genHVV_eta'],
-                            'phi': branches['genHVV_phi'],
-                            'mass': branches['genHVV_mass']})
-
         for var in PxPyPzE:
-            branch_name = f"H_VV_{var}"
+            branch_name = f"lep1_{var}"
             func = func_map[var]
-            var_awkward_array = func(HVV_p4)
-            d2[branch_name] = ak.to_numpy(var_awkward_array)
+            var_awkward_array = func(lep1_p4)
+            d2[f"lep1_{var}"] = ak.to_numpy(var_awkward_array)
+
+        d2["met_px"] = ak.to_numpy(met_p4.px)
+        d2["met_py"] = ak.to_numpy(met_p4.py)
+
+        # HVV_p4 = vector.zip({'pt': branches['genHVV_pt'],
+        #                     'eta': branches['genHVV_eta'],
+        #                     'phi': branches['genHVV_phi'],
+        #                     'mass': branches['genHVV_mass']})
+
+        # for var in PxPyPzE:
+        #     branch_name = f"H_VV_{var}"
+        #     func = func_map[var]
+        #     var_awkward_array = func(HVV_p4)
+        #     d2[branch_name] = ak.to_numpy(var_awkward_array)
 
         data_dict = d1 | d2
 

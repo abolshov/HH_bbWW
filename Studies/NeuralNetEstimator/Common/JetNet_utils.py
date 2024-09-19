@@ -14,6 +14,34 @@ def GetMXPred(out_px, out_py, out_pz, target_px, target_py, target_pz, target_E,
     return pred_mass
 
 
+# output: (n_events, 6) - produced by the net
+# first three: px, py, pz of H->bb
+# last three: px, py, pz of H->WW
+# target: (n_events, 1) - true mass of X
+@tf.function
+def GetMXPred(output):
+    H_mass = 125.0
+
+    H_bb_p3 = output[:, 0:3]
+    H_bb_E = tf.sqrt(H_mass*H_mass + tf.sum(H_bb_p3**2, axis=1))
+
+    H_WW_p3 = output[:, 3:5]
+    H_WW_E = tf.sqrt(H_mass*H_mass + tf.sum(H_WW_p3**2, axis=1))
+
+    pred_mass = (H_bb_E + H_WW_E)**2 - tf.sum((H_WW_p3 + H_bb_p3)**2, axis=1)
+    return pred_mass
+
+
+# target: (n_events, 1) - true mass of X
+# output: (n_events, 6) - produced by the net
+# first three: px, py, pz of H->bb
+# last three: px, py, pz of H->WW
+@tf.function
+def MXLossFunc(target, output):
+    pred = GetMXPred(output)
+    return (target - pred)**2
+
+
 @tf.function
 def MXLossFunc(target, output):
     X_mass = target[:, 4]

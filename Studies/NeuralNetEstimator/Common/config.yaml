@@ -21,6 +21,11 @@ jet_observables:
 - 'PNetRegPtRawCorr'
 - 'PNetRegPtRawCorrNeutrino' 
 - 'PNetRegPtRawRes'
+lep_observables:
+- 'px'
+- 'py'
+- 'pz' 
+- 'E'
 n_jets: 10
 labels:
 - 'H_VV_px' 
