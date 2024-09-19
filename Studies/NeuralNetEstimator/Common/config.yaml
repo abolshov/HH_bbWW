@@ -26,12 +26,11 @@ lep_observables:
 - 'py'
 - 'pz' 
 - 'E'
+met_observables:
+- 'px'
+- 'py'
 n_jets: 10
 labels:
-- 'H_VV_px' 
-- 'H_VV_py'
-- 'H_VV_pz'
-- 'H_VV_E'
 - 'X_mass'
 extra_data:
 - 'event'

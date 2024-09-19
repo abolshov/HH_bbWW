@@ -11,9 +11,16 @@ class DataWrapper():
     def __init__(self, cfg):
         self.n_jets = cfg['n_jets']
         self.jet_obs = cfg['jet_observables']
+        self.lep_obs = cfg['lep_observables']
+        self.met_obs = cfg['met_observables']
+
+        jet_featrues = [f"centralJet{i}_{obs}" for i in range(self.n_jets) for obs in self.jet_obs]
+        lep_features = [f"lep1_{var}" for var in self.lep_obs]
+        met_features = [f"met_{var}" for var in self.met_obs]
+        features = jet_featrues + lep_features + met_features
+        self.features = features
 
         self.tree_name = cfg['tree_name']
-        self.features = [f"centralJet{i}_{obs}" for i in range(self.n_jets) for obs in self.jet_obs]
         self.labels = cfg['labels']
         self.extra_data = cfg['extra_data']
 
@@ -71,17 +78,6 @@ class DataWrapper():
         d2["met_px"] = ak.to_numpy(met_p4.px)
         d2["met_py"] = ak.to_numpy(met_p4.py)
 
-        # HVV_p4 = vector.zip({'pt': branches['genHVV_pt'],
-        #                     'eta': branches['genHVV_eta'],
-        #                     'phi': branches['genHVV_phi'],
-        #                     'mass': branches['genHVV_mass']})
-
-        # for var in PxPyPzE:
-        #     branch_name = f"H_VV_{var}"
-        #     func = func_map[var]
-        #     var_awkward_array = func(HVV_p4)
-        #     d2[branch_name] = ak.to_numpy(var_awkward_array)
-
         data_dict = d1 | d2
 
         df = pd.DataFrame.from_dict(data_dict)
@@ -103,7 +99,7 @@ class DataWrapper():
         train_df = self.SelectEvents(self.train_val, self.modulo)
         test_df = self.SelectEvents(self.test_val, self.modulo)
 
-        self.test_labels = test_df[self.labels] # contain px, py, pz, E of H->VV and true X_mass
+        self.test_labels = test_df[self.labels] # contains true X_mass
         test_df = test_df.drop(self.labels, axis=1)
         
         self.train_events = train_df['event'] 
@@ -114,7 +110,7 @@ class DataWrapper():
        
         self.train_features = train_df[self.features] # contain all possible centralJet variables for all central jets (for train)
         self.test_features = test_df[self.features] # contain all possible centralJet variables for all central jets (for test)
-        self.train_labels = train_df[self.labels] # contain X_mass and all variables of H->VV
+        self.train_labels = train_df[self.labels] # contain X_mass
 
 
     def SelectEvents(self, value, modulo):
