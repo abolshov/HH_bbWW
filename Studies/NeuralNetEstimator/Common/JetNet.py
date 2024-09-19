@@ -9,10 +9,17 @@ from Common.JetNet_utils import MXLossFunc, GetMXPred
 
 class JetNet():
     def __init__(self, cfg):
-        jet_obs = cfg['jet_observables']
         n_jets = cfg['n_jets']
+        jet_obs = cfg['jet_observables']
+        lep_obs = cfg['lep_observables']
+        met_obs = cfg['met_observables']
 
-        self.features = [f"centralJet{i}_{obs}" for i in range(n_jets) for obs in jet_obs]
+        jet_featrues = [f"centralJet{i}_{obs}" for i in range(n_jets) for obs in jet_obs]
+        lep_features = [f"lep1_{var}" for var in lep_obs]
+        met_features = [f"met_{var}" for var in met_obs]
+        features = jet_featrues + lep_features + met_features
+        
+        self.features = features
         self.labels = cfg['labels']
 
         # training parameters
@@ -29,7 +36,6 @@ class JetNet():
 
     def ConfigureModel(self, dataset_shape):
         self.model = tf.keras.Sequential([tf.keras.layers.Dense(layer_size, activation='relu') for layer_size in self.topology])
-        # self.model.add(tf.keras.layers.Dense(3))
         # to predict px, py, pz of H->bb (first three) and px, py, pz of H->WW (last three)
         self.model.add(tf.keras.layers.Dense(6)) 
 
@@ -52,7 +58,7 @@ class JetNet():
     def Predict(self, test_features):
         if not np.all(test_features.columns == self.features):
             raise RuntimeError(f"Features pased for prediction do not match expected features: passed {test_features.columns}, while expected {self.features}")
-        # returns predicted variables: px, py, pz of H->bb
+        # returns predicted variables: px, py, pz of H->bb and H->WW
         output = self.model.predict(test_features)
         pred_mass = GetMXPred(output)
         pred_df = pd.DataFrame({"X_mass_pred": pred_mass})

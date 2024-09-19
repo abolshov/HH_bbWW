@@ -11,12 +11,12 @@ def GetMXPred(output):
     H_mass = 125.0
 
     H_bb_p3 = output[:, 0:3]
-    H_bb_E = tf.sqrt(H_mass*H_mass + tf.sum(H_bb_p3**2, axis=1))
+    H_bb_E = tf.sqrt(H_mass*H_mass + tf.reduce_sum(H_bb_p3**2, axis=1, keepdims=True))
 
-    H_WW_p3 = output[:, 3:5]
-    H_WW_E = tf.sqrt(H_mass*H_mass + tf.sum(H_WW_p3**2, axis=1))
+    H_WW_p3 = output[:, 3:6]
+    H_WW_E = tf.sqrt(H_mass*H_mass + tf.reduce_sum(H_WW_p3**2, axis=1, keepdims=True))
 
-    pred_mass = tf.sqrt((H_bb_E + H_WW_E)**2 - tf.sum((H_WW_p3 + H_bb_p3)**2, axis=1))
+    pred_mass = tf.sqrt((H_bb_E + H_WW_E)**2 - tf.reduce_sum((H_WW_p3 + H_bb_p3)**2, axis=1, keepdims=True))
     return pred_mass
 
 
