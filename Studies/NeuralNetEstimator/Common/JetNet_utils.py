@@ -42,15 +42,9 @@ def PlotLoss(history):
 
 
 def PlotPrediction(label_df, predicted_df):
-    # label_df contains p4 of H->WW
-    # predicted_df contains p4 of H->bb 
-
-    masspoints = label_df['X_mass'].unique()
+    masspoints = [int(val) for val in label_df['X_mass'].unique()]
     X_mass_true = np.array(label_df['X_mass'])
-    X_mass_pred = np.sqrt((label_df['H_VV_E'] + predicted_df['H_bb_E'])**2 -
-                          (label_df['H_VV_px'] + predicted_df['H_bb_px'])**2 -
-                          (label_df['H_VV_py'] + predicted_df['H_bb_py'])**2 -
-                          (label_df['H_VV_pz'] + predicted_df['H_bb_pz'])**2)
+    X_mass_pred = np.array(predicted_df['X_mass_pred'])
     mass_df = pd.DataFrame({"X_mass_true": X_mass_true, "X_mass_pred": X_mass_pred})
 
     for mp in masspoints:
@@ -59,7 +53,8 @@ def PlotPrediction(label_df, predicted_df):
         width = PredWidth(df['X_mass_pred'])
         peak = PredPeak(df['X_mass_pred'])
 
-        plt.hist(df['X_mass_pred'], bins=100)
+        bins = np.linspace(0, 2000, 500)
+        plt.hist(df['X_mass_pred'], bins=bins)
         plt.title('JetNet prediction')
         plt.xlabel('X mass [GeV]')
         plt.ylabel('Count')
