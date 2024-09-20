@@ -60,7 +60,7 @@ class JetNet():
             raise RuntimeError(f"Features pased for prediction do not match expected features: passed {test_features.columns}, while expected {self.features}")
         # returns predicted variables: px, py, pz of H->bb and H->WW
         output = self.model.predict(test_features)
-        pred_mass = GetMXPred(output)
+        pred_mass = np.array(GetMXPred(output))[:, 0]
         pred_df = pd.DataFrame({"X_mass_pred": pred_mass})
         return pred_df
 
@@ -71,7 +71,6 @@ class JetNet():
         self.model.save(f"{path}/{self.name}.keras")
 
     
-    def LoadModel(self, model_name):
-        self.model = tf.keras.models.load_model(model_name, compile=False)
-        print(f"Loaded model {model_name}")
+    def LoadModel(self, path_to_model):
+        self.model = tf.keras.models.load_model(path_to_model, compile=False)
         print(self.model.summary())
