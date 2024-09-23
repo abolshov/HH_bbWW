@@ -1,6 +1,7 @@
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 # output: (n_events, 6) - produced by the net
 # first three: px, py, pz of H->bb
@@ -27,21 +28,22 @@ def GetMXPred(output):
 @tf.function
 def MXLossFunc(target, output):
     pred = GetMXPred(output)
-    return (target - pred)**2
+    return (target - pred)**2/tf.cast(len(pred), tf.float32)
 
 
-def PlotLoss(history):
+def PlotLoss(history, model):
     plt.plot(history.history['loss'], label='train_loss')
     plt.plot(history.history['val_loss'], label='val_loss')
     plt.xlabel('Epoch')
     plt.ylabel('Error')
+    plt.title(f"Loss {model}")
     plt.legend()
     plt.grid(True)
-    plt.savefig('loss.pdf', bbox_inches='tight')
+    plt.savefig(f"loss_{model}.pdf", bbox_inches='tight')
     plt.clf()
 
 
-def PlotPrediction(label_df, predicted_df):
+def PlotPrediction(label_df, predicted_df, model):
     masspoints = [int(val) for val in label_df['X_mass'].unique()]
     X_mass_true = np.array(label_df['X_mass'])
     X_mass_pred = np.array(predicted_df['X_mass_pred'])
@@ -53,15 +55,15 @@ def PlotPrediction(label_df, predicted_df):
         width = PredWidth(df['X_mass_pred'])
         peak = PredPeak(df['X_mass_pred'])
 
-        bins = np.linspace(0, 2000, 500)
+        bins = np.linspace(0, 2000, 100)
         plt.hist(df['X_mass_pred'], bins=bins)
-        plt.title('JetNet prediction')
+        plt.title(f'{model} prediction')
         plt.xlabel('X mass [GeV]')
         plt.ylabel('Count')
         plt.figtext(0.75, 0.8, f"peak: {peak:.2f}")
         plt.figtext(0.75, 0.75, f"width: {width:.2f}")
         plt.grid(True)
-        plt.savefig(f"X_mass_pred_{mp}_GeV.pdf", bbox_inches='tight')
+        plt.savefig(f"X_mass_{mp}_GeV_{model}.pdf", bbox_inches='tight')
         plt.clf()
 
 
