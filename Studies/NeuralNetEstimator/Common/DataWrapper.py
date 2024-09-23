@@ -28,17 +28,24 @@ class DataWrapper():
         self.train_val = cfg['train_val']
         self.test_val = cfg['test_val']
 
+        self.bb_topology = cfg['bb_resolved']
+        self.qq_topology = cfg['qq_resolved']
+
         # pd.DataFrame containing full dataset
         self.data = pd.DataFrame(columns=[*self.features, *self.labels, *self.extra_data])
 
 
     def ReadFile(self, file_name):
+        print(f"Reading from {file_name}:")
         file = uproot.open(file_name)
         tree = file[self.tree_name]
         branches = tree.arrays()
 
-        d1 = {name: np.array(branches[name]) for name in self.extra_data}
-        d1["X_mass"] = np.array(branches['X_mass'], dtype=float)
+        evt_top = EventTopology(branches, self.bb_topology, self.qq_topology)
+        print(f"\tinitial: {len(evt_top)}")
+
+        d1 = {name: np.array(branches[name][evt_top]) for name in self.extra_data}
+        d1["X_mass"] = np.array(branches['X_mass'][evt_top], dtype=float)
 
         centralJet_p4 = vector.zip({'pt': branches['centralJet_pt'], 
                                     'eta': branches['centralJet_eta'], 
@@ -55,6 +62,10 @@ class DataWrapper():
                             'phi': branches['PuppiMET_phi'], 
                             'mass': 0})
 
+        centralJet_p4 = centralJet_p4[evt_top]
+        lep1_p4 = lep1_p4[evt_top]
+        met_p4 = met_p4[evt_top]
+
         PxPyPzE = ['px', 'py', 'pz', 'E']
         func_map = {'px': Px, 'py': Py, 'pz': Pz, 'E': E}
 
@@ -67,6 +78,7 @@ class DataWrapper():
                 else:
                     branch_name = f"centralJet_{var}"
                     var_awkward_array = branches[branch_name]
+                    var_awkward_array = var_awkward_array[evt_top]
                 d2[f"centralJet{i}_{var}"] = GetNumPyArray(var_awkward_array, self.n_jets, i)
 
         for var in PxPyPzE:
@@ -81,7 +93,7 @@ class DataWrapper():
         data_dict = d1 | d2
 
         df = pd.DataFrame.from_dict(data_dict)
-        print(f"Reading {df.shape[0]} entries from {file_name}")
+        print(f"\tfinal: {df.shape[0]}")
         self.data = pd.concat([self.data, df]) 
 
 
