@@ -33,7 +33,7 @@ def main():
         net.ConfigureModel(dw.train_features.shape)
         history = net.Fit(dw.train_features, dw.train_labels)
         net.SaveModel(path_to_model)
-        PlotLoss(history)
+        PlotLoss(history, cfg['name'])
 
     
 if __name__ == '__main__':

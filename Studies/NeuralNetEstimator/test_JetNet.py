@@ -34,9 +34,11 @@ def main():
         net.LoadModel(f"{path_to_model}/{cfg['name']}.keras")
 
         pred_df = net.Predict(dw.test_features)
+        print(f"Test dataset contains {pred_df.shape[0]} events")
         print(pred_df.describe())
         w = np.quantile(pred_df['X_mass_pred'], 0.84) - np.quantile(pred_df['X_mass_pred'], 0.16)
         print(f"width   {w:.6f}")
+        PlotPrediction(dw.test_labels, pred_df, cfg['name'])
     
     
 if __name__ == '__main__':
