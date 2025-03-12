@@ -86,7 +86,7 @@ namespace HME
                                                                                 { PDF1_dl::mw_onshell, "pdf_mw_onshell" }};
                                                                             
     inline static const std::unordered_map<PDF2_dl, TString> pdf2d_dl_names = {};
-    
-};
+
+}
 
 #endif

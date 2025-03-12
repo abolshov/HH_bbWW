@@ -36,7 +36,7 @@ namespace HME
 
         virtual std::unique_ptr<TTree> MakeTree(TString const& tree_name) = 0;
     };
-    
-};
+
+}
 
 #endif
