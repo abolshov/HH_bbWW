@@ -31,9 +31,6 @@ namespace HME
     inline constexpr size_t NUM_PDF_2D_DL = static_cast<size_t>(PDF2_dl::count);
 
     // return values of Estimator
-    enum class CombOut { mass, integral, width, peak_value, count };
-    inline constexpr size_t COMB_OUT_SZ = static_cast<size_t>(CombOut::count);
-
     enum class EstimOut { mass, integral, width, peak_value, score, count };
     inline constexpr size_t ESTIM_OUT_SZ = static_cast<size_t>(EstimOut::count);
 

@@ -21,7 +21,7 @@ namespace HME
     class EstimatorBase
     {
         public:
-        explicit EstimatorBase(TString dbg_file_name = {});
+        EstimatorBase();
         virtual ~EstimatorBase() = default;
 
         virtual ArrF_t<ESTIM_OUT_SZ> EstimateCombination(VecLVF_t const& particles, ULong64_t evt_id, TString const& comb_label) = 0;
@@ -32,11 +32,12 @@ namespace HME
         HistVec_t<TH2F> m_pdf_2d;
         std::unique_ptr<TRandom3> m_prg;
         UHist_t<TH1F> m_res_mass;
-        EstimationRecorder m_recorder; 
-
-        virtual std::unique_ptr<TTree> MakeTree(TString const& tree_name) = 0;
     };
 
+    EstimatorBase::EstimatorBase() 
+    :   m_prg(std::make_unique<TRandom3>(SEED))
+    ,   m_res_mass(std::make_unique<TH1F>("none", "none", N_BINS, MIN_MASS, MAX_MASS))
+    {}
 }
 
 #endif
