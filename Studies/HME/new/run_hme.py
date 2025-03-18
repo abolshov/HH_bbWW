@@ -18,11 +18,7 @@ def main():
 	ROOT.gROOT.SetBatch(True)
 	ROOT.EnableImplicitMT(8)
 
-	ROOT.gROOT.ProcessLine('#include "include/Estimator.hpp"')
-
-	sl_pdf_file_name = "pdf_sl.root"
-	dl_pdf_file_name = "pdf_dl.root"
-	ROOT.gInterpreter.Declare(f"""auto estimator = HME::Estimator("{sl_pdf_file_name}", "{dl_pdf_file_name}");""")
+	ROOT.gROOT.ProcessLine('#include "include/EstimatorLTWrapper.hpp"')
 
 	start = time.perf_counter()
 	df = ROOT.RDataFrame("Events", input_file)
@@ -46,7 +42,7 @@ def main():
 	df = df.Define("met", """HME::LorentzVectorF_t res(PuppiMET_pt, 0.0, PuppiMET_phi, 0.0);    
 							 return res;""")
 		
-	df = df.Define("hme_mass", """auto hme = estimator.EstimateMass(jets, leptons, met, event, HME::Channel::DL);
+	df = df.Define("hme_mass", """auto hme = HME::EstimatorLTWrapper::Instance().GetEstimator().EstimateMass(jets, leptons, met, event, HME::Channel::DL);
 								  Float_t mass = -1.0f;
 								  if (hme.has_value())
 								  {{
