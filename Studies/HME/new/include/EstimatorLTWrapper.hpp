@@ -14,7 +14,7 @@ namespace HME
     {
         private:
         EstimatorLTWrapper() {}
-        unique_ptr<Estimator> estimator = std::make_unique<Estimator>(pdf_sl_name, pdf_dl_name);
+        std::unique_ptr<Estimator> estimator = std::make_unique<Estimator>(pdf_sl_name, pdf_dl_name);
         
         public:
         ~EstimatorLTWrapper() = default;
