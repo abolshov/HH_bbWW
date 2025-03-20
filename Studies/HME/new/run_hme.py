@@ -19,8 +19,6 @@ def main():
 	ROOT.gROOT.SetBatch(True)
 	ROOT.EnableImplicitMT(8)
 
-	# ROOT.gROOT.ProcessLine('#include "include/EstimatorLTWrapper.hpp"')
-
 	start = time.perf_counter()
 	df = ROOT.RDataFrame("Events", input_file)
 	print(f"Total events: {df.Count().GetValue()}")
@@ -29,31 +27,6 @@ def main():
 	df = df.Filter(f"lep1_pt > 0.0 && lep2_pt > 0.0", "leptons")
 	hme_events = df.Count().GetValue()
 	print(f"HME events: {hme_events}")
-
-	# df = df.Define("jets", """HME::VecLVF_t res;
-	# 							for (size_t i = 0; i < nJet; ++i)
-	# 							{{
-	# 								res.emplace_back(centralJet_pt[i], centralJet_eta[i], centralJet_phi[i], centralJet_mass[i]);  
-	# 							}}
-	# 							return res;""")
-
-	# df = df.Define("leptons", """HME::VecLVF_t res;
-	# 							 res.emplace_back(lep1_pt, lep1_eta, lep1_phi, lep1_mass);
-	# 							 res.emplace_back(lep2_pt, lep2_eta, lep2_phi, lep2_mass);
-	# 							 return res;""")
-
-	# df = df.Define("met", """HME::LorentzVectorF_t res(PuppiMET_pt, 0.0, PuppiMET_phi, 0.0);    
-	# 						 return res;""")
-		
-	# df = df.Define("hme_mass", """auto hme = HME::EstimatorLTWrapper::Instance().GetEstimator().EstimateMass(jets, leptons, met, event, HME::Channel::DL);
-	# 							  Float_t mass = -1.0f;
-	# 							  if (hme.has_value())
-	# 							  {{
-	# 							  	auto const& result_array = hme.value();
-	# 								mass = result_array[static_cast<size_t>(HME::EstimOut::mass)];
-	# 							  }}
-	# 							  return mass;""")
-	
 	
 	df = GetHMEVariables(df)
 
