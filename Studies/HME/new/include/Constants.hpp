@@ -31,7 +31,7 @@ namespace HME
     inline constexpr size_t NUM_PDF_2D_DL = static_cast<size_t>(PDF2_dl::count);
 
     // return values of Estimator
-    enum class EstimOut { mass, integral, width, peak_value, score, count };
+    enum class EstimOut { mass, integral, width, peak_value, count };
     inline constexpr size_t ESTIM_OUT_SZ = static_cast<size_t>(EstimOut::count);
 
     // objects
@@ -48,7 +48,7 @@ namespace HME
     inline constexpr Float_t HIGGS_WIDTH = 0.004;
     inline constexpr Float_t TOL = 10e-7;
     inline constexpr int N_ATTEMPTS = 1;
-    inline constexpr int N_ITER = 10000;
+    inline constexpr int N_ITER = 1000;
     inline constexpr int CONTROL = 4;
 
     inline constexpr Float_t MAX_MASS = 4000.0;
