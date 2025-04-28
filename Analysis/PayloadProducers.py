@@ -20,6 +20,7 @@ class ProducerBase(ABC):
 
 class HMEProducer(ProducerBase):
     def __init__(self, cfg):
+        super().__init__(cfg)
         self.initialize()
 
     def initialize(self):
