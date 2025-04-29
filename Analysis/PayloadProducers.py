@@ -1,27 +1,6 @@
-from abc import ABC, abstractmethod
-
-
-class ProducerBase(ABC):
+class HMEProducer:
     def __init__(self, cfg):
-        self.cfg = cfg 
-
-    @abstractmethod
-    def initialize(self):
         pass
-
-    @abstractmethod
-    def run(self, dfw):
-        pass 
-
-    @abstractmethod
-    def format(self):
-        pass
-
-
-class HMEProducer(ProducerBase):
-    def __init__(self, cfg):
-        super().__init__(cfg)
-        self.initialize()
 
     def initialize(self):
         pass
