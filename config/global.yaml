@@ -19,6 +19,14 @@ tagger_name: "particleNet"
 
 bjet_preselection_branch : "Jet_sel"
 
+payload_producers:
+  HME:
+    file: PayloadProducers.py
+    producer_name: HMEProducer # __init__(self, cfg) run(self, df) self.format (RDF, awkward), 
+    columns:
+      - HME_mass
+      # - HME_valid ??? 
+
 #This is for Analysis Selection
 channelSelection:
   - e
