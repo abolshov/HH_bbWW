@@ -1,3 +1,5 @@
+from Studies.HME.new.hmeVariables import GetHMEVariables
+
 class HMEProducer:
     def __init__(self, cfg):
         pass
