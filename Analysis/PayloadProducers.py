@@ -7,6 +7,8 @@ class HMEProducer:
     def run(self, dfw):
         df_selected = dfw
         df_not_selected = dfw
+        # dfw.Define("pass_DL", "ncentralJet >= 2 && lep1_pt > 0.0 && lep2_pt > 0.0")
+        # dfw.Define("hme_output", "pass_DL ?  ComputeHME() : DefaultOutput{};")
         if self.cfg['channel'] == "DL":
             df_selected = df_selected.Filter(f"ncentralJet >= 2 && lep1_pt > 0.0 && lep2_pt > 0.0", "selected_for_HME")
             df_not_selected = df_selected.Filter(f"!(ncentralJet >= 2 && lep1_pt > 0.0 && lep2_pt > 0.0)", "not_selected_for_HME")
