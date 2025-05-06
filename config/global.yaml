@@ -24,8 +24,8 @@ payload_producers:
     file: PayloadProducers.py
     producer_name: HMEProducer # __init__(self, cfg) run(self, df) self.format (RDF, awkward), 
     channel: "DL"
-    # columns: # dont'think I need it
-      # - HME_mass
+    columns: 
+      - mass
       # - HME_valid ??? 
 
 #This is for Analysis Selection
