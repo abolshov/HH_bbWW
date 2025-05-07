@@ -19,6 +19,7 @@ tagger_name: "particleNet"
 
 bjet_preselection_branch : "Jet_sel"
 
+payload_producer_to_run: HME
 payload_producers:
   path: HH_bbWW.Analysis.PayloadProducers
   HME:
