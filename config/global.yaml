@@ -20,8 +20,8 @@ tagger_name: "particleNet"
 bjet_preselection_branch : "Jet_sel"
 
 payload_producers:
+  path: HH_bbWW.Analysis.PayloadProducers
   HME:
-    file: PayloadProducers.py
     producer_name: HMEProducer # __init__(self, cfg) run(self, df) self.format (RDF, awkward), 
     channel: "DL"
     columns: 
