@@ -9,7 +9,8 @@ import threading
 from FLAF.RunKit.run_tools import ps_call
 from FLAF.RunKit.crabLaw import cond as kInit_cond, update_kinit_thread
 from FLAF.run_tools.law_customizations import Task, HTCondorWorkflow, copy_param,get_param_value
-from FLAF.AnaProd.tasks import AnaTupleTask, DataMergeTask, AnaCacheTupleTask, DataCacheMergeTask, AnaCacheTask
+# from FLAF.AnaProd.tasks import AnaTupleTask, DataMergeTask, AnaCacheTupleTask, DataCacheMergeTask, AnaCacheTask
+from FLAF.AnaProd.tasks import AnaTupleTask, DataMergeTask, DataCacheMergeTask, AnaCacheTask
 
 unc_cfg_dict = None
 def load_unc_config(unc_cfg):
@@ -68,69 +69,69 @@ def getCustomisationSplit(customisations):
 
 
 
-class AnalysisCacheTask(Task, HTCondorWorkflow, law.LocalWorkflow):
-    max_runtime = copy_param(HTCondorWorkflow.max_runtime, 30.0)
-    n_cpus = copy_param(HTCondorWorkflow.n_cpus, 1)
+# class AnalysisCacheTask(Task, HTCondorWorkflow, law.LocalWorkflow):
+#     max_runtime = copy_param(HTCondorWorkflow.max_runtime, 30.0)
+#     n_cpus = copy_param(HTCondorWorkflow.n_cpus, 1)
 
-    def workflow_requires(self):
-        workflow_dict = {}
-        workflow_dict["anaTuple"] = {
-            br_idx: AnaTupleTask.req(self, branch=br_idx)
-            for br_idx, _ in self.branch_map.items()
-        }
-        return workflow_dict
+#     def workflow_requires(self):
+#         workflow_dict = {}
+#         workflow_dict["anaTuple"] = {
+#             br_idx: AnaTupleTask.req(self, branch=br_idx)
+#             for br_idx, _ in self.branch_map.items()
+#         }
+#         return workflow_dict
 
-    def requires(self):
-        return [ AnaTupleTask.req(self, max_runtime=AnaTupleTask.max_runtime._default) ]
+#     def requires(self):
+#         return [ AnaTupleTask.req(self, max_runtime=AnaTupleTask.max_runtime._default) ]
 
-    def create_branch_map(self):
-        branches = {}
-        anaProd_branch_map = AnaTupleTask.req(self, branch=-1, branches=()).branch_map
-        for br_idx, (sample_id, sample_name, sample_type, input_file) in anaProd_branch_map.items():
-            branches[br_idx] = (sample_name, sample_type)
-        return branches
+#     def create_branch_map(self):
+#         branches = {}
+#         anaProd_branch_map = AnaTupleTask.req(self, branch=-1, branches=()).branch_map
+#         for br_idx, (sample_id, sample_name, sample_type, input_file) in anaProd_branch_map.items():
+#             branches[br_idx] = (sample_name, sample_type)
+#         return branches
 
-    def output(self):
-        sample_name, sample_type = self.branch_data
-        outFileName = os.path.basename(self.input()[0].path)
-        outDir = os.path.join('anaCacheTuples', self.period, sample_name, self.version)
-        finalFile = os.path.join(outDir, outFileName)
-        return self.remote_target(finalFile, fs=self.fs_anaCacheTuple)
+#     def output(self):
+#         sample_name, sample_type = self.branch_data
+#         outFileName = os.path.basename(self.input()[0].path)
+#         outDir = os.path.join('anaCacheTuples', self.period, sample_name, self.version)
+#         finalFile = os.path.join(outDir, outFileName)
+#         return self.remote_target(finalFile, fs=self.fs_anaCacheTuple)
 
-    def run(self):
-        #For now, this is only for bbWW, for the bbtautau we still use the AnaCahceTupleTask found in AanProd folder
-        sample_name, sample_type = self.branch_data
-        unc_config = os.path.join(self.ana_path(), 'config',self.period, f'weights.yaml')
-        producer_anacachetuples = os.path.join(self.ana_path(), 'Analysis', 'DNN_Application.py')
+#     def run(self):
+#         #For now, this is only for bbWW, for the bbtautau we still use the AnaCahceTupleTask found in AanProd folder
+#         sample_name, sample_type = self.branch_data
+#         unc_config = os.path.join(self.ana_path(), 'config',self.period, f'weights.yaml')
+#         producer_anacachetuples = os.path.join(self.ana_path(), 'Analysis', 'DNN_Application.py')
 
-        global_config = os.path.join(self.ana_path(), self.global_params['analysis_config_area'], f'global.yaml')
-        thread = threading.Thread(target=update_kinit_thread)
-        thread.start()
-        try:
-            job_home, remove_job_home = self.law_job_home()
-            input_file = self.input()[0]
-            print(f"considering sample {sample_name}, {sample_type} and file {input_file.path}")
-            customisation_dict = getCustomisationSplit(self.customisations)
-            deepTauVersion = customisation_dict['deepTauVersion'] if 'deepTauVersion' in customisation_dict.keys() else ""
-            with input_file.localize("r") as local_input, self.output().localize("w") as outFile:
-                anaCacheTupleProducer_cmd = ['python3', producer_anacachetuples,'--inFileName', local_input.path, '--outFileName', outFile.path,  '--uncConfig', unc_config, '--globalConfig', global_config]
-                if self.global_params['store_noncentral'] and sample_type != 'data':
-                    anaCacheTupleProducer_cmd.extend(['--compute_unc_variations', 'True'])
-                if deepTauVersion!="":
-                    anaCacheTupleProducer_cmd.extend([ '--deepTauVersion', deepTauVersion])
-                useDNNModel = "HH_bbWW" in self.global_params['analysis_config_area'] #Now bbtautau won't use this DNN model arg (even though this task is only for bbWW right now)
-                useDNNModel = 'bbww' == self.global_params['analysis_name']
-                if useDNNModel:
-                    dnnFolder = os.path.join(self.ana_path(), self.global_params['analysis_config_area'], 'DNN', 'v24') #'ResHH_Classifier.keras')
-                    anaCacheTupleProducer_cmd.extend([ '--dnnFolder', dnnFolder])
-                ps_call(anaCacheTupleProducer_cmd, verbose=1)
-            print(f"finished to produce anacachetuple")
+#         global_config = os.path.join(self.ana_path(), self.global_params['analysis_config_area'], f'global.yaml')
+#         thread = threading.Thread(target=update_kinit_thread)
+#         thread.start()
+#         try:
+#             job_home, remove_job_home = self.law_job_home()
+#             input_file = self.input()[0]
+#             print(f"considering sample {sample_name}, {sample_type} and file {input_file.path}")
+#             customisation_dict = getCustomisationSplit(self.customisations)
+#             deepTauVersion = customisation_dict['deepTauVersion'] if 'deepTauVersion' in customisation_dict.keys() else ""
+#             with input_file.localize("r") as local_input, self.output().localize("w") as outFile:
+#                 anaCacheTupleProducer_cmd = ['python3', producer_anacachetuples,'--inFileName', local_input.path, '--outFileName', outFile.path,  '--uncConfig', unc_config, '--globalConfig', global_config]
+#                 if self.global_params['store_noncentral'] and sample_type != 'data':
+#                     anaCacheTupleProducer_cmd.extend(['--compute_unc_variations', 'True'])
+#                 if deepTauVersion!="":
+#                     anaCacheTupleProducer_cmd.extend([ '--deepTauVersion', deepTauVersion])
+#                 useDNNModel = "HH_bbWW" in self.global_params['analysis_config_area'] #Now bbtautau won't use this DNN model arg (even though this task is only for bbWW right now)
+#                 useDNNModel = 'bbww' == self.global_params['analysis_name']
+#                 if useDNNModel:
+#                     dnnFolder = os.path.join(self.ana_path(), self.global_params['analysis_config_area'], 'DNN', 'v24') #'ResHH_Classifier.keras')
+#                     anaCacheTupleProducer_cmd.extend([ '--dnnFolder', dnnFolder])
+#                 ps_call(anaCacheTupleProducer_cmd, verbose=1)
+#             print(f"finished to produce anacachetuple")
 
-        finally:
-            kInit_cond.acquire()
-            kInit_cond.notify_all()
-            kInit_cond.release()
-            thread.join()
+#         finally:
+#             kInit_cond.acquire()
+#             kInit_cond.notify_all()
+#             kInit_cond.release()
+#             thread.join()
 
 
 
