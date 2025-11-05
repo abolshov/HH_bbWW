@@ -366,6 +366,31 @@ payload_producers:
       - HME_mass_SL_DNN_M800_0p4_0p6
       - HME_mass_SL_DNN_M800_0p6_0p8
       - HME_mass_SL_DNN_M800_0p8_1p0
+  BtagShape:
+    producers_module_name: Analysis.BtagShapeProducer
+    producer_name: BtagShapeProducer
+    save_as: json
+    columns:
+      - numEvents_ncentralJet_2
+      - numEvents_ncentralJet_3
+      - numEvents_ncentralJet_4
+      - numEvents_ncentralJet_5
+      - numEvents_ncentralJet_6
+      - numEvents_ncentralJet_7
+      - numEvents_ncentralJet_8
+      - totBtagWeight_ncentralJet_2
+      - totBtagWeight_ncentralJet_3
+      - totBtagWeight_ncentralJet_4
+      - totBtagWeight_ncentralJet_5
+      - totBtagWeight_ncentralJet_6
+      - totBtagWeight_ncentralJet_7
+      - totBtagWeight_ncentralJet_8
+    n_cpus: 4
+    max_runtime: 8.0
+    cmssw_env: False
+    awkward_based: True
+    uproot_stepsize: '50MB'
+    dependencies:
 
 region: All
 region_default: SR
@@ -674,40 +699,40 @@ met_type: "PFMET"
 
 variables:
   - lep1_pt
-  - lep2_pt
-  - lep1_eta
-  - lep2_eta
-  - lep1_phi
-  - lep2_phi
-  - lep1_Muon_pfRelIso04_all
-  - lep2_Muon_pfRelIso04_all
-  - lep1_Electron_miniPFRelIso_all
-  - lep2_Electron_miniPFRelIso_all
-  - bjet1_btagPNetB
-  - bjet2_btagPNetB
-  - diLep_mass
-  - Lep1Jet1Jet2_mass
-  - Lep1Lep2Jet1Jet2_mass
-  - Njets
-  - bjet1_pt
-  - bjet2_pt
-  - HT
-  - dR_dilep
-  - dR_dibjet
-  - dR_dilep_dibjet
-  - dPhi_lep1_lep2
-  - dPhi_jet1_jet2
-  - dPhi_MET_dilep
-  - dPhi_MET_dibjet
-  - bb_mass
-  - bb_mass_PNetRegPtRawCorr
-  - bb_mass_PNetRegPtRawCorr_PNetRegPtRawCorrNeutrino
-  - PuppiMET_pt
-  - PuppiMET_phi
+  # - lep2_pt
+  # - lep1_eta
+  # - lep2_eta
+  # - lep1_phi
+  # - lep2_phi
+  # - lep1_Muon_pfRelIso04_all
+  # - lep2_Muon_pfRelIso04_all
+  # - lep1_Electron_miniPFRelIso_all
+  # - lep2_Electron_miniPFRelIso_all
+  # - bjet1_btagPNetB
+  # - bjet2_btagPNetB
+  # - diLep_mass
+  # - Lep1Jet1Jet2_mass
+  # - Lep1Lep2Jet1Jet2_mass
+  # - Njets
+  # - bjet1_pt
+  # - bjet2_pt
+  # - HT
+  # - dR_dilep
+  # - dR_dibjet
+  # - dR_dilep_dibjet
+  # - dPhi_lep1_lep2
+  # - dPhi_jet1_jet2
+  # - dPhi_MET_dilep
+  # - dPhi_MET_dibjet
+  # - bb_mass
+  # - bb_mass_PNetRegPtRawCorr
+  # - bb_mass_PNetRegPtRawCorr_PNetRegPtRawCorrNeutrino
+  # - PuppiMET_pt
+  # - PuppiMET_phi
 
   # High Level Single Lepton
-  - SingleLep_DeepHME_mass
-  - SingleLep_DeepHME_mass_error
+  # - SingleLep_DeepHME_mass
+  # - SingleLep_DeepHME_mass_error
   # - SingleLep_DeepHME_Hbb_px
   # - SingleLep_DeepHME_Hbb_py
   # - SingleLep_DeepHME_Hbb_pz
@@ -731,81 +756,81 @@ variables:
   # - DNNParametric_SL_NoHME_M800_Signal
   # - DNNParametric_SL_NoHME_M1000_Signal
 
-  - LinHMEDNN_SL_linear_hme_dnn_m250
-  - LinHMEDNN_SL_linear_hme_dnn_m260
-  - LinHMEDNN_SL_linear_hme_dnn_m270
-  - LinHMEDNN_SL_linear_hme_dnn_m280
-  - LinHMEDNN_SL_linear_hme_dnn_m300
-  - LinHMEDNN_SL_linear_hme_dnn_m350
-  - LinHMEDNN_SL_linear_hme_dnn_m450
-  - LinHMEDNN_SL_linear_hme_dnn_m550
-  - LinHMEDNN_SL_linear_hme_dnn_m600
-  - LinHMEDNN_SL_linear_hme_dnn_m650
-  - LinHMEDNN_SL_linear_hme_dnn_m700
-  - LinHMEDNN_SL_linear_hme_dnn_m800
-  - LinHMEDNN_SL_linear_hme_dnn_m1000
+  # - LinHMEDNN_SL_linear_hme_dnn_m250
+  # - LinHMEDNN_SL_linear_hme_dnn_m260
+  # - LinHMEDNN_SL_linear_hme_dnn_m270
+  # - LinHMEDNN_SL_linear_hme_dnn_m280
+  # - LinHMEDNN_SL_linear_hme_dnn_m300
+  # - LinHMEDNN_SL_linear_hme_dnn_m350
+  # - LinHMEDNN_SL_linear_hme_dnn_m450
+  # - LinHMEDNN_SL_linear_hme_dnn_m550
+  # - LinHMEDNN_SL_linear_hme_dnn_m600
+  # - LinHMEDNN_SL_linear_hme_dnn_m650
+  # - LinHMEDNN_SL_linear_hme_dnn_m700
+  # - LinHMEDNN_SL_linear_hme_dnn_m800
+  # - LinHMEDNN_SL_linear_hme_dnn_m1000
 
   # High Level Double Lepton
-  - DoubleLep_DeepHME_mass
-  - DoubleLep_DeepHME_mass_error
-  - DoubleLep_DeepHME_Hbb_px
-  - DoubleLep_DeepHME_Hbb_py
-  - DoubleLep_DeepHME_Hbb_pz
-  - DoubleLep_DeepHME_Hbb_E
-  - DoubleLep_DeepHME_HVV_px
-  - DoubleLep_DeepHME_HVV_py
-  - DoubleLep_DeepHME_HVV_pz
-  - DoubleLep_DeepHME_HVV_E
+  # - DoubleLep_DeepHME_mass
+  # - DoubleLep_DeepHME_mass_error
+  # - DoubleLep_DeepHME_Hbb_px
+  # - DoubleLep_DeepHME_Hbb_py
+  # - DoubleLep_DeepHME_Hbb_pz
+  # - DoubleLep_DeepHME_Hbb_E
+  # - DoubleLep_DeepHME_HVV_px
+  # - DoubleLep_DeepHME_HVV_py
+  # - DoubleLep_DeepHME_HVV_pz
+  # - DoubleLep_DeepHME_HVV_E
 
-  - DNNParametric_DL_NoHME_M250_Signal
-  - DNNParametric_DL_NoHME_M260_Signal
-  - DNNParametric_DL_NoHME_M270_Signal
-  - DNNParametric_DL_NoHME_M280_Signal
-  - DNNParametric_DL_NoHME_M300_Signal
-  - DNNParametric_DL_NoHME_M350_Signal
-  - DNNParametric_DL_NoHME_M450_Signal
-  - DNNParametric_DL_NoHME_M550_Signal
-  - DNNParametric_DL_NoHME_M600_Signal
-  - DNNParametric_DL_NoHME_M650_Signal
-  - DNNParametric_DL_NoHME_M700_Signal
-  - DNNParametric_DL_NoHME_M800_Signal
-  - DNNParametric_DL_NoHME_M1000_Signal
+  # - DNNParametric_DL_NoHME_M250_Signal
+  # - DNNParametric_DL_NoHME_M260_Signal
+  # - DNNParametric_DL_NoHME_M270_Signal
+  # - DNNParametric_DL_NoHME_M280_Signal
+  # - DNNParametric_DL_NoHME_M300_Signal
+  # - DNNParametric_DL_NoHME_M350_Signal
+  # - DNNParametric_DL_NoHME_M450_Signal
+  # - DNNParametric_DL_NoHME_M550_Signal
+  # - DNNParametric_DL_NoHME_M600_Signal
+  # - DNNParametric_DL_NoHME_M650_Signal
+  # - DNNParametric_DL_NoHME_M700_Signal
+  # - DNNParametric_DL_NoHME_M800_Signal
+  # - DNNParametric_DL_NoHME_M1000_Signal
 
-  - LinHMEDNN_DL_linear_hme_dnn_m250
-  - LinHMEDNN_DL_linear_hme_dnn_m260
-  - LinHMEDNN_DL_linear_hme_dnn_m270
-  - LinHMEDNN_DL_linear_hme_dnn_m280
-  - LinHMEDNN_DL_linear_hme_dnn_m300
-  - LinHMEDNN_DL_linear_hme_dnn_m350
-  - LinHMEDNN_DL_linear_hme_dnn_m450
-  - LinHMEDNN_DL_linear_hme_dnn_m550
-  - LinHMEDNN_DL_linear_hme_dnn_m600
-  - LinHMEDNN_DL_linear_hme_dnn_m650
-  - LinHMEDNN_DL_linear_hme_dnn_m700
-  - LinHMEDNN_DL_linear_hme_dnn_m800
-  - LinHMEDNN_DL_linear_hme_dnn_m1000
+  # - LinHMEDNN_DL_linear_hme_dnn_m250
+  # - LinHMEDNN_DL_linear_hme_dnn_m260
+  # - LinHMEDNN_DL_linear_hme_dnn_m270
+  # - LinHMEDNN_DL_linear_hme_dnn_m280
+  # - LinHMEDNN_DL_linear_hme_dnn_m300
+  # - LinHMEDNN_DL_linear_hme_dnn_m350
+  # - LinHMEDNN_DL_linear_hme_dnn_m450
+  # - LinHMEDNN_DL_linear_hme_dnn_m550
+  # - LinHMEDNN_DL_linear_hme_dnn_m600
+  # - LinHMEDNN_DL_linear_hme_dnn_m650
+  # - LinHMEDNN_DL_linear_hme_dnn_m700
+  # - LinHMEDNN_DL_linear_hme_dnn_m800
+  # - LinHMEDNN_DL_linear_hme_dnn_m1000
 
   # These can be done after HistTuple
-  - HMEinDNNBins_HME_mass_DL_DNN_M250_0p0_0p2
-  - HMEinDNNBins_HME_mass_DL_DNN_M250_0p2_0p4
-  - HMEinDNNBins_HME_mass_DL_DNN_M250_0p4_0p6
-  - HMEinDNNBins_HME_mass_DL_DNN_M250_0p6_0p8
-  - HMEinDNNBins_HME_mass_DL_DNN_M250_0p8_1p0
+  # - HMEinDNNBins_HME_mass_DL_DNN_M250_0p0_0p2
+  # - HMEinDNNBins_HME_mass_DL_DNN_M250_0p2_0p4
+  # - HMEinDNNBins_HME_mass_DL_DNN_M250_0p4_0p6
+  # - HMEinDNNBins_HME_mass_DL_DNN_M250_0p6_0p8
+  # - HMEinDNNBins_HME_mass_DL_DNN_M250_0p8_1p0
 
-  - HMEinDNNBins_HME_mass_DL_DNN_M350_0p0_0p2
-  - HMEinDNNBins_HME_mass_DL_DNN_M350_0p2_0p4
-  - HMEinDNNBins_HME_mass_DL_DNN_M350_0p4_0p6
-  - HMEinDNNBins_HME_mass_DL_DNN_M350_0p6_0p8
-  - HMEinDNNBins_HME_mass_DL_DNN_M350_0p8_1p0
+  # - HMEinDNNBins_HME_mass_DL_DNN_M350_0p0_0p2
+  # - HMEinDNNBins_HME_mass_DL_DNN_M350_0p2_0p4
+  # - HMEinDNNBins_HME_mass_DL_DNN_M350_0p4_0p6
+  # - HMEinDNNBins_HME_mass_DL_DNN_M350_0p6_0p8
+  # - HMEinDNNBins_HME_mass_DL_DNN_M350_0p8_1p0
 
-  - HMEinDNNBins_HME_mass_DL_DNN_M550_0p0_0p2
-  - HMEinDNNBins_HME_mass_DL_DNN_M550_0p2_0p4
-  - HMEinDNNBins_HME_mass_DL_DNN_M550_0p4_0p6
-  - HMEinDNNBins_HME_mass_DL_DNN_M550_0p6_0p8
-  - HMEinDNNBins_HME_mass_DL_DNN_M550_0p8_1p0
+  # - HMEinDNNBins_HME_mass_DL_DNN_M550_0p0_0p2
+  # - HMEinDNNBins_HME_mass_DL_DNN_M550_0p2_0p4
+  # - HMEinDNNBins_HME_mass_DL_DNN_M550_0p4_0p6
+  # - HMEinDNNBins_HME_mass_DL_DNN_M550_0p6_0p8
+  # - HMEinDNNBins_HME_mass_DL_DNN_M550_0p8_1p0
 
-  - HMEinDNNBins_HME_mass_DL_DNN_M800_0p0_0p2
-  - HMEinDNNBins_HME_mass_DL_DNN_M800_0p2_0p4
-  - HMEinDNNBins_HME_mass_DL_DNN_M800_0p4_0p6
-  - HMEinDNNBins_HME_mass_DL_DNN_M800_0p6_0p8
-  - HMEinDNNBins_HME_mass_DL_DNN_M800_0p8_1p0
+  # - HMEinDNNBins_HME_mass_DL_DNN_M800_0p0_0p2
+  # - HMEinDNNBins_HME_mass_DL_DNN_M800_0p2_0p4
+  # - HMEinDNNBins_HME_mass_DL_DNN_M800_0p4_0p6
+  # - HMEinDNNBins_HME_mass_DL_DNN_M800_0p6_0p8
+  # - HMEinDNNBins_HME_mass_DL_DNN_M800_0p8_1p0
