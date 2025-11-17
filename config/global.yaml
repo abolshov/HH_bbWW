@@ -13,6 +13,8 @@ corrections:
   - JER
   - btagShape
 
+apply_btagShape_weights: True
+
 treeName: "Events"
 tagger_name: "particleNet"
 bjet_preselection_branch: "Jet_sel"
