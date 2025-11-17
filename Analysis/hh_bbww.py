@@ -116,9 +116,10 @@ def GetBTagWeight(global_cfg_dict, cat, applyBtag=False):
     # return f'1.'
     return f"{btag_weight}*{btagshape_weight}"
 
-
-def GetWeight(channel, cat, boosted_categories):  # do you need all these args?
+def GetWeight(channel, cat, boosted_categories, apply_btag_shape_weights=False):  # do you need all these args?
     weights_to_apply = ["weight_MC_Lumi_pu"]
+    if apply_btag_shape_weights:
+        weights_to_apply.append("weight_bTagShape_Central")
     total_weight = "*".join(weights_to_apply)
     for lep_index in [1, 2]:
         total_weight = f"{total_weight} * {GetLepWeight(lep_index)}"
