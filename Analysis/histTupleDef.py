@@ -83,7 +83,12 @@ def DefineWeightForHistograms(
     isCentral = uncName == "Central"
     total_weight_expression = (
         # channel, cat, boosted_categories --> these are not needed in the GetWeight function therefore I just put some placeholders
-        analysis.GetWeight("", "", boosted_categories, apply_btag_shape_weights=apply_btag_shape_weights)
+        analysis.GetWeight(
+            "",
+            "",
+            boosted_categories,
+            apply_btag_shape_weights=apply_btag_shape_weights,
+        )
         if process_group != "data"
         else "1"
     )  # are we sure?
