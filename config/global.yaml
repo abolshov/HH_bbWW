@@ -407,21 +407,20 @@ payload_producers:
     producers_module_name: Analysis.BtagShapeProducer
     producer_name: BtagShapeProducer
     save_as: json
-    columns:
-      - numEvents_ncentralJet_2
-      - numEvents_ncentralJet_3
-      - numEvents_ncentralJet_4
-      - numEvents_ncentralJet_5
-      - numEvents_ncentralJet_6
-      - numEvents_ncentralJet_7
-      - numEvents_ncentralJet_8
-      - totBtagWeight_ncentralJet_2
-      - totBtagWeight_ncentralJet_3
-      - totBtagWeight_ncentralJet_4
-      - totBtagWeight_ncentralJet_5
-      - totBtagWeight_ncentralJet_6
-      - totBtagWeight_ncentralJet_7
-      - totBtagWeight_ncentralJet_8
+    lepton_categories:
+      - e
+      - mu
+      - eE
+      - eMu
+      - muMu
+    jet_multiplicities:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
     n_cpus: 4
     max_runtime: 8.0
     cmssw_env: False
