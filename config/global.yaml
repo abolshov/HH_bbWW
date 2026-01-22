@@ -246,6 +246,91 @@ payload_producers:
     awkward_based: True
     uproot_stepsize: '50MB'
     dependencies:
+  HMEinDNNBins:
+    producers_module_name: Analysis.HMEinDNNBins
+    producer_name: HMEinDNNBins
+    dependencies:
+      - SingleLep_DeepHME
+      - DoubleLep_DeepHME
+      - DNNParametric_DL_NoHME  # If these change remember to change the branch name in the python script
+      - DNNParametric_SL_NoHME
+    n_cpus: 4
+    max_runtime: 2.0
+    cmssw_env: False
+    awkward_based: False
+    virtual_payload: True  # Add support to avoid running payload as a cache, rather just running it in RAM live (if quick enough)
+    masses:
+      - 300
+      - 600
+      - 800
+    bins:
+      - [ 0p0, 0p2 ]
+      - [ 0p2, 0p4 ]
+      - [ 0p4, 0p6 ]
+      - [ 0p6, 0p8 ]
+      - [ 0p8, 1p0 ]
+    columns:
+      - HME_mass_DL_DNN_M300_0p0_0p2
+      - HME_mass_DL_DNN_M300_0p2_0p4
+      - HME_mass_DL_DNN_M300_0p4_0p6
+      - HME_mass_DL_DNN_M300_0p6_0p8
+      - HME_mass_DL_DNN_M300_0p8_1p0
+
+      - HME_mass_DL_DNN_M600_0p0_0p2
+      - HME_mass_DL_DNN_M600_0p2_0p4
+      - HME_mass_DL_DNN_M600_0p4_0p6
+      - HME_mass_DL_DNN_M600_0p6_0p8
+      - HME_mass_DL_DNN_M600_0p8_1p0
+
+      - HME_mass_DL_DNN_M800_0p0_0p2
+      - HME_mass_DL_DNN_M800_0p2_0p4
+      - HME_mass_DL_DNN_M800_0p4_0p6
+      - HME_mass_DL_DNN_M800_0p6_0p8
+      - HME_mass_DL_DNN_M800_0p8_1p0
+
+
+      - HME_mass_SL_DNN_M300_0p0_0p2
+      - HME_mass_SL_DNN_M300_0p2_0p4
+      - HME_mass_SL_DNN_M300_0p4_0p6
+      - HME_mass_SL_DNN_M300_0p6_0p8
+      - HME_mass_SL_DNN_M300_0p8_1p0
+
+      - HME_mass_SL_DNN_M600_0p0_0p2
+      - HME_mass_SL_DNN_M600_0p2_0p4
+      - HME_mass_SL_DNN_M600_0p4_0p6
+      - HME_mass_SL_DNN_M600_0p6_0p8
+      - HME_mass_SL_DNN_M600_0p8_1p0
+
+      - HME_mass_SL_DNN_M800_0p0_0p2
+      - HME_mass_SL_DNN_M800_0p2_0p4
+      - HME_mass_SL_DNN_M800_0p4_0p6
+      - HME_mass_SL_DNN_M800_0p6_0p8
+      - HME_mass_SL_DNN_M800_0p8_1p0
+  BtagShape:
+    producers_module_name: BtagShapeProducer
+    producer_name: BtagShapeProducer
+    save_as: json
+    columns : []
+    lepton_categories:
+      - e
+      - mu
+      - eE
+      - eMu
+      - muMu
+    jet_multiplicities:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+    n_cpus: 4
+    max_runtime: 8.0
+    cmssw_env: False
+    awkward_based: True
+    uproot_stepsize: '50MB'
+    dependencies:
 
 region: All
 region_default: SR

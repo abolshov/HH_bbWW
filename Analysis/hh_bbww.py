@@ -78,7 +78,9 @@ def GetBTagWeight(global_cfg_dict, cat, applyBtag=False):
     return f"{btag_weight}*{btagshape_weight}"
 
 
-def GetWeight(channel, cat, boosted_categories, apply_btag_shape_weights=False):  # do you need all these args?
+def GetWeight(
+    channel, cat, boosted_categories, apply_btag_shape_weights=False
+):  # do you need all these args?
     # weights_to_apply = ["weight_MC_Lumi_pu", "ExtraDYWeight"]
     weights_to_apply = ["weight_MC_Lumi_pu"]
     total_weight = "*".join(weights_to_apply)
