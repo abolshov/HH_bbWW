@@ -43,7 +43,7 @@ muonID_WP_for_triggerSF: "Tight" # only medium or tight for trigger SF, both iso
 muIDWP: "Tight"
 muIsoWP: "Loose"
 
-apply_btagShape_weights: True
+correct_btagShape_weights: True
 
 treeName: "Events"
 
