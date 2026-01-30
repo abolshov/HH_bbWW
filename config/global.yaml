@@ -50,6 +50,8 @@ muIsoWP: "Loose"
 
 treeName: "Events"
 
+correct_btagShape_weights: True
+
 nPbPerFile: 2_000  # 2fb-1 per split data file
 nEventsPerFile: 100_000  # 100k events per MC file
 
@@ -243,6 +245,31 @@ payload_producers:
       - HVV_py
       - HVV_pz
       - HVV_E
+    n_cpus: 4
+    max_runtime: 8.0
+    cmssw_env: False
+    awkward_based: True
+    uproot_stepsize: '50MB'
+    dependencies:
+  BtagShape:
+    producers_module_name: BtagShapeProducer
+    producer_name: BtagShapeProducer
+    save_as: json
+    columns : []
+    lepton_categories:
+      - e
+      - mu
+      - eE
+      - eMu
+      - muMu
+    jet_multiplicities:
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
     n_cpus: 4
     max_runtime: 8.0
     cmssw_env: False
