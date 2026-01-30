@@ -55,6 +55,7 @@ def DefineWeightForHistograms(
     global_params,
     final_weight_name,
     df_is_central,
+    btag_shape_was_corrected=False,
 ):
     global central_df_weights_computed
     is_central = uncName == central
@@ -90,7 +91,7 @@ def DefineWeightForHistograms(
     categories = global_params["categories"]
     boosted_categories = global_params.get("boosted_categories", [])
     process_group = global_params["process_group"]
-    apply_btag_shape_weights = global_params.get("correct_btagShape_weights", False)
+    apply_btag_shape_weights = global_params.get("correct_btagShape_weights", False) if btag_shape_was_corrected else False
     total_weight_expression = (
         # channel, cat, boosted_categories --> these are not needed in the GetWeight function therefore I just put some placeholders
         analysis.GetWeight("", "", boosted_categories, apply_btag_shape_weights=apply_btag_shape_weights)

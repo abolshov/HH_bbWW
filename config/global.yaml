@@ -264,11 +264,11 @@ payload_producers:
     save_as: json
     columns : []
     lepton_categories:
-      - e
-      - mu
-      - eE
-      - eMu
-      - muMu
+      e: 1
+      mu: 2
+      eE: 11
+      eMu: 12
+      muMu: 22
     jet_multiplicities:
       - 2
       - 3
