@@ -2,10 +2,10 @@ anaTupleDef: AnaProd/anaTupleDef.py
 histTupleDef: Analysis/histTupleDef.py
 analysis_import: Analysis.hh_bbww
 analysis_cache_import: Analysis.tasks:AnalysisCacheTask:AnalysisCacheMergeTask
-phys_model: Run3_Model
+phys_model: test
 corrections:
   mu:
-    stage: HistTuple
+    stages: [ HistTuple, AnalysisCache ]
     columns:
       pfRelIso04_all: Muon_pfRelIso04_all
       tightId: Muon_tightId
@@ -14,16 +14,16 @@ corrections:
       mediumId: Muon_mediumId
       looseId: Muon_looseId
   trigger:
-    stage: HistTuple
+    stages: [ HistTuple, AnalysisCache ]
     mode: SF
-  ele: { stage: HistTuple }
+  ele: { stages: [ HistTuple, AnalysisCache ] }
   fatjet:
-    stage: HistTuple # AnaTuple
+    stages: [ HistTuple, AnalysisCache ] # AnaTuple
     ana: bbWW
     tagger: particleNetWithMass_HbbvsQCD
     fatJetName: fatbjet # SelectedFatJet
   muScaRe: { stage: AnaTuple, mu_pt_for_ScaReApplication: "nano" }
-  eleES: { stage: AnaTuple }
+  eleES: { stages: [ AnaTuple, AnalysisCache ] }
   lumi: { stage: AnaTuple }
   xs: { stage: AnaTuple }
   gen: { stage: AnaTuple }
@@ -38,9 +38,11 @@ corrections:
     stage: AnaTuple
     apply_jet_horns_fix: true
   btag:
-    stages: [ AnaTuple, HistTuple ]
+    normFilePattern: data/AnalysisCacheAggregationTask/{version}/{period}/{dataset_name}/BtagShape/aggregatedCache.json
+    stages: [ AnaTuple, HistTuple, AnalysisCache ]
     modes:
       AnaTuple: none # just load to define WP ID branches
+      AnalysisCache: shape
       HistTuple: shape
     tagger: particleNet
     jetCollection: centralJet
@@ -56,8 +58,6 @@ muIDWP: "Tight"
 muIsoWP: "Loose"
 
 treeName: "Events"
-
-correct_btagShape_weights: True
 
 nPbPerFile: 2_000  # 2fb-1 per split data file
 nEventsPerFile: 100_000  # 100k events per MC file
@@ -262,6 +262,8 @@ payload_producers:
     producers_module_name: BtagShapeProducer
     producer_name: BtagShapeProducer
     save_as: json
+    needs_aggregation: True
+    ignore_data: True
     columns : []
     lepton_categories:
       e: 1
