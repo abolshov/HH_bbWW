@@ -78,7 +78,7 @@ def GetBTagWeight(global_cfg_dict, cat, applyBtag=False):
     return f"{btag_weight}*{btagshape_weight}"
 
 def GetWeight(
-    channel, cat, boosted_categories, apply_btag_shape_weights=False
+    channel, cat, boosted_categories
 ):  # do you need all these args?
     # weights_to_apply = ["weight_base", "ExtraDYWeight"]
     weights_to_apply = ["weight_base"]
@@ -86,8 +86,7 @@ def GetWeight(
     for lep_index in [1, 2]:
         total_weight = f"{total_weight} * {GetLepWeight(lep_index)}"
     total_weight = f"{total_weight} * {GetTriggerWeight()}"
-    if apply_btag_shape_weights:
-        total_weight = f"{total_weight} * weight_bTagShape_Central"
+    total_weight = f"{total_weight} * weight_bTagShape_Central"
     return total_weight
 
 
