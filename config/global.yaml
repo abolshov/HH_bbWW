@@ -2,7 +2,7 @@ anaTupleDef: AnaProd/anaTupleDef.py
 histTupleDef: Analysis/histTupleDef.py
 analysis_import: Analysis.hh_bbww
 analysis_cache_import: Analysis.tasks:AnalysisCacheTask:AnalysisCacheMergeTask
-phys_model: test
+phys_model: Run3_Model
 corrections:
   mu:
     stages: [ HistTuple, AnalysisCache ]
@@ -38,7 +38,7 @@ corrections:
     stage: AnaTuple
     apply_jet_horns_fix: true
   btag:
-    normFilePattern: data/AnalysisCacheAggregationTask/{version}/{period}/{dataset_name}/BtagShape/aggregatedCache.json
+    normFilePattern: data/AggregatedAnalysisCache/{version}/{period}/{dataset_name}/BtagShape/aggregatedCache.json
     stages: [ AnaTuple, HistTuple, AnalysisCache ]
     modes:
       AnaTuple: none # just load to define WP ID branches
