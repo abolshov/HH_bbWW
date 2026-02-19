@@ -264,7 +264,7 @@ payload_producers:
     weight_module: Analysis.hh_bbww
     save_as: json
     needs_aggregation: True
-    ignore_data: True
+    target_groups: ["signals", "backgrounds"]
     is_global: True
     columns : []
     bins:
