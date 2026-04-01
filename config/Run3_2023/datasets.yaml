@@ -11,6 +11,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_1000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_1000_MY_150:
   sampleType: XtoYH
   mass: 1000
@@ -101,6 +103,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_1200_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1200_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_1200_MY_150:
   sampleType: XtoYH
   mass: 1200
@@ -197,6 +201,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_1400_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_1400_MY_150:
   sampleType: XtoYH
   mass: 1400
@@ -293,6 +299,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_1600_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_1600_MY_1400:
   sampleType: XtoYH
   mass: 1600
@@ -395,6 +403,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_1800_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_1800_MY_1400:
   sampleType: XtoYH
   mass: 1800
@@ -503,6 +513,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_2000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-2000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_2000_MY_1400:
   sampleType: XtoYH
   mass: 2000
@@ -617,6 +629,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_2500_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-2500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_2500_MY_1400:
   sampleType: XtoYH
   mass: 2500
@@ -737,6 +751,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_3000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-3000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_3000_MY_1400:
   sampleType: XtoYH
   mass: 3000
@@ -851,6 +867,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_300_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-300_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_300_MY_150:
   sampleType: XtoYH
   mass: 300
@@ -911,6 +929,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_3500_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-3500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_3500_MY_1400:
   sampleType: XtoYH
   mass: 3500
@@ -1043,6 +1063,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_4000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-4000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_4000_MY_1400:
   sampleType: XtoYH
   mass: 4000
@@ -1169,6 +1191,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_400_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_400_MY_150:
   sampleType: XtoYH
   mass: 400
@@ -1223,6 +1247,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_500_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_500_MY_150:
   sampleType: XtoYH
   mass: 500
@@ -1283,6 +1309,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_550_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-550_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_550_MY_150:
   sampleType: XtoYH
   mass: 550
@@ -1349,6 +1377,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_600_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_600_MY_150:
   sampleType: XtoYH
   mass: 600
@@ -1415,6 +1445,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_650_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-650_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_650_MY_150:
   sampleType: XtoYH
   mass: 650
@@ -1487,6 +1519,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_700_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-700_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_700_MY_150:
   sampleType: XtoYH
   mass: 700
@@ -1559,6 +1593,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_800_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_800_MY_150:
   sampleType: XtoYH
   mass: 800
@@ -1637,6 +1673,8 @@ XtoYHto2B2Wto2B2L2Nu_MX_900_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-900_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2L2Nu_MX_900_MY_150:
   sampleType: XtoYH
   mass: 900
@@ -1715,6 +1753,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_1000_MY_150:
   sampleType: XtoYH
   mass: 1000
@@ -1805,6 +1845,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1200_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1200_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_1200_MY_150:
   sampleType: XtoYH
   mass: 1200
@@ -1901,6 +1943,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1400_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_1400_MY_150:
   sampleType: XtoYH
   mass: 1400
@@ -1997,6 +2041,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1600_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_1600_MY_1400:
   sampleType: XtoYH
   mass: 1600
@@ -2099,6 +2145,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1800_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_1800_MY_1400:
   sampleType: XtoYH
   mass: 1800
@@ -2207,6 +2255,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_2000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-2000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_2000_MY_1400:
   sampleType: XtoYH
   mass: 2000
@@ -2321,6 +2371,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_2500_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-2500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_2500_MY_1400:
   sampleType: XtoYH
   mass: 2500
@@ -2441,6 +2493,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_3000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-3000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_3000_MY_1400:
   sampleType: XtoYH
   mass: 3000
@@ -2555,6 +2609,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_300_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-300_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_300_MY_150:
   sampleType: XtoYH
   mass: 300
@@ -2615,6 +2671,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_3500_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-3500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_3500_MY_1400:
   sampleType: XtoYH
   mass: 3500
@@ -2747,6 +2805,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_4000_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-4000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_4000_MY_150:
   sampleType: XtoYH
   mass: 4000
@@ -2867,6 +2927,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_400_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_400_MY_150:
   sampleType: XtoYH
   mass: 400
@@ -2921,6 +2983,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_500_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_500_MY_150:
   sampleType: XtoYH
   mass: 500
@@ -2981,6 +3045,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_550_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-550_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_550_MY_150:
   sampleType: XtoYH
   mass: 550
@@ -3047,6 +3113,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_600_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_600_MY_150:
   sampleType: XtoYH
   mass: 600
@@ -3113,6 +3181,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_650_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-650_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_650_MY_150:
   sampleType: XtoYH
   mass: 650
@@ -3185,6 +3255,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_700_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-700_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_700_MY_150:
   sampleType: XtoYH
   mass: 700
@@ -3257,6 +3329,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_800_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_800_MY_150:
   sampleType: XtoYH
   mass: 800
@@ -3335,6 +3409,8 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_900_MY_125:
   spin: 0
   crossSection: 1pb
   generator: madgraph
+  nanoAOD:
+    v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-900_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer23NanoAODv12-130X_mcRun3_2023_realistic_v15-v2/NANOAODSIM
 XtoYHto2B2Wto2B2Q1L1Nu_MX_900_MY_150:
   sampleType: XtoYH
   mass: 900
