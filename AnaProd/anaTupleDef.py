@@ -225,6 +225,27 @@ def addAllVariables(
     n_legs = 2
     for leg_idx in range(n_legs):
 
+        # define lep*_jetIdx
+        dfw.DefineAndAppend(
+            f"lep{leg_idx+1}_jetIdx",
+            f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
+                    return Muon_jetIdx;
+                else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
+                    return Electron_jetIdx;
+                else
+                    return -1;"""
+        )
+
+        # save pt and flavor of jet matching to leptons
+        dfw.Define(
+            f"lep{leg_idx+1}_jetPt",
+            f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_pt[lep{leg_idx+1}_jetIdx] : -10.0",
+        )
+        dfw.Define(
+            f"lep{leg_idx+1}_jetFlavour",
+            f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_hadronFlavour[lep{leg_idx+1}_jetIdx] : -10",
+        )
+
         def LegVar(var_name, var_expr, var_type=None, var_cond=None, default=0):
             cond = f"HwwCandidate.leg_type.size() > {leg_idx}"
             if var_cond:
