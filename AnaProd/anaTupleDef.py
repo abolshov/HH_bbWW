@@ -242,8 +242,12 @@ def addAllVariables(
             f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_pt[lep{leg_idx+1}_jetIdx] : -10.0",
         )
         dfw.Define(
-            f"lep{leg_idx+1}_jetFlavour",
+            f"lep{leg_idx+1}_jetHadronFlavour",
             f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_hadronFlavour[lep{leg_idx+1}_jetIdx] : -10",
+        )
+        dfw.Define(
+            f"lep{leg_idx+1}_jetPartonFlavour",
+            f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_partonFlavour[lep{leg_idx+1}_jetIdx] : -10",
         )
 
         def LegVar(var_name, var_expr, var_type=None, var_cond=None, default=0):
