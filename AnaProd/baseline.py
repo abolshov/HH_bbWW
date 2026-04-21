@@ -32,7 +32,7 @@ def RecoHWWCandidateSelection(df):
     df = df.Define(
         "Electron_sel",
         """
-        v_ops::pt(Electron_p4) > 10 && abs(v_ops::eta(Electron_p4)) < 2.5 && abs(Electron_dz) < 0.1 && abs(Electron_dxy) < 0.05 && Electron_sip3d <= 8 && Electron_mvaIso_WP90""",
+        v_ops::pt(Electron_p4) > 10 && abs(v_ops::eta(Electron_p4)) < 2.5 && abs(Electron_dz) < 0.1 && abs(Electron_dxy) < 0.05 && Electron_sip3d <= 8 && Electron_mvaIso >= -0.9""",
     )
     # Lower the muon pt threshold to 5 to check for potential improvement, done while adding low pt tight ID SF
     # Raise back to pt 10 to make simple for now
