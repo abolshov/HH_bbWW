@@ -233,7 +233,7 @@ def addAllVariables(
                 else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
                     return Electron_jetIdx;
                 else
-                    return -1;"""
+                    return -1;""",
         )
 
         # save pt and flavor of jet matching to leptons

@@ -6,6 +6,7 @@ DY:
     # - DYto2E_M_50
     # - DYto2Mu_M_50
     # - DYto2Tau_M_50
+    - DYto2L_InclusivePlusBinned
 
 DYto2L_InclusivePlusBinned:
   processors: *DY_processors_allFlavors
