@@ -240,31 +240,31 @@ def addAllVariables(
         if not isData:
             dfw.Define(
                 f"lep{leg_idx+1}_jetPt",
-                f"""RVecF res(lep{leg_idx+1}_jetIdx.size(), -10.0);
-                    for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
+                f"""RVecF res;
+                    for (auto i: lep{leg_idx+1}_jetIdx)
                     {{
                         if (lep{leg_idx+1}_jetIdx[i] >= 0)
-                            res[i] = Jet_pt[lep{leg_idx+1}_jetIdx[i]];
+                            res.push_back(Jet_pt[lep{leg_idx+1}_jetIdx[i]]);
                     }}
                     return res;""",
             )
             dfw.Define(
                 f"lep{leg_idx+1}_jetHadronFlavour",
-                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10);
-                    for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
+                f"""RVecI res;
+                    for (auto i: lep{leg_idx+1}_jetIdx)
                     {{
                         if (lep{leg_idx+1}_jetIdx[i] >= 0)
-                            res[i] = Jet_hadronFlavour[lep{leg_idx+1}_jetIdx[i]];
+                            res.push_back(Jet_hadronFlavour[lep{leg_idx+1}_jetIdx[i]]);
                     }}
                     return res;""",
             )
             dfw.Define(
                 f"lep{leg_idx+1}_jetPartonFlavour",
-                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10);
-                    for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
+                f"""RVecI res;
+                    for (auto i: lep{leg_idx+1}_jetIdx)
                     {{
                         if (lep{leg_idx+1}_jetIdx[i] >= 0)
-                            res[i] = Jet_partonFlavour[lep{leg_idx+1}_jetIdx[i]];
+                            res.push_back(Jet_partonFlavour[lep{leg_idx+1}_jetIdx[i]]);
                     }}
                     return res;""",
             )
