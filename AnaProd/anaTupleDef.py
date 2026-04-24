@@ -231,9 +231,9 @@ def addAllVariables(
             dfw.DefineAndAppend(
                 f"lep{leg_idx+1}_jetIdx",
                 f"""ROOT::VecOps::RVec<Short_t> res;
-                    if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
+                    if (HwwCandidate.leg_type.size() > {leg_idx} && HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
                         return Muon_jetIdx;
-                    else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
+                    else if (HwwCandidate.leg_type.size() > {leg_idx} && HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
                         return Electron_jetIdx;
                     return res;""",
             )
