@@ -228,27 +228,45 @@ def addAllVariables(
         # define lep*_jetIdx
         dfw.DefineAndAppend(
             f"lep{leg_idx+1}_jetIdx",
-            f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
+            f"""RVecI res;
+                if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
                     return Muon_jetIdx;
                 else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
                     return Electron_jetIdx;
-                else
-                    return -1;""",
+                return res;""",
         )
 
         # save pt and flavor of jet matching to leptons
         if not isData:
             dfw.Define(
                 f"lep{leg_idx+1}_jetPt",
-                f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_pt[lep{leg_idx+1}_jetIdx] : -10.0",
+                f"""RVecF res(lep{leg_idx+1}_jetIdx.size(), -10.0)
+                    for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
+                    {{
+                        if (lep{leg_idx+1}_jetIdx[i] >= 0)
+                            res[i] = Jet_pt[lep{leg_idx+1}_jetIdx[i]];
+                    }}
+                    return res;""",
             )
             dfw.Define(
                 f"lep{leg_idx+1}_jetHadronFlavour",
-                f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_hadronFlavour[lep{leg_idx+1}_jetIdx] : -10",
+                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10)
+                    for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
+                    {{
+                        if (lep{leg_idx+1}_jetIdx[i] >= 0)
+                            res[i] = Jet_hadronFlavour[lep{leg_idx+1}_jetIdx[i]];
+                    }}
+                    return res;""",
             )
             dfw.Define(
                 f"lep{leg_idx+1}_jetPartonFlavour",
-                f"lep{leg_idx+1}_jetIdx >= 0 ? Jet_partonFlavour[lep{leg_idx+1}_jetIdx] : -10",
+                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10)
+                    for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
+                    {{
+                        if (lep{leg_idx+1}_jetIdx[i] >= 0)
+                            res[i] = Jet_partonFlavour[lep{leg_idx+1}_jetIdx[i]];
+                    }}
+                    return res;""",
             )
 
         def LegVar(var_name, var_expr, var_type=None, var_cond=None, default=0):
