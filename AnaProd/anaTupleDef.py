@@ -225,19 +225,19 @@ def addAllVariables(
     n_legs = 2
     for leg_idx in range(n_legs):
 
-        # define lep*_jetIdx
-        dfw.DefineAndAppend(
-            f"lep{leg_idx+1}_jetIdx",
-            f"""ROOT::VecOps::RVec<Short_t> res;
-                if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
-                    return Muon_jetIdx;
-                else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
-                    return Electron_jetIdx;
-                return res;""",
-        )
-
         # save pt and flavor of jet matching to leptons
         if not isData:
+            # define lep*_jetIdx
+            dfw.DefineAndAppend(
+                f"lep{leg_idx+1}_jetIdx",
+                f"""ROOT::VecOps::RVec<Short_t> res;
+                    if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
+                        return Muon_jetIdx;
+                    else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
+                        return Electron_jetIdx;
+                    return res;""",
+            )
+
             dfw.Define(
                 f"lep{leg_idx+1}_jetPt",
                 f"""RVecF res;
