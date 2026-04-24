@@ -4,7 +4,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_250:
   sampleType: GluGluToRadion
   mass: 250
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-250_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -12,7 +12,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_260:
   sampleType: GluGluToRadion
   mass: 260
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-260_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -20,7 +20,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_270:
   sampleType: GluGluToRadion
   mass: 270
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-270_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -28,7 +28,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_280:
   sampleType: GluGluToRadion
   mass: 280
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-280_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -36,7 +36,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_300:
   sampleType: GluGluToRadion
   mass: 300
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-300_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -44,7 +44,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_350:
   sampleType: GluGluToRadion
   mass: 350
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-350_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -52,7 +52,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_450:
   sampleType: GluGluToRadion
   mass: 450
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-450_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -60,7 +60,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_550:
   sampleType: GluGluToRadion
   mass: 550
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-550_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -68,7 +68,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_600:
   sampleType: GluGluToRadion
   mass: 600
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -76,7 +76,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_650:
   sampleType: GluGluToRadion
   mass: 650
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-650_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -84,7 +84,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_700:
   sampleType: GluGluToRadion
   mass: 700
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-700_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -92,7 +92,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_800:
   sampleType: GluGluToRadion
   mass: 800
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -100,7 +100,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_1000:
   sampleType: GluGluToRadion
   mass: 1000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -108,7 +108,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_1200:
   sampleType: GluGluToRadion
   mass: 1200
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1200_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -116,7 +116,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_1400:
   sampleType: GluGluToRadion
   mass: 1400
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1400_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -124,7 +124,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_1600:
   sampleType: GluGluToRadion
   mass: 1600
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -132,7 +132,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_1800:
   sampleType: GluGluToRadion
   mass: 1800
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -140,7 +140,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_2000:
   sampleType: GluGluToRadion
   mass: 2000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-2000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -148,7 +148,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_2500:
   sampleType: GluGluToRadion
   mass: 2500
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-2500_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -156,7 +156,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_3000:
   sampleType: GluGluToRadion
   mass: 3000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-3000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -164,7 +164,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_4000:
   sampleType: GluGluToRadion
   mass: 4000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-4000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -172,7 +172,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_5000:
   sampleType: GluGluToRadion
   mass: 5000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-5000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -181,7 +181,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_250:
   sampleType: GluGluToBulkGraviton
   mass: 250
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-250_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -189,7 +189,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_260:
   sampleType: GluGluToBulkGraviton
   mass: 260
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-260_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -197,7 +197,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_270:
   sampleType: GluGluToBulkGraviton
   mass: 270
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-270_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -205,7 +205,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_280:
   sampleType: GluGluToBulkGraviton
   mass: 280
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-280_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -213,7 +213,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_300:
   sampleType: GluGluToBulkGraviton
   mass: 300
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-300_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -221,7 +221,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_350:
   sampleType: GluGluToBulkGraviton
   mass: 350
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-350_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -229,7 +229,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_450:
   sampleType: GluGluToBulkGraviton
   mass: 450
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-450_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -237,7 +237,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_550:
   sampleType: GluGluToBulkGraviton
   mass: 550
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-550_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -245,7 +245,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_600:
   sampleType: GluGluToBulkGraviton
   mass: 600
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -253,7 +253,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_650:
   sampleType: GluGluToBulkGraviton
   mass: 650
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-650_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -261,7 +261,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_700:
   sampleType: GluGluToBulkGraviton
   mass: 700
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-700_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -269,7 +269,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_800:
   sampleType: GluGluToBulkGraviton
   mass: 800
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -277,7 +277,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_1000:
   sampleType: GluGluToBulkGraviton
   mass: 1000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-1000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -285,7 +285,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_1200:
   sampleType: GluGluToBulkGraviton
   mass: 1200
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-1200_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -293,7 +293,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_1400:
   sampleType: GluGluToBulkGraviton
   mass: 1400
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-1400_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -301,7 +301,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_1600:
   sampleType: GluGluToBulkGraviton
   mass: 1600
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-1600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -309,7 +309,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_1800:
   sampleType: GluGluToBulkGraviton
   mass: 1800
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-1800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -317,7 +317,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_2000:
   sampleType: GluGluToBulkGraviton
   mass: 2000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-2000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -325,7 +325,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_2500:
   sampleType: GluGluToBulkGraviton
   mass: 2500
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-2500_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -333,7 +333,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_3000:
   sampleType: GluGluToBulkGraviton
   mass: 3000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-3000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -341,7 +341,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_4000:
   sampleType: GluGluToBulkGraviton
   mass: 4000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-4000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -349,7 +349,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M_5000:
   sampleType: GluGluToBulkGraviton
   mass: 5000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu
+  crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2JLNu_M-5000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -358,7 +358,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_250:
   sampleType: GluGluToRadion
   mass: 250
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-250_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -366,7 +366,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_260:
   sampleType: GluGluToRadion
   mass: 260
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-260_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -374,7 +374,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_270:
   sampleType: GluGluToRadion
   mass: 270
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-270_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -382,7 +382,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_280:
   sampleType: GluGluToRadion
   mass: 280
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-280_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -390,7 +390,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_300:
   sampleType: GluGluToRadion
   mass: 300
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-300_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -398,7 +398,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_350:
   sampleType: GluGluToRadion
   mass: 350
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-350_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -406,7 +406,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_450:
   sampleType: GluGluToRadion
   mass: 450
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-450_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -414,7 +414,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_550:
   sampleType: GluGluToRadion
   mass: 550
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-550_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -422,7 +422,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_600:
   sampleType: GluGluToRadion
   mass: 600
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -430,7 +430,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_650:
   sampleType: GluGluToRadion
   mass: 650
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-650_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -438,7 +438,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_700:
   sampleType: GluGluToRadion
   mass: 700
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-700_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -446,7 +446,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_800:
   sampleType: GluGluToRadion
   mass: 800
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -454,7 +454,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_1000:
   sampleType: GluGluToRadion
   mass: 1000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-1000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -462,7 +462,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_1200:
   sampleType: GluGluToRadion
   mass: 1200
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-1200_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -470,7 +470,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_1400:
   sampleType: GluGluToRadion
   mass: 1400
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-1400_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -478,7 +478,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_1600:
   sampleType: GluGluToRadion
   mass: 1600
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-1600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -486,7 +486,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_1800:
   sampleType: GluGluToRadion
   mass: 1800
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-1800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -494,7 +494,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_2000:
   sampleType: GluGluToRadion
   mass: 2000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-2000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -502,7 +502,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_2500:
   sampleType: GluGluToRadion
   mass: 2500
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-2500_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -510,7 +510,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_3000:
   sampleType: GluGluToRadion
   mass: 3000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-3000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -518,7 +518,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_4000:
   sampleType: GluGluToRadion
   mass: 4000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-4000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -526,7 +526,7 @@ GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M_5000:
   sampleType: GluGluToRadion
   mass: 5000
   spin: 0
-  crossSection: GluGlutoRadiontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoRadiontoHHto2B2Vto2B2L2Nu_M-5000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -535,7 +535,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_250:
   sampleType: GluGluToBulkGraviton
   mass: 250
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-250_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -543,7 +543,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_260:
   sampleType: GluGluToBulkGraviton
   mass: 260
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
   v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-260_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -551,7 +551,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_270:
   sampleType: GluGluToBulkGraviton
   mass: 270
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-270_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -559,7 +559,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_280:
   sampleType: GluGluToBulkGraviton
   mass: 280
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-280_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -567,7 +567,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_300:
   sampleType: GluGluToBulkGraviton
   mass: 300
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-300_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -575,7 +575,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_350:
   sampleType: GluGluToBulkGraviton
   mass: 350
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-350_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -583,7 +583,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_450:
   sampleType: GluGluToBulkGraviton
   mass: 450
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-450_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -591,7 +591,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_550:
   sampleType: GluGluToBulkGraviton
   mass: 550
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-550_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -599,7 +599,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_600:
   sampleType: GluGluToBulkGraviton
   mass: 600
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -607,7 +607,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_650:
   sampleType: GluGluToBulkGraviton
   mass: 650
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-650_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -615,7 +615,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_700:
   sampleType: GluGluToBulkGraviton
   mass: 700
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-700_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -623,7 +623,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_800:
   sampleType: GluGluToBulkGraviton
   mass: 800
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -631,7 +631,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_1000:
   sampleType: GluGluToBulkGraviton
   mass: 1000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-1000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -639,7 +639,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_1200:
   sampleType: GluGluToBulkGraviton
   mass: 1200
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-1200_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -647,7 +647,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_1400:
   sampleType: GluGluToBulkGraviton
   mass: 1400
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-1400_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -655,7 +655,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_1600:
   sampleType: GluGluToBulkGraviton
   mass: 1600
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-1600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -663,7 +663,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_1800:
   sampleType: GluGluToBulkGraviton
   mass: 1800
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-1800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -671,7 +671,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_2000:
   sampleType: GluGluToBulkGraviton
   mass: 2000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-2000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -679,7 +679,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_2500:
   sampleType: GluGluToBulkGraviton
   mass: 2500
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-2500_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -687,7 +687,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_3000:
   sampleType: GluGluToBulkGraviton
   mass: 3000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-3000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -695,7 +695,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_4000:
   sampleType: GluGluToBulkGraviton
   mass: 4000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-4000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -703,7 +703,7 @@ GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M_5000:
   sampleType: GluGluToBulkGraviton
   mass: 5000
   spin: 2
-  crossSection: GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu
+  crossSection: XtoHHto2B2Vto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /GluGlutoBulkGravitontoHHto2B2Vto2B2L2Nu_M-5000_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -718,7 +718,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_1000_MY_125:
   sampleType: XtoYH
   mass: 1000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -810,7 +810,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_1200_MY_125:
   sampleType: XtoYH
   mass: 1200
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1200_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -908,7 +908,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_1400_MY_125:
   sampleType: XtoYH
   mass: 1400
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1006,7 +1006,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_1600_MY_125:
   sampleType: XtoYH
   mass: 1600
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1110,7 +1110,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_1800_MY_125:
   sampleType: XtoYH
   mass: 1800
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-1800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1220,7 +1220,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_2000_MY_125:
   sampleType: XtoYH
   mass: 2000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-2000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1336,7 +1336,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_2500_MY_125:
   sampleType: XtoYH
   mass: 2500
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-2500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1458,7 +1458,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_3000_MY_125:
   sampleType: XtoYH
   mass: 3000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-3000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1574,7 +1574,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_300_MY_125:
   sampleType: XtoYH
   mass: 300
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-300_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1636,7 +1636,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_3500_MY_125:
   sampleType: XtoYH
   mass: 3500
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-3500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1770,7 +1770,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_4000_MY_125:
   sampleType: XtoYH
   mass: 4000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-4000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1898,7 +1898,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_400_MY_125:
   sampleType: XtoYH
   mass: 400
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -1954,7 +1954,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_500_MY_125:
   sampleType: XtoYH
   mass: 500
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2016,7 +2016,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_550_MY_125:
   sampleType: XtoYH
   mass: 550
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-550_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2084,7 +2084,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_600_MY_125:
   sampleType: XtoYH
   mass: 600
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2152,7 +2152,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_650_MY_125:
   sampleType: XtoYH
   mass: 650
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-650_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2226,7 +2226,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_700_MY_125:
   sampleType: XtoYH
   mass: 700
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-700_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2300,7 +2300,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_800_MY_125:
   sampleType: XtoYH
   mass: 800
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2380,7 +2380,7 @@ XtoYHto2B2Wto2B2L2Nu_MX_900_MY_125:
   sampleType: XtoYH
   mass: 900
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2L2Nu
+  crossSection: XtoHHto2B2Wto2B2L2Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2L2Nu_MX-900_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2460,7 +2460,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1000_MY_125:
   sampleType: XtoYH
   mass: 1000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2552,7 +2552,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1200_MY_125:
   sampleType: XtoYH
   mass: 1200
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1200_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2650,7 +2650,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1400_MY_125:
   sampleType: XtoYH
   mass: 1400
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2748,7 +2748,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1600_MY_125:
   sampleType: XtoYH
   mass: 1600
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2852,7 +2852,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_1800_MY_125:
   sampleType: XtoYH
   mass: 1800
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-1800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -2962,7 +2962,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_2000_MY_125:
   sampleType: XtoYH
   mass: 2000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-2000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3078,7 +3078,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_2500_MY_125:
   sampleType: XtoYH
   mass: 2500
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-2500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3200,7 +3200,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_3000_MY_125:
   sampleType: XtoYH
   mass: 3000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-3000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3316,7 +3316,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_300_MY_125:
   sampleType: XtoYH
   mass: 300
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-300_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3378,7 +3378,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_3500_MY_125:
   sampleType: XtoYH
   mass: 3500
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-3500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3512,7 +3512,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_4000_MY_125:
   sampleType: XtoYH
   mass: 4000
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-4000_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3640,7 +3640,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_400_MY_125:
   sampleType: XtoYH
   mass: 400
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-400_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3696,7 +3696,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_500_MY_125:
   sampleType: XtoYH
   mass: 500
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-500_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3758,7 +3758,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_550_MY_125:
   sampleType: XtoYH
   mass: 550
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-550_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3826,7 +3826,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_600_MY_125:
   sampleType: XtoYH
   mass: 600
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-600_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3894,7 +3894,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_650_MY_125:
   sampleType: XtoYH
   mass: 650
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-650_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -3968,7 +3968,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_700_MY_125:
   sampleType: XtoYH
   mass: 700
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-700_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -4042,7 +4042,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_800_MY_125:
   sampleType: XtoYH
   mass: 800
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-800_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
@@ -4122,7 +4122,7 @@ XtoYHto2B2Wto2B2Q1L1Nu_MX_900_MY_125:
   sampleType: XtoYH
   mass: 900
   spin: 0
-  crossSection: XtoYHto2B2Wto2B2Q1L1Nu
+  crossSection: XtoHHto2B2Wto2B2Q1L1Nu
   generator: madgraph
   nanoAOD:
     v12: /NMSSM_XtoYHto2B2Wto2B2Q1L1Nu_MX-900_MY-125_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22EENanoAODv12-130X_mcRun3_2022_realistic_postEE_v6-v2/NANOAODSIM
