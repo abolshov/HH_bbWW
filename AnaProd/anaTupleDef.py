@@ -243,8 +243,8 @@ def addAllVariables(
                 f"""RVecF res;
                     for (auto i: lep{leg_idx+1}_jetIdx)
                     {{
-                        if (lep{leg_idx+1}_jetIdx[i] >= 0)
-                            res.push_back(Jet_pt[lep{leg_idx+1}_jetIdx[i]]);
+                        if (i >= 0)
+                            res.push_back(Jet_pt[i]);
                     }}
                     return res;""",
             )
@@ -253,8 +253,8 @@ def addAllVariables(
                 f"""RVecI res;
                     for (auto i: lep{leg_idx+1}_jetIdx)
                     {{
-                        if (lep{leg_idx+1}_jetIdx[i] >= 0)
-                            res.push_back(Jet_hadronFlavour[lep{leg_idx+1}_jetIdx[i]]);
+                        if (i >= 0)
+                            res.push_back(Jet_hadronFlavour[i]);
                     }}
                     return res;""",
             )
@@ -263,8 +263,8 @@ def addAllVariables(
                 f"""RVecI res;
                     for (auto i: lep{leg_idx+1}_jetIdx)
                     {{
-                        if (lep{leg_idx+1}_jetIdx[i] >= 0)
-                            res.push_back(Jet_partonFlavour[lep{leg_idx+1}_jetIdx[i]]);
+                        if (i >= 0)
+                            res.push_back(Jet_partonFlavour[i]);
                     }}
                     return res;""",
             )
