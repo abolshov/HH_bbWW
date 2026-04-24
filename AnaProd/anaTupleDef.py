@@ -240,7 +240,7 @@ def addAllVariables(
         if not isData:
             dfw.Define(
                 f"lep{leg_idx+1}_jetPt",
-                f"""RVecF res(lep{leg_idx+1}_jetIdx.size(), -10.0)
+                f"""RVecF res(lep{leg_idx+1}_jetIdx.size(), -10.0);
                     for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
                     {{
                         if (lep{leg_idx+1}_jetIdx[i] >= 0)
@@ -250,7 +250,7 @@ def addAllVariables(
             )
             dfw.Define(
                 f"lep{leg_idx+1}_jetHadronFlavour",
-                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10)
+                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10);
                     for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
                     {{
                         if (lep{leg_idx+1}_jetIdx[i] >= 0)
@@ -260,7 +260,7 @@ def addAllVariables(
             )
             dfw.Define(
                 f"lep{leg_idx+1}_jetPartonFlavour",
-                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10)
+                f"""RVecI res(lep{leg_idx+1}_jetIdx.size(), -10);
                     for (size_t i = 0; i < lep{leg_idx+1}_jetIdx.size(); ++i)
                     {{
                         if (lep{leg_idx+1}_jetIdx[i] >= 0)
