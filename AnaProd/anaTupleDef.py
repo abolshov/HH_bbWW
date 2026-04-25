@@ -225,50 +225,6 @@ def addAllVariables(
     n_legs = 2
     for leg_idx in range(n_legs):
 
-        # # save pt and flavor of jet matching to leptons
-        # if not isData:
-        #     # define lep*_jetIdx
-        #     dfw.DefineAndAppend(
-        #         f"lep{leg_idx+1}_jetIdx",
-        #         f"""ROOT::VecOps::RVec<Short_t> res;
-        #             if (HwwCandidate.leg_type.size() > {leg_idx} && HwwCandidate.leg_type.at({leg_idx}) == Leg::mu)
-        #                 return Muon_jetIdx;
-        #             else if (HwwCandidate.leg_type.size() > {leg_idx} && HwwCandidate.leg_type.at({leg_idx}) == Leg::e)
-        #                 return Electron_jetIdx;
-        #             return res;""",
-        #     )
-
-        #     dfw.Define(
-        #         f"lep{leg_idx+1}_jetPt",
-        #         f"""RVecF res;
-        #             for (auto i: lep{leg_idx+1}_jetIdx)
-        #             {{
-        #                 if (i >= 0)
-        #                     res.push_back(Jet_pt[i]);
-        #             }}
-        #             return res;""",
-        #     )
-        #     dfw.Define(
-        #         f"lep{leg_idx+1}_jetHadronFlavour",
-        #         f"""RVecI res;
-        #             for (auto i: lep{leg_idx+1}_jetIdx)
-        #             {{
-        #                 if (i >= 0)
-        #                     res.push_back(Jet_hadronFlavour[i]);
-        #             }}
-        #             return res;""",
-        #     )
-        #     dfw.Define(
-        #         f"lep{leg_idx+1}_jetPartonFlavour",
-        #         f"""RVecI res;
-        #             for (auto i: lep{leg_idx+1}_jetIdx)
-        #             {{
-        #                 if (i >= 0)
-        #                     res.push_back(Jet_partonFlavour[i]);
-        #             }}
-        #             return res;""",
-        #     )
-
         def LegVar(var_name, var_expr, var_type=None, var_cond=None, default=0):
             cond = f"HwwCandidate.leg_type.size() > {leg_idx}"
             if var_cond:
@@ -324,6 +280,34 @@ def addAllVariables(
             f"lep{leg_idx+1}_index",
             f"HwwCandidate.leg_type.size() > {leg_idx} ? HwwCandidate.leg_index.at({leg_idx}) : -1",
         )
+
+        # save pt and flavor of jet matching to leptons
+        if not isData:
+            dfw.Define(
+                f"lep{leg_idx+1}_jetPt",
+                f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e && lep{leg_idx+1}_index >= 0 && Electron_jetIdx[lep{leg_idx+1}_index] >= 0)
+                        return Jet_pt[Electron_jetIdx[lep{leg_idx+1}_index]];
+                    else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu && lep{leg_idx+1}_index >= 0 && Muon_jetIdx[lep{leg_idx+1}_index] >= 0)
+                        return Jet_pt[Muon_jetIdx[lep{leg_idx+1}_index]];
+                    return -10.0f;
+                    """,
+            )
+            dfw.Define(
+                f"lep{leg_idx+1}_jetHadronFlavour",
+                f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e && lep{leg_idx+1}_index >= 0 && Electron_jetIdx[lep{leg_idx+1}_index] >= 0)
+                        return static_cast<int>(Jet_hadronFlavour[Electron_jetIdx[lep{leg_idx+1}_index]]);
+                    else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu && lep{leg_idx+1}_index >= 0 && Muon_jetIdx[lep{leg_idx+1}_index] >= 0)
+                        return static_cast<int>(Jet_hadronFlavour[Muon_jetIdx[lep{leg_idx+1}_index]]);
+                    return -10;""",
+            )
+            dfw.Define(
+                f"lep{leg_idx+1}_jetPartonFlavour",
+                f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e && lep{leg_idx+1}_index >= 0 && Electron_jetIdx[lep{leg_idx+1}_index] >= 0)
+                        return static_cast<int>(Jet_partonFlavour[Electron_jetIdx[lep{leg_idx+1}_index]]);
+                    else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu && lep{leg_idx+1}_index >= 0 && Muon_jetIdx[lep{leg_idx+1}_index] >= 0)
+                        return static_cast<int>(Jet_partonFlavour[Muon_jetIdx[lep{leg_idx+1}_index]]);
+                    return -10;""",
+            )
 
     # save information for fatjets
     fatjet_obs = []
