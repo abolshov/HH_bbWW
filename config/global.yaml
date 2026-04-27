@@ -2,7 +2,11 @@ anaTupleDef: AnaProd/anaTupleDef.py
 histTupleDef: Analysis/histTupleDef.py
 analysis_import: Analysis.hh_bbww
 analysis_cache_import: Analysis.tasks:AnalysisCacheTask:AnalysisCacheMergeTask
-phys_model: Run3_Model
+phys_model: Production_Model
+
+nanoAODVersions:
+  data: 22Sep23
+  mc: v12
 
 WLCGFileSystem:
   remotePathCacheHost: cms-flaf.cern.ch
