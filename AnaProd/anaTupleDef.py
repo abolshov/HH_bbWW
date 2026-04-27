@@ -282,16 +282,17 @@ def addAllVariables(
         )
 
         # save pt and flavor of jet matching to leptons
+        dfw.Define(
+            f"lep{leg_idx+1}_jetPt",
+            f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e && lep{leg_idx+1}_index >= 0 && Electron_jetIdx[lep{leg_idx+1}_index] >= 0)
+                    return Jet_pt[Electron_jetIdx[lep{leg_idx+1}_index]];
+                else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu && lep{leg_idx+1}_index >= 0 && Muon_jetIdx[lep{leg_idx+1}_index] >= 0)
+                    return Jet_pt[Muon_jetIdx[lep{leg_idx+1}_index]];
+                return -10.0f;
+                """,
+        )
+
         if not isData:
-            dfw.Define(
-                f"lep{leg_idx+1}_jetPt",
-                f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e && lep{leg_idx+1}_index >= 0 && Electron_jetIdx[lep{leg_idx+1}_index] >= 0)
-                        return Jet_pt[Electron_jetIdx[lep{leg_idx+1}_index]];
-                    else if (HwwCandidate.leg_type.at({leg_idx}) == Leg::mu && lep{leg_idx+1}_index >= 0 && Muon_jetIdx[lep{leg_idx+1}_index] >= 0)
-                        return Jet_pt[Muon_jetIdx[lep{leg_idx+1}_index]];
-                    return -10.0f;
-                    """,
-            )
             dfw.Define(
                 f"lep{leg_idx+1}_jetHadronFlavour",
                 f"""if (HwwCandidate.leg_type.at({leg_idx}) == Leg::e && lep{leg_idx+1}_index >= 0 && Electron_jetIdx[lep{leg_idx+1}_index] >= 0)
