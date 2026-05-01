@@ -2,7 +2,7 @@ DY:
   name: "DY"
   color: "kAzure+7"
   sub_processes:
-    # - DY_M_10to50
+    - DY_M_10to50
     # - DYto2E_M_50
     # - DYto2Mu_M_50
     # - DYto2Tau_M_50
@@ -30,14 +30,14 @@ DYto2L_InclusivePlusBinned:
     - DYto2L_M_50_PTLL_400to600_2J_amcatnloFXFX
     - DYto2L_M_50_PTLL_600_2J_amcatnloFXFX
 
-# DY_M_10to50:
-#   name: "DY M10to50"
-#   color: "kAzure+10"
-#   datasets:
-#     - DYto2L_M_10to50_amcatnloFXFX
-#     # - DYto2E_M_10to50_amcatnloFXFX
-#     # - DYto2Mu_M_10to50_amcatnloFXFX
-#     # - DYto2Tau_M_10to50_amcatnloFXFX
+DY_M_10to50:
+  name: "DY M10to50"
+  color: "kAzure+10"
+  datasets:
+    - DYto2L_M_10to50_amcatnloFXFX
+    # - DYto2E_M_10to50_amcatnloFXFX
+    # - DYto2Mu_M_10to50_amcatnloFXFX
+    # - DYto2Tau_M_10to50_amcatnloFXFX
 
 DYto2E_M_50:
   processors: *DY_processors
