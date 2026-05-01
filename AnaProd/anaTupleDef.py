@@ -160,7 +160,7 @@ FatJetObservables = [
 FatJetObservablesMC = ["hadronFlavour"]
 
 SubJetObservables = ["btagDeepB", "eta", "mass", "phi", "pt", "rawFactor"]
-SubJetObservablesMC = ["hadronFlavour", "partonFlavour"]
+SubJetObservablesMC = ["hadronFlavour", "nBHadrons", "nCHadrons"]
 
 defaultColToSave = [
     "FullEventId",
@@ -431,7 +431,7 @@ def defineFatJetVariables(dfw, isData):
         )
     subjet_obs = list(SubJetObservables)
     if not isData:
-        fatjet_obs.extend(SubJetObservablesMC)
+        subjet_obs.extend(SubJetObservablesMC)
     for subJetIdx in [1, 2]:
         dfw.Define(
             f"SelectedFatJet_subJetIdx{subJetIdx}",

@@ -95,7 +95,7 @@ def selectExtraLeptons(df):
         f"""v_ops::pt(Tau_p4) > 20 && abs(v_ops::eta(Tau_p4)) < 2.5
             && abs(Tau_dz) < 0.2 && Tau_decayMode != 5 && Tau_decayMode != 6
             && Tau_idDeepTau2018v2p5VSe >= {WorkingPointsTauVSe.VVLoose.value}
-            && Tau_idDeepTau2018v2p5VSmu >= {WorkingPointsTauVSe.Tight.value}
+            && Tau_idDeepTau2018v2p5VSmu >= {WorkingPointsTauVSmu.Tight.value}
             && Tau_idDeepTau2018v2p5VSjet >= {WorkingPointsTauVSjet.VVLoose.value}
         """,
     )
@@ -121,7 +121,7 @@ def selectJets(df, *, min_n_effective_jets_SL, min_n_effective_jets_DL):
     )
     df = df.Define(
         "Jet_sel",
-        "return Jet_Incl && Jet_idx != lep1_jetIdx && Jet_idx != lep2_jetIdx",
+        "Jet_Incl && Jet_idx != lep1_jetIdx && Jet_idx != lep2_jetIdx",
     )
     df = df.Define(
         "FatJet_sel",
@@ -129,11 +129,11 @@ def selectJets(df, *, min_n_effective_jets_SL, min_n_effective_jets_DL):
     )
     df = df.Define(
         "Jet_cleaned",
-        " RemoveOverlaps(Jet_p4, Jet_sel, FatJet_p4[FatJet_sel], 0.8)",
+        "RemoveOverlaps(Jet_p4, Jet_sel, FatJet_p4[FatJet_sel], 0.8)",
     )
     df = df.Define(
         "FatJet_cleaned",
-        " RemoveOverlaps(FatJet_p4, FatJet_sel, Jet_p4[Jet_sel], 0.8)",
+        "RemoveOverlaps(FatJet_p4, FatJet_sel, Jet_p4[Jet_sel], 0.8)",
     )
 
     df = df.Define(

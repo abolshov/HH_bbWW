@@ -135,7 +135,7 @@ GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_1800:
   crossSection: XtoHHto2B2Vto2B2JLNu
   generator: madgraph
   nanoAOD:
-    v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1600_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
+    v12: /GluGlutoRadiontoHHto2B2Vto2B2JLNu_M-1800_narrow_TuneCP5_13p6TeV_madgraph-pythia8/Run3Summer22NanoAODv12-130X_mcRun3_2022_realistic_v5-v2/NANOAODSIM
 GluGlutoRadiontoHHto2B2Vto2B2JLNu_M_2000:
   sampleType: GluGluToRadion
   mass: 2000
