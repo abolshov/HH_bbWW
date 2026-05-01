@@ -117,7 +117,7 @@ FatJetObservables = [
     "n2b1",
     "n3b1",
     "nConstituents",
-    #"neEmEF",
+    # "neEmEF",
     # "neHEF",
     # "neMultiplicity",
     # "particleNetLegacy_QCD",
@@ -194,6 +194,7 @@ MCObservables = [
 
 PtEtaPhiM = ["pt", "eta", "phi", "mass"]
 
+
 def getDefaultColumnsToSave(isData):
     colToSave = defaultColToSave.copy()
     if not isData:
@@ -202,10 +203,17 @@ def getDefaultColumnsToSave(isData):
 
 
 def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
-    def LegVar(var_name, var_expr, *, apply_cond=True, var_type=None, var_cond=None, default=0, append=True):
-        define_expr = (
-            f"static_cast<{var_type}>({var_expr})" if var_type else var_expr
-        )
+    def LegVar(
+        var_name,
+        var_expr,
+        *,
+        apply_cond=True,
+        var_type=None,
+        var_cond=None,
+        default=0,
+        append=True,
+    ):
+        define_expr = f"static_cast<{var_type}>({var_expr})" if var_type else var_expr
         if apply_cond:
             cond = f"HwwCandidate.leg_type.size() > {leg_idx}"
             if var_cond:
@@ -221,19 +229,27 @@ def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
         else:
             dfw.Define(full_name, full_define_expr)
 
-    LegVar("idx", f"HwwCandidate.leg_index.at({leg_idx})", var_type="int", default=-1, append=False)
+    LegVar(
+        "idx",
+        f"HwwCandidate.leg_index.at({leg_idx})",
+        var_type="int",
+        default=-1,
+        append=False,
+    )
     # Save the enum for now, type is used in many corrections
     LegVar("legType", f"HwwCandidate.leg_type.at({leg_idx})", default="Leg::none")
     # Save the lep* p4 and index directly to avoid using HwwCandidate in SF LUTs
-    LegVar("p4", f"HwwCandidate.leg_p4.at({leg_idx})", default="LorentzVectorM()", append=False)
+    LegVar(
+        "p4",
+        f"HwwCandidate.leg_p4.at({leg_idx})",
+        default="LorentzVectorM()",
+        append=False,
+    )
 
     for var in PtEtaPhiM:
         LegVar(var, f"{leg_name}_p4.{var}()", var_type="float", default="0.f")
     LegVar(
-        "charge",
-        f"HwwCandidate.leg_charge.at({leg_idx})",
-        var_type="int",
-        default="0"
+        "charge", f"HwwCandidate.leg_charge.at({leg_idx})", var_type="int", default="0"
     )
 
     for var_collection, extected_leg_type, expected_leg_name in EMuObservables:
@@ -242,10 +258,11 @@ def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
                 f"{expected_leg_name}_{var}",
                 f"{expected_leg_name}_{var}.at({leg_name}_idx)",
                 var_cond=f"{leg_name}_legType == Leg::{extected_leg_type}",
-                default="-1"
+                default="-1",
             )
 
-    LegVar("jetIdx",
+    LegVar(
+        "jetIdx",
         f"""int jet_idx = -1;
             if ({leg_name}_legType == Leg::e)
                 jet_idx = Electron_jetIdx[{leg_name}_idx];
@@ -260,7 +277,8 @@ def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
     )
 
     # save pt and flavor of jet matching to leptons
-    LegVar("jet_pt",
+    LegVar(
+        "jet_pt",
         f"Jet_p4[{leg_name}_jetIdx].pt()",
         var_cond=f"{leg_name}_jetIdx >= 0",
         var_type="float",
@@ -279,24 +297,26 @@ def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
 
         # save gen leptons matched to reco leptons
         # MatchGenLepton returns index of in genLetpons collection if match exists
-        LegVar(f"gen_idx",
+        LegVar(
+            f"gen_idx",
             f"MatchGenLepton({leg_name}_p4, genLeptons, 0.4)",
             var_type="int",
             default="-1",
-            append=False
+            append=False,
         )
-        LegVar("gen_p4",
+        LegVar(
+            "gen_p4",
             f"LorentzVectorM(genLeptons.at({leg_name}_gen_idx).visibleP4())",
             var_cond=f"{leg_name}_gen_idx >= 0",
             default="LorentzVectorM()",
-            append=False
+            append=False,
         )
         LegVar(
             f"gen_mother_p4",
             f"(*genLeptons.at({leg_name}_gen_idx).mothers().begin())->p4",
             var_cond=f"{leg_name}_gen_idx >= 0",
             default="LorentzVectorM()",
-            append=False
+            append=False,
         )
 
         LegVar(
@@ -311,7 +331,7 @@ def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
             f"(*genLeptons.at({leg_name}_gen_idx).mothers().begin())->pdgId",
             var_cond=f"{leg_name}_gen_idx >= 0",
             var_type="int",
-            default="0"
+            default="0",
         )
         for var in PtEtaPhiM:
             LegVar(
@@ -325,13 +345,20 @@ def defineLeptonVariables(dfw, leg_name, leg_idx, isData):
                 var_type="float",
             )
 
+
 def defineExtraLeptonVariables(dfw):
     for var_collection, _, obj_name in EMuTauObservables:
         for var in PtEtaPhiM:
-            dfw.DefineAndAppend(f"Extra{obj_name}_" + var, f"v_ops::{var}({obj_name}_p4[Extra{obj_name}_sel])")
+            dfw.DefineAndAppend(
+                f"Extra{obj_name}_" + var,
+                f"v_ops::{var}({obj_name}_p4[Extra{obj_name}_sel])",
+            )
 
         for var in var_collection:
-            dfw.DefineAndAppend(f"Extra{obj_name}_" + var, f"{obj_name}_{var}[Extra{obj_name}_sel]")
+            dfw.DefineAndAppend(
+                f"Extra{obj_name}_" + var, f"{obj_name}_{var}[Extra{obj_name}_sel]"
+            )
+
 
 def defineCentralJetVariables(dfw, isData):
     # save all selected reco jets
@@ -354,7 +381,7 @@ def defineCentralJetVariables(dfw, isData):
         for var in PtEtaPhiM:
             dfw.DefineAndAppend(
                 f"centralJet_matchedGenJet_{var}",
-                f"TakeAndCast(v_ops::{var}(GenJet_p4), centralJet_matchedGenJetIdx, 0.f)"
+                f"TakeAndCast(v_ops::{var}(GenJet_p4), centralJet_matchedGenJetIdx, 0.f)",
             )
 
         dfw.Define(
@@ -365,14 +392,18 @@ def defineCentralJetVariables(dfw, isData):
         for var in JetObservablesMC + ["TrueBjetTag"]:
             dfw.DefineAndAppend(
                 f"centralJet_matchedGenJet_{var}",
-                f"Take(GenJet_{var}, centralJet_matchedGenJetIdx, std::decay_t<decltype(GenJet_{var})>::value_type(0))"
+                f"Take(GenJet_{var}, centralJet_matchedGenJetIdx, std::decay_t<decltype(GenJet_{var})>::value_type(0))",
             )
 
     reco_jet_obs = list(JetObservables)
     if not isData:
         reco_jet_obs.extend(JetObservablesMC)
     for jet_obs in reco_jet_obs:
-        dfw.DefineAndAppend(f"centralJet_{jet_obs}", f"Take(Jet_{jet_obs}[Jet_sel], centralJet_idxSorted)")
+        dfw.DefineAndAppend(
+            f"centralJet_{jet_obs}",
+            f"Take(Jet_{jet_obs}[Jet_sel], centralJet_idxSorted)",
+        )
+
 
 def defineFatJetVariables(dfw, isData):
     dfw.Define(
@@ -390,7 +421,8 @@ def defineFatJetVariables(dfw, isData):
 
     for var in PtEtaPhiM:
         dfw.DefineAndAppend(
-            f"SelectedFatJet_{var}", f"TakeAndCast(v_ops::{var}(FatJet_p4[FatJet_sel]), SelectedFatJet_idxSorted, 0.f)"
+            f"SelectedFatJet_{var}",
+            f"TakeAndCast(v_ops::{var}(FatJet_p4[FatJet_sel]), SelectedFatJet_idxSorted, 0.f)",
         )
     for var in fatjet_obs:
         dfw.DefineAndAppend(
@@ -412,16 +444,19 @@ def defineFatJetVariables(dfw, isData):
         for var in subjet_obs:
             dfw.DefineAndAppend(
                 f"SelectedFatJet_SubJet{subJetIdx}_{var}",
-                f"Take(SubJet_{var}, SelectedFatJet_subJetIdx{subJetIdx}, std::decay_t<decltype(SubJet_{var})>::value_type(0))"
+                f"Take(SubJet_{var}, SelectedFatJet_subJetIdx{subJetIdx}, std::decay_t<decltype(SubJet_{var})>::value_type(0))",
             )
 
 
 def defineForwardJetVariables(dfw, isData):
     for var in PtEtaPhiM:
-        dfw.DefineAndAppend(f"ForwardJet_{var}", f"v_ops::{var}(Jet_p4[ForwardJet_sel])")
+        dfw.DefineAndAppend(
+            f"ForwardJet_{var}", f"v_ops::{var}(Jet_p4[ForwardJet_sel])"
+        )
     if not isData:
         for var in JetObservablesMC:
             dfw.DefineAndAppend(f"ForwardJet_{var}", f"Jet_{var}[ForwardJet_sel]")
+
 
 def defineMETVariables(dfw, met_type):
     dfw.DefineAndAppend(
@@ -433,6 +468,7 @@ def defineMETVariables(dfw, met_type):
 
     dfw.RedefineAndAppend(f"{met_type}_pt", f"static_cast<float>({met_type}_p4.pt())")
     dfw.RedefineAndAppend(f"{met_type}_phi", f"static_cast<float>({met_type}_p4.phi())")
+
 
 def defineSignalVariables(dfw):
     # save gen H->VV
@@ -502,6 +538,7 @@ def defineSignalVariables(dfw):
                 f"static_cast<float>(H_to_bb.leg_vis_p4[{b_quark - 1}].{var}())",
             )
 
+
 def addAllVariables(
     dfw,
     syst_name,
@@ -536,9 +573,15 @@ def addAllVariables(
     dfw.Apply(AnaBaseline.selectExtraLeptons)
     defineExtraLeptonVariables(dfw)
 
-    dfw.Apply(AnaBaseline.selectJets,
-              min_n_effective_jets_SL=global_params["anaTupleSelection"]["min_n_effective_jets_SL"],
-              min_n_effective_jets_DL=global_params["anaTupleSelection"]["min_n_effective_jets_DL"])
+    dfw.Apply(
+        AnaBaseline.selectJets,
+        min_n_effective_jets_SL=global_params["anaTupleSelection"][
+            "min_n_effective_jets_SL"
+        ],
+        min_n_effective_jets_DL=global_params["anaTupleSelection"][
+            "min_n_effective_jets_DL"
+        ],
+    )
 
     defineCentralJetVariables(dfw, isData)
     defineFatJetVariables(dfw, isData)

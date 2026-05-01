@@ -1,5 +1,6 @@
 from FLAF.Common.Utilities import *
 
+
 class Channel:
     leg_names = {
         "e": "Electron",
@@ -7,7 +8,7 @@ class Channel:
     }
 
     def __init__(self, *legs):
-        assert(len(legs) > 0)
+        assert len(legs) > 0
         self.legs = [self.leg_names[leg] for leg in legs]
         self.name = ""
         for leg_idx, leg in enumerate(legs):
@@ -22,6 +23,7 @@ channels = [
     Channel("mu"),
     Channel("e"),
 ]  # in order of importance during the channel selection
+
 
 def selectHWW(df, selected_channels):
     df = df.Define(
@@ -58,7 +60,9 @@ def selectHWW(df, selected_channels):
                 ]
             )
         leg_str = ", ".join(leg_args)
-        df = df.Define(cand_column, f"GetHWWCandidates(Channel::{ch.name}, 0.1, {leg_str})")
+        df = df.Define(
+            cand_column, f"GetHWWCandidates(Channel::{ch.name}, 0.1, {leg_str})"
+        )
         cand_columns.append(cand_column)
     cand_filters = [f"{c}.size() > 0" for c in cand_columns]
     stringfilter = " || ".join(cand_filters)
@@ -93,18 +97,24 @@ def selectExtraLeptons(df):
             && Tau_idDeepTau2018v2p5VSe >= {WorkingPointsTauVSe.VVLoose.value}
             && Tau_idDeepTau2018v2p5VSmu >= {WorkingPointsTauVSe.Tight.value}
             && Tau_idDeepTau2018v2p5VSjet >= {WorkingPointsTauVSjet.VVLoose.value}
-        """
+        """,
     )
 
-    df = df.Define("ExtraTau_sel", "RemoveOverlaps(Tau_p4, Tau_sel, HwwCandidate.getLegP4s(), 0.5)")
+    df = df.Define(
+        "ExtraTau_sel", "RemoveOverlaps(Tau_p4, Tau_sel, HwwCandidate.getLegP4s(), 0.5)"
+    )
     return df
+
 
 def selectJets(df, *, min_n_effective_jets_SL, min_n_effective_jets_DL):
     df = df.Define(
         "Jet_Incl",
         "v_ops::pt(Jet_p4) > 20 && abs(v_ops::eta(Jet_p4)) < 2.5 && Jet_passJetIdTight",
     )
-    df = df.Define("ForwardJet_sel", "v_ops::pt(Jet_p4) > 20 && abs(v_ops::eta(Jet_p4)) > 2.5 && Jet_passJetIdTight")
+    df = df.Define(
+        "ForwardJet_sel",
+        "v_ops::pt(Jet_p4) > 20 && abs(v_ops::eta(Jet_p4)) > 2.5 && Jet_passJetIdTight",
+    )
     df = df.Define(
         "FatJet_Incl",
         "v_ops::pt(FatJet_p4) > 200 && abs(v_ops::eta(FatJet_p4)) < 2.5 && ( FatJet_jetId & 2 ) ",
@@ -127,8 +137,12 @@ def selectJets(df, *, min_n_effective_jets_SL, min_n_effective_jets_DL):
     )
 
     df = df.Define(
-        "n_eff_jets", "std::max(Sum(FatJet_cleaned) * 2 + Sum(Jet_sel), Sum(FatJet_sel) * 2 + Sum(Jet_cleaned))"
+        "n_eff_jets",
+        "std::max(Sum(FatJet_cleaned) * 2 + Sum(Jet_sel), Sum(FatJet_sel) * 2 + Sum(Jet_cleaned))",
     )
 
-    df = df.Define("min_n_eff_jets", f"is_SL ? {min_n_effective_jets_SL} : {min_n_effective_jets_DL}")
+    df = df.Define(
+        "min_n_eff_jets",
+        f"is_SL ? {min_n_effective_jets_SL} : {min_n_effective_jets_DL}",
+    )
     return df.Filter("n_eff_jets >= min_n_eff_jets", "Reco bjet candidates")
