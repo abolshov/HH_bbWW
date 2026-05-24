@@ -669,6 +669,220 @@ def defineJetSelections(df, isData):
 
     return df
 
+def defineHadronicTopCandP4(df):
+    df = df.Define("hadT_p4",
+        f"""
+            if (resolved || res2b)
+            {{
+                float lep_bjet1_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4);
+                float lep_bjet2_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4);
+                if (lep_bjet1_dr < lep_bjet2_dr)
+                {{
+                    return bjet2_p4 + wjet1_p4 + wjet2_p4;
+                }}
+                else
+                {{
+                    return bjet1_p4 + wjet1_p4 + wjet2_p4;
+                }}
+            }}
+            else if (boosted)
+            {{
+                if (fatwjet_isValid && fatbjet_isValid)
+                {{
+                    
+                    if (bjet1_isValid && bjet2_isValid)
+                    {{
+                        std::vector<LorentzVectorM> bcands = {{bjet1_p4, bjet2_p4, fatbjet_p4}};
+                        auto dr_cmp_lep = [&lep1_p4](LorentzVectorM const& v1, LorentzVectorM const& v2){{
+                            return ROOT::Math::VectorUtil::DeltaR(v1, lep1_p4) < ROOT::Math::VectorUtil::DeltaR(v2, lep1_p4);
+                        }};
+                        auto it = std::min_element(bcands.begin(), bcands.end(), dr_cmp_lep);
+                        size_t bcand_from_lep_top_idx = it - bcands.begin();
+
+                        LorentzVectorM hadW_p4 = (wjet1_isValid && wjet2_isValid && !WJets_Boosted) ? (wjet1_p4 + wjet2_p4) : fatwjet_p4;
+                        size_t bcand_from_had_top_idx = (bcand_from_lep_top_idx == 0) ? 1 : 0;
+                        float min_dr = ROOT::Math::VectorUtil::DeltaR(bcands[bcand_from_had_top_idx], hadW_p4);
+
+                        for (size_t i = 0; i < 3; ++i)
+                        {{
+                            float dr = ROOT::Math::VectorUtil::DeltaR(bcands[i], hadW_p4);
+                            if (i != bcand_from_lep_top_idx && dr < min_dr)
+                            {{
+                                min_dr = dr;
+                                bcand_from_had_top_idx = i;
+                            }}
+                        }}
+
+                        return bcands[bcand_from_had_top_idx] + hadW_p4;
+                    }}
+                    else if (bjet1_isValid || bjet2_isValid)
+                    {{
+                        LorentzVectorM hadW_p4 = (wjet1_isValid && wjet2_isValid && !WJets_Boosted) ? (wjet1_p4 + wjet2_p4) : fatwjet_p4;
+                        auto bjet_p4 = bjet1_isValid ? bjet1_p4 : bjet2_p4;
+                        float lep_bjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet_p4);
+                        float lep_fatbjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4);
+                        if (lep_bjet_dr < lep_fatbjet_dr)
+                        {{
+                            return fatbjet_p4 + hadW_p4;
+                        }}
+                        else
+                        {{
+                            return bjet_p4 + hadW_p4;
+                        }}
+                    }}
+                    else 
+                    {{
+                        return LorentzVectorM();
+                    }}
+                }}
+                else if (!fatwjet_isValid && fatbjet_isValid)
+                {{
+                    if (bjet1_isValid && bjet2_isValid)
+                    {{
+                        if (!wjet1_isValid || !wjet2_isValid)
+                        {{
+                            return LorentzVectorM();
+                        }}
+
+                        LorentzVectorM hadW_p4 = wjet1_p4 + wjet2_p4;
+
+                        std::vector<LorentzVectorM> bcands = {{bjet1_p4, bjet2_p4, fatbjet_p4}};
+                        auto dr_cmp_lep = [&lep1_p4](LorentzVectorM const& v1, LorentzVectorM const& v2){{
+                            return ROOT::Math::VectorUtil::DeltaR(v1, lep1_p4) < ROOT::Math::VectorUtil::DeltaR(v2, lep1_p4);
+                        }};
+                        auto it = std::min_element(bcands.begin(), bcands.end(), dr_cmp_lep);
+                        size_t bcand_from_lep_top_idx = it - bcands.begin();
+
+                        size_t bcand_from_had_top_idx = (bcand_from_lep_top_idx == 0) ? 1 : 0;
+                        float min_dr = ROOT::Math::VectorUtil::DeltaR(bcands[bcand_from_had_top_idx], hadW_p4);
+
+                        for (size_t i = 0; i < 3; ++i)
+                        {{
+                            float dr = ROOT::Math::VectorUtil::DeltaR(bcands[i], hadW_p4);
+                            if (i != bcand_from_lep_top_idx && dr < min_dr)
+                            {{
+                                min_dr = dr;
+                                bcand_from_had_top_idx = i;
+                            }}
+                        }}
+
+                        return bcands[bcand_from_had_top_idx] + hadW_p4;
+                    }}
+                    else if (bjet1_isValid || bjet2_isValid)
+                    {{
+                        auto bjet_p4 = bjet1_isValid ? bjet1_p4 : bjet2_p4;
+                        if (wjet1_isValid && wjet2_isValid)
+                        {{
+                            float lep_bjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet_p4);
+                            float lep_fatbjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4);
+                            if (lep_bjet_dr < lep_fatbjet_dr)
+                            {{
+                                return fatbjet_p4 + wjet1_p4 + wjet2_p4;
+                            }}
+                            else
+                            {{
+                                return bjet_p4 + wjet1_p4 + wjet2_p4;
+                            }}
+                        }}
+                        else
+                        {{
+                            return LorentzVectorM();
+                        }}
+                    }}
+                    else
+                    {{
+                        return LorentzVectorM();
+                    }}
+                }}
+                else if (fatwjet_isValid && !fatbjet_isValid)
+                {{
+                    if (bjet1_isValid && bjet2_isValid)
+                    {{
+                        float lep_bjet1_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4);
+                        float lep_bjet2_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4);
+                        if (lep_bjet1_dr < lep_bjet2_dr)
+                        {{
+                            return fatwjet_p4 + bjet2_p4;
+                        }}
+                        else
+                        {{
+                            return fatwjet_p4 + bjet1_p4;
+                        }}
+                    }}
+                    else
+                    {{
+                        return LorentzVectorM();
+                    }}
+                }}
+                else
+                {{
+                    return LorentzVectorM();
+                }}
+            }}
+            return LorentzVectorM();
+        """
+    )
+    return df
+
+def defineLeptonicTopCandP4(df):
+    # compute leptonic W candidate assuming MET = (nu_px, nu_py) and onshell W from t->bW decays
+    df = df.Define("lambda", 
+        """
+            float mw = 80.1f;
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep_p4.E();
+            float lep_pz = lep_p4.Pz();
+            float lambda = mw*mw/2 + PuppiMET_p4.Px()*lep1_p4.px() + PuppiMET_p4.Py()*lep1_p4.Py();
+            return lambda;
+        """
+    )
+    df = df.Define("disc_sqr",
+        """
+            float mw = 80.1f;
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep_p4.E();
+            float lep_pz = lep_p4.Pz();
+            float disc_sqr = lambda*lambda*lep_pz*lep_pz/(lep_pt*lep_pt*lep_pt*lep_pt) - (lep_E*lep_E*PuppiMET_pt*PuppiMET_pt - lambda*lambda)/(lep_pt*lep_pt);
+            return disc_sqr;
+        """
+    )
+    
+    df = df.Define("nu_pz_poz",
+        """
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep_p4.E();
+            float lep_pz = lep_p4.Pz();
+            if (disc >= 0)
+                return labmda*lep_pz/(lep_pt*lep_pt) + std::sqrt(disc_sqr);
+            else
+                return labmda*lep_pz/(lep_pt*lep_pt);
+        """
+    )
+
+    df = df.Define("nu_pz_neg",
+        """
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep_p4.E();
+            float lep_pz = lep_p4.Pz();
+            if (disc >= 0)
+                return labmda*lep_pz/(lep_pt*lep_pt) - std::sqrt(disc_sqr);
+            else
+                return labmda*lep_pz/(lep_pt*lep_pt);
+        """
+    )
+
+    df = df.Define("nu_E_pos", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nu_pz_poz*nu_pz_poz);")
+    df = df.Define("nu_E_neg", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nu_pz_neg*nu_pz_neg)")
+
+    df = df.Define("nu_pos_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nu_pz_poz, nu_E_pos);")
+    df = df.Define("nu_neg_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nu_pz_neg, nu_E_neg);")
+
+    df = df.Define("lepW_pos_p4", "return lep1_p4 + nu_pos_p4;")
+    df = df.Define("lepW_neg_p4", "return lep1_p4 + nu_neg_p4;")
+
+    
+
+    return df
 
 def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineLeptonChannel()
