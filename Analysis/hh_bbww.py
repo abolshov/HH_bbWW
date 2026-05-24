@@ -669,20 +669,89 @@ def defineJetSelections(df, isData):
 
     return df
 
-def defineHadronicTopCandP4(df):
-    df = df.Define("hadT_p4",
+def defineTopCandP4(df):
+    # compute leptonic W candidate assuming MET = (nu_px, nu_py) and onshell W from t->bW decays
+    # first prepare auxilliary p4s of two possible leptonic W candidates
+    # there are two because pz is determined by quadratic equation
+    # in case of two solutions use both labelled pos and neg
+    # when discriminant is < 0, use real part for both pos and neg
+    df = df.Define("lambda", 
+        """
+            float mw = 80.1f;
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep1_p4.E();
+            float lep_pz = lep1_p4.Pz();
+            float lambda = mw*mw/2 + PuppiMET_p4.Px()*lep1_p4.px() + PuppiMET_p4.Py()*lep1_p4.Py();
+            return lambda;
+        """
+    )
+    df = df.Define("disc_sqr",
+        """
+            float mw = 80.1f;
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep1_p4.E();
+            float lep_pz = lep1_p4.Pz();
+            float disc_sqr = lambda*lambda*lep_pz*lep_pz/(lep_pt*lep_pt*lep_pt*lep_pt) - (lep_E*lep_E*PuppiMET_pt*PuppiMET_pt - lambda*lambda)/(lep_pt*lep_pt);
+            return disc_sqr;
+        """
+    )
+    
+    df = df.Define("nu_pz_poz",
+        """
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep1_p4.E();
+            float lep_pz = lep1_p4.Pz();
+            if (disc_sqr >= 0)
+                return lambda*lep_pz/(lep_pt*lep_pt) + std::sqrt(disc_sqr);
+            else
+                return lambda*lep_pz/(lep_pt*lep_pt);
+        """
+    )
+
+    df = df.Define("nu_pz_neg",
+        """
+            float lep_pt = lep1_p4.Pt();
+            float lep_E = lep1_p4.E();
+            float lep_pz = lep1_p4.Pz();
+            if (disc_sqr >= 0)
+                return lambda*lep_pz/(lep_pt*lep_pt) - std::sqrt(disc_sqr);
+            else
+                return lambda*lep_pz/(lep_pt*lep_pt);
+        """
+    )
+
+    df = df.Define("nu_E_pos", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nu_pz_poz*nu_pz_poz);")
+    df = df.Define("nu_E_neg", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nu_pz_neg*nu_pz_neg)")
+
+    df = df.Define("nu_pos_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nu_pz_poz, nu_E_pos);")
+    df = df.Define("nu_neg_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nu_pz_neg, nu_E_neg);")
+
+    df = df.Define("lepW_pos_p4", "return lep1_p4 + nu_pos_p4;")
+    df = df.Define("lepW_neg_p4", "return lep1_p4 + nu_neg_p4;")
+
+    # define collection of p4s of top quark candidates
+    # will have 3 elements: 
+    #   0. hadronic top candidate from t->bW->bqq decay
+    #   1. leptonic top candidate with lepW_pos_p4 
+    #   2. leptonic top candidate with lepW_neg_p4 
+    df = df.Define("tops",
         f"""
-            if (resolved || res2b)
+            RVecLV tops(3, LorentzVectorM{{}});
+            if ((resolved || res2b) && !DL)
             {{
                 float lep_bjet1_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4);
                 float lep_bjet2_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4);
                 if (lep_bjet1_dr < lep_bjet2_dr)
                 {{
-                    return bjet2_p4 + wjet1_p4 + wjet2_p4;
+                    tops[0] = bjet2_p4 + wjet1_p4 + wjet2_p4;
+                    tops[1] = bjet1_p4 + lepW_pos_p4;
+                    tops[2] = bjet1_p4 + lepW_neg_p4;
                 }}
                 else
                 {{
-                    return bjet1_p4 + wjet1_p4 + wjet2_p4;
+                    tops[0] = bjet1_p4 + wjet1_p4 + wjet2_p4;
+                    tops[1] = bjet2_p4 + lepW_pos_p4;
+                    tops[2] = bjet2_p4 + lepW_neg_p4;
                 }}
             }}
             else if (boosted)
@@ -713,7 +782,9 @@ def defineHadronicTopCandP4(df):
                             }}
                         }}
 
-                        return bcands[bcand_from_had_top_idx] + hadW_p4;
+                        tops[0] = bcands[bcand_from_had_top_idx] + hadW_p4;
+                        tops[1] = bcands[bcand_from_lep_top_idx] + lepW_pos_p4;
+                        tops[2] = bcands[bcand_from_lep_top_idx] + lepW_neg_p4;
                     }}
                     else if (bjet1_isValid || bjet2_isValid)
                     {{
@@ -723,16 +794,16 @@ def defineHadronicTopCandP4(df):
                         float lep_fatbjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4);
                         if (lep_bjet_dr < lep_fatbjet_dr)
                         {{
-                            return fatbjet_p4 + hadW_p4;
+                            tops[0] = fatbjet_p4 + hadW_p4;
+                            tops[1] = bjet_p4 + lepW_pos_p4;
+                            tops[2] = bjet_p4 + lepW_neg_p4;
                         }}
                         else
                         {{
-                            return bjet_p4 + hadW_p4;
+                            tops[0] = bjet_p4 + hadW_p4;
+                            tops[1] = fatbjet_p4 + lepW_pos_p4;
+                            tops[2] = fatbjet_p4 + lepW_neg_p4;
                         }}
-                    }}
-                    else 
-                    {{
-                        return LorentzVectorM();
                     }}
                 }}
                 else if (!fatwjet_isValid && fatbjet_isValid)
@@ -741,7 +812,7 @@ def defineHadronicTopCandP4(df):
                     {{
                         if (!wjet1_isValid || !wjet2_isValid)
                         {{
-                            return LorentzVectorM();
+                            return tops;
                         }}
 
                         LorentzVectorM hadW_p4 = wjet1_p4 + wjet2_p4;
@@ -766,7 +837,9 @@ def defineHadronicTopCandP4(df):
                             }}
                         }}
 
-                        return bcands[bcand_from_had_top_idx] + hadW_p4;
+                        tops[0] = bcands[bcand_from_had_top_idx] + hadW_p4;
+                        tops[1] = bcands[bcand_from_lep_top_idx] + lepW_pos_p4;
+                        tops[2] = bcands[bcand_from_lep_top_idx] + lepW_neg_p4;
                     }}
                     else if (bjet1_isValid || bjet2_isValid)
                     {{
@@ -777,21 +850,17 @@ def defineHadronicTopCandP4(df):
                             float lep_fatbjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4);
                             if (lep_bjet_dr < lep_fatbjet_dr)
                             {{
-                                return fatbjet_p4 + wjet1_p4 + wjet2_p4;
+                                tops[0] = fatbjet_p4 + wjet1_p4 + wjet2_p4;
+                                tops[1] = bjet_p4 + lepW_pos_p4;
+                                tops[2] = bjet_p4 + lepW_neg_p4;
                             }}
                             else
                             {{
-                                return bjet_p4 + wjet1_p4 + wjet2_p4;
+                                tops[0] = bjet_p4 + wjet1_p4 + wjet2_p4;
+                                tops[1] = fatbjet_p4 + lepW_pos_p4;
+                                tops[2] = fatbjet_p4 + lepW_neg_p4;
                             }}
                         }}
-                        else
-                        {{
-                            return LorentzVectorM();
-                        }}
-                    }}
-                    else
-                    {{
-                        return LorentzVectorM();
                     }}
                 }}
                 else if (fatwjet_isValid && !fatbjet_isValid)
@@ -802,86 +871,33 @@ def defineHadronicTopCandP4(df):
                         float lep_bjet2_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4);
                         if (lep_bjet1_dr < lep_bjet2_dr)
                         {{
-                            return fatwjet_p4 + bjet2_p4;
+                            tops[0] = fatwjet_p4 + bjet2_p4;
+                            tops[1] = bjet1_p4 + lepW_pos_p4;
+                            tops[2] = bjet1_p4 + lepW_neg_p4;
                         }}
                         else
                         {{
-                            return fatwjet_p4 + bjet1_p4;
+                            tops[0] = fatwjet_p4 + bjet1_p4;
+                            tops[1] = bjet2_p4 + lepW_pos_p4;
+                            tops[2] = bjet2_p4 + lepW_neg_p4;
                         }}
                     }}
-                    else
-                    {{
-                        return LorentzVectorM();
-                    }}
-                }}
-                else
-                {{
-                    return LorentzVectorM();
                 }}
             }}
-            return LorentzVectorM();
+            return tops;
         """
     )
+
+    # now define p4 of each top
+    df = df.Define("hadT_p4", "return tops[0];")
+    df = df.Define("lepT_pos_p4", "return tops[1];")
+    df = df.Define("lepT_neg_p4", "return tops[2];")
     return df
 
-def defineLeptonicTopCandP4(df):
-    # compute leptonic W candidate assuming MET = (nu_px, nu_py) and onshell W from t->bW decays
-    df = df.Define("lambda", 
-        """
-            float mw = 80.1f;
-            float lep_pt = lep1_p4.Pt();
-            float lep_E = lep_p4.E();
-            float lep_pz = lep_p4.Pz();
-            float lambda = mw*mw/2 + PuppiMET_p4.Px()*lep1_p4.px() + PuppiMET_p4.Py()*lep1_p4.Py();
-            return lambda;
-        """
-    )
-    df = df.Define("disc_sqr",
-        """
-            float mw = 80.1f;
-            float lep_pt = lep1_p4.Pt();
-            float lep_E = lep_p4.E();
-            float lep_pz = lep_p4.Pz();
-            float disc_sqr = lambda*lambda*lep_pz*lep_pz/(lep_pt*lep_pt*lep_pt*lep_pt) - (lep_E*lep_E*PuppiMET_pt*PuppiMET_pt - lambda*lambda)/(lep_pt*lep_pt);
-            return disc_sqr;
-        """
-    )
-    
-    df = df.Define("nu_pz_poz",
-        """
-            float lep_pt = lep1_p4.Pt();
-            float lep_E = lep_p4.E();
-            float lep_pz = lep_p4.Pz();
-            if (disc >= 0)
-                return labmda*lep_pz/(lep_pt*lep_pt) + std::sqrt(disc_sqr);
-            else
-                return labmda*lep_pz/(lep_pt*lep_pt);
-        """
-    )
-
-    df = df.Define("nu_pz_neg",
-        """
-            float lep_pt = lep1_p4.Pt();
-            float lep_E = lep_p4.E();
-            float lep_pz = lep_p4.Pz();
-            if (disc >= 0)
-                return labmda*lep_pz/(lep_pt*lep_pt) - std::sqrt(disc_sqr);
-            else
-                return labmda*lep_pz/(lep_pt*lep_pt);
-        """
-    )
-
-    df = df.Define("nu_E_pos", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nu_pz_poz*nu_pz_poz);")
-    df = df.Define("nu_E_neg", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nu_pz_neg*nu_pz_neg)")
-
-    df = df.Define("nu_pos_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nu_pz_poz, nu_E_pos);")
-    df = df.Define("nu_neg_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nu_pz_neg, nu_E_neg);")
-
-    df = df.Define("lepW_pos_p4", "return lep1_p4 + nu_pos_p4;")
-    df = df.Define("lepW_neg_p4", "return lep1_p4 + nu_neg_p4;")
-
-    
-
+def defineTopVariables(df):
+    df = df.Define("hadT_mass", "return hadT_p4.M();")
+    df = df.Define("lepT_pos_mass", "return lepT_pos_p4.M();")
+    df = df.Define("lepT_neg_mass", "return lepT_neg_p4.M();")
     return df
 
 def PrepareDfForHistograms(dfForHistograms, isData):
@@ -894,6 +910,8 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineQCDRegions()
     dfForHistograms.defineControlRegions()
     dfForHistograms.defineCategories()
+    dfForHistograms.df = defineTopCandP4(dfForHistograms.df)
+    dfForHistograms.df = defineTopVariables(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
     dfForHistograms.calculateMT()
     dfForHistograms.defineCutFlow()
