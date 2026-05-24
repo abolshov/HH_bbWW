@@ -734,24 +734,29 @@ def defineTopCandP4(df):
     #   0. hadronic top candidate from t->bW->bqq decay
     #   1. leptonic top candidate with lepW_pos_p4 
     #   2. leptonic top candidate with lepW_neg_p4 
+    # each element 0-3 is a collection itself and it contains
+    # constituents of top candidate, i.e.
+    #   0. b-tagged object (jet or fatjet)
+    #   1. leptonic W (in case of t->bW->blv) or jet (in case t->bW->bqq)
+    #   2. jet (in case t->bW->bqq) or nothing (in case of t->bW->blv)
     df = df.Define("tops",
         f"""
-            RVecLV tops(3, LorentzVectorM{{}});
+            RvecV<LorentzVectorM> tops(3, RVecLV{{}});
             if ((resolved || res2b) && !DL)
             {{
                 float lep_bjet1_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4);
                 float lep_bjet2_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4);
                 if (lep_bjet1_dr < lep_bjet2_dr)
                 {{
-                    tops[0] = bjet2_p4 + wjet1_p4 + wjet2_p4;
-                    tops[1] = bjet1_p4 + lepW_pos_p4;
-                    tops[2] = bjet1_p4 + lepW_neg_p4;
+                    tops[0] = {{bjet2_p4, wjet1_p4, wjet2_p4}};
+                    tops[1] = {{bjet1_p4, lepW_pos_p4}};
+                    tops[2] = {{bjet1_p4, lepW_neg_p4}};
                 }}
                 else
                 {{
-                    tops[0] = bjet1_p4 + wjet1_p4 + wjet2_p4;
-                    tops[1] = bjet2_p4 + lepW_pos_p4;
-                    tops[2] = bjet2_p4 + lepW_neg_p4;
+                    tops[0] = {{bjet1_p4, wjet1_p4, wjet2_p4}};
+                    tops[1] = {{bjet2_p4, lepW_pos_p4}};
+                    tops[2] = {{bjet2_p4, lepW_neg_p4}};
                 }}
             }}
             else if (boosted)
@@ -781,28 +786,36 @@ def defineTopCandP4(df):
                                 bcand_from_had_top_idx = i;
                             }}
                         }}
-
-                        tops[0] = bcands[bcand_from_had_top_idx] + hadW_p4;
-                        tops[1] = bcands[bcand_from_lep_top_idx] + lepW_pos_p4;
-                        tops[2] = bcands[bcand_from_lep_top_idx] + lepW_neg_p4;
+                        
+                        if (wjet1_isValid && wjet2_isValid && !WJets_Boosted)
+                            tops[0] = {{bcands[bcand_from_had_top_idx], wjet1_p4, wjet2_p4}};
+                        else
+                            tops[0] = {{bcands[bcand_from_had_top_idx], fatwjet_p4}};
+                        tops[1] = {{bcands[bcand_from_lep_top_idx], lepW_pos_p4}};
+                        tops[2] = {{bcands[bcand_from_lep_top_idx], lepW_neg_p4}};
                     }}
                     else if (bjet1_isValid || bjet2_isValid)
                     {{
-                        LorentzVectorM hadW_p4 = (wjet1_isValid && wjet2_isValid && !WJets_Boosted) ? (wjet1_p4 + wjet2_p4) : fatwjet_p4;
                         auto bjet_p4 = bjet1_isValid ? bjet1_p4 : bjet2_p4;
                         float lep_bjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet_p4);
                         float lep_fatbjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4);
                         if (lep_bjet_dr < lep_fatbjet_dr)
                         {{
-                            tops[0] = fatbjet_p4 + hadW_p4;
-                            tops[1] = bjet_p4 + lepW_pos_p4;
-                            tops[2] = bjet_p4 + lepW_neg_p4;
+                            if (wjet1_isValid && wjet2_isValid && !WJets_Boosted)
+                                tops[0] = {{fatbjet_p4, fatwjet_p4}};
+                            else
+                                tops[0] = {{fatbjet_p4, wjet1_p4, wjet2_p4}};
+                            tops[1] = {{bjet_p4, lepW_pos_p4}};
+                            tops[2] = {{bjet_p4, lepW_neg_p4}};
                         }}
                         else
                         {{
-                            tops[0] = bjet_p4 + hadW_p4;
-                            tops[1] = fatbjet_p4 + lepW_pos_p4;
-                            tops[2] = fatbjet_p4 + lepW_neg_p4;
+                            if (wjet1_isValid && wjet2_isValid && !WJets_Boosted)
+                                tops[0] = {{bjet_p4, fatwjet_p4}};
+                            else
+                                tops[0] = {{bjet_p4, wjet1_p4, wjet2_p4}};
+                            tops[1] = {{fatbjet_p4, lepW_pos_p4}};
+                            tops[2] = {{fatbjet_p4, lepW_neg_p4}};
                         }}
                     }}
                 }}
@@ -837,9 +850,9 @@ def defineTopCandP4(df):
                             }}
                         }}
 
-                        tops[0] = bcands[bcand_from_had_top_idx] + hadW_p4;
-                        tops[1] = bcands[bcand_from_lep_top_idx] + lepW_pos_p4;
-                        tops[2] = bcands[bcand_from_lep_top_idx] + lepW_neg_p4;
+                        tops[0] = {{bcands[bcand_from_had_top_idx], wjet1_p4, wjet2_p4}};
+                        tops[1] = {{bcands[bcand_from_lep_top_idx], lepW_pos_p4}};
+                        tops[2] = {{bcands[bcand_from_lep_top_idx], lepW_neg_p4}};
                     }}
                     else if (bjet1_isValid || bjet2_isValid)
                     {{
@@ -850,15 +863,15 @@ def defineTopCandP4(df):
                             float lep_fatbjet_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4);
                             if (lep_bjet_dr < lep_fatbjet_dr)
                             {{
-                                tops[0] = fatbjet_p4 + wjet1_p4 + wjet2_p4;
-                                tops[1] = bjet_p4 + lepW_pos_p4;
-                                tops[2] = bjet_p4 + lepW_neg_p4;
+                                tops[0] = {{fatbjet_p4, wjet1_p4, wjet2_p4}};
+                                tops[1] = {{bjet_p4, lepW_pos_p4}};
+                                tops[2] = {{bjet_p4, lepW_neg_p4}};
                             }}
                             else
                             {{
-                                tops[0] = bjet_p4 + wjet1_p4 + wjet2_p4;
-                                tops[1] = fatbjet_p4 + lepW_pos_p4;
-                                tops[2] = fatbjet_p4 + lepW_neg_p4;
+                                tops[0] = {{bjet_p4, wjet1_p4, wjet2_p4}};
+                                tops[1] = {{fatbjet_p4, lepW_pos_p4}};
+                                tops[2] = {{fatbjet_p4, lepW_neg_p4}};
                             }}
                         }}
                     }}
@@ -871,15 +884,15 @@ def defineTopCandP4(df):
                         float lep_bjet2_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4);
                         if (lep_bjet1_dr < lep_bjet2_dr)
                         {{
-                            tops[0] = fatwjet_p4 + bjet2_p4;
-                            tops[1] = bjet1_p4 + lepW_pos_p4;
-                            tops[2] = bjet1_p4 + lepW_neg_p4;
+                            tops[0] = {{bjet2_p4, fatwjet_p4}};
+                            tops[1] = {{bjet1_p4, lepW_pos_p4}};
+                            tops[2] = {{bjet1_p4, lepW_neg_p4}};
                         }}
                         else
                         {{
-                            tops[0] = fatwjet_p4 + bjet1_p4;
-                            tops[1] = bjet2_p4 + lepW_pos_p4;
-                            tops[2] = bjet2_p4 + lepW_neg_p4;
+                            tops[0] = {{bjet1_p4, fatwjet_p4}};
+                            tops[1] = {{bjet2_p4, lepW_pos_p4}};
+                            tops[2] = {{bjet2_p4, lepW_neg_p4}};
                         }}
                     }}
                 }}
@@ -889,9 +902,30 @@ def defineTopCandP4(df):
     )
 
     # now define p4 of each top
-    df = df.Define("hadT_p4", "return tops[0];")
-    df = df.Define("lepT_pos_p4", "return tops[1];")
-    df = df.Define("lepT_neg_p4", "return tops[2];")
+    df = df.Define("hadT_p4", 
+        """
+            LorentzVectorM res;
+            for (auto const& v: tops[0])
+                res += v;
+            return res;
+        """
+    )
+    df = df.Define("lepT_pos_p4", 
+        """
+            LorentzVectorM res;
+            for (auto const& v: tops[1])
+                res += v;
+            return res;
+        """
+    )
+    df = df.Define("lepT_neg_p4", 
+        """
+            LorentzVectorM res;
+            for (auto const& v: tops[2])
+                res += v;
+            return res;
+        """
+    )
     return df
 
 def defineTopVariables(df):
