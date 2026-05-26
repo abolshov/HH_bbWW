@@ -670,6 +670,10 @@ def defineJetSelections(df, isData):
     return df
 
 def defineTopCandP4(df):
+    """
+        Function computing top candidate's p4 in SL channel.
+        Requires categories to be defined.
+    """
     # compute leptonic W candidate assuming MET = (nu_px, nu_py) and onshell W from t->bW decays
     # first prepare auxilliary p4s of two possible leptonic W candidates
     # there are two because pz is determined by quadratic equation
@@ -929,9 +933,23 @@ def defineTopCandP4(df):
     return df
 
 def defineTopVariables(df):
+    """
+        Function computing top candidate related variables for the SL channel.
+        Requires top candidate's p4 to be computed and defined.
+    """
     df = df.Define("hadT_mass", "return hadT_p4.M();")
     df = df.Define("lepT_pos_mass", "return lepT_pos_p4.M();")
     df = df.Define("lepT_neg_mass", "return lepT_neg_p4.M();")
+    return df
+
+def defineFeatureValidityFlags(df):
+    """
+        Function computing computing masks indicating in which event certain 
+        high-level features are valid. Requires features to be already defined.
+    """
+    df = df.Define("hadT_mass_valid", "return static_cast<int>(hadT_p4.M() > 0.0f);")
+    df = df.Define("lepT_pos_mass_valid", "return static_cast<int>(lepT_pos_p4.M() > 0.0f);")
+    df = df.Define("lepT_neg_mass_valid", "return static_cast<int>(lepT_neg_p4.M() > 0.0f);")
     return df
 
 def PrepareDfForHistograms(dfForHistograms, isData):
@@ -946,6 +964,7 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineCategories()
     dfForHistograms.df = defineTopCandP4(dfForHistograms.df)
     dfForHistograms.df = defineTopVariables(dfForHistograms.df)
+    dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
     dfForHistograms.calculateMT()
     dfForHistograms.defineCutFlow()
