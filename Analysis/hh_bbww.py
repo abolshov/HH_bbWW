@@ -940,6 +940,32 @@ def defineTopVariables(df):
     df = df.Define("hadT_mass", "return hadT_p4.M();")
     df = df.Define("lepT_pos_mass", "return lepT_pos_p4.M();")
     df = df.Define("lepT_neg_mass", "return lepT_neg_p4.M();")
+
+    df = df.Define("hadT_pt", "return hadT_p4.Pt();")
+    df = df.Define("lepT_pos_pt", "return lepT_pos_p4.Pt();")
+    df = df.Define("lepT_neg_pt", "return lepT_neg_p4.Pt();")
+
+    df = df.Define(
+        "hadT_constituentPtFrac", 
+        """
+            if (tops[0].empty())
+                return 0.0f;
+            float sum_pt = 0.0f;
+            for (auto const& p: tops[0])
+                sum_pt += p.Pt();
+            return hadT_p4.Pt()/sum_pt;
+        """
+    )
+
+    df = df.Define(
+        "lepT_pos_constituentPtFrac", 
+        "return tops[1].empty() ? 0.0f : lepT_pos_p4.Pt()/(tops[1][0].Pt() + PuppiMET_pt + lep1_pt);"
+    )
+    df = df.Define(
+        "lepT_neg_constituentPtFrac", 
+        "return tops[2].empty() ? 0.0f : lepT_neg_p4.Pt()/(tops[2][0].Pt() + PuppiMET_pt + lep1_pt);"
+    )
+
     return df
 
 def defineFeatureValidityFlags(df):
@@ -950,6 +976,15 @@ def defineFeatureValidityFlags(df):
     df = df.Define("hadT_mass_valid", "return static_cast<int>(hadT_p4.M() > 0.0f);")
     df = df.Define("lepT_pos_mass_valid", "return static_cast<int>(lepT_pos_p4.M() > 0.0f);")
     df = df.Define("lepT_neg_mass_valid", "return static_cast<int>(lepT_neg_p4.M() > 0.0f);")
+
+    df = df.Define("hadT_pt_valid", "return static_cast<int>(hadT_p4.Pt() > 0.0f);")
+    df = df.Define("lepT_pos_pt_valid", "return static_cast<int>(lepT_pos_p4.Pt() > 0.0f);")
+    df = df.Define("lepT_neg_pt_valid", "return static_cast<int>(lepT_neg_p4.Pt() > 0.0f);")
+
+    f = df.Define("lepT_pos_leptonicPtFrac_valid", "return static_cast<int>(lepT_pos_leptonicPtFrac > 0.0f);")
+    df = df.Define("lepT_pos_leptonicPtFrac_valid", "return static_cast<int>(lepT_pos_leptonicPtFrac > 0.0f);")
+    df = df.Define("lepT_neg_leptonicPtFrac_valid", "return static_cast<int>(lepT_neg_leptonicPtFrac > 0.0f);")
+
     return df
 
 def PrepareDfForHistograms(dfForHistograms, isData):
