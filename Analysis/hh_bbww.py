@@ -981,9 +981,9 @@ def defineFeatureValidityFlags(df):
     df = df.Define("lepT_pos_pt_valid", "return static_cast<int>(lepT_pos_p4.Pt() > 0.0f);")
     df = df.Define("lepT_neg_pt_valid", "return static_cast<int>(lepT_neg_p4.Pt() > 0.0f);")
 
-    f = df.Define("lepT_pos_leptonicPtFrac_valid", "return static_cast<int>(lepT_pos_leptonicPtFrac > 0.0f);")
-    df = df.Define("lepT_pos_leptonicPtFrac_valid", "return static_cast<int>(lepT_pos_leptonicPtFrac > 0.0f);")
-    df = df.Define("lepT_neg_leptonicPtFrac_valid", "return static_cast<int>(lepT_neg_leptonicPtFrac > 0.0f);")
+    f = df.Define("hadT_constituentPtFrac_valid", "return static_cast<int>(hadT_constituentPtFrac > 0.0f);")
+    df = df.Define("lepT_pos_constituentPtFrac_valid", "return static_cast<int>(lepT_pos_leptonicPtFrac > 0.0f);")
+    df = df.Define("lepT_neg_constituentPtFrac_valid", "return static_cast<int>(lepT_neg_leptonicPtFrac > 0.0f);")
 
     return df
 
