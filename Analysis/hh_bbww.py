@@ -430,11 +430,11 @@ def AddDNNVariables(df):
     df = df.Define("mT_fix", "sqrt(2.0 * pT_fix * PuppiMET_pt * (1.0 - cos(dphi_fix)))")
 
     # single lepton features
-    df = df.Define("hadW_ledbjet_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, leadbjet_p4);")
-    df = df.Define("hadW_ledbjet_deta", "return hadW_p4.Eta() - leadbjet_p4.Eta();")
-    df = df.Define("hadW_ledbjet_dR", "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, leadbjet_p4);")
+    df = df.Define("hadW_leadbjet_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, leadbjet_p4);")
+    df = df.Define("hadW_leadbjet_deta", "return hadW_p4.Eta() - leadbjet_p4.Eta();")
+    df = df.Define("hadW_leadbjet_dR", "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, leadbjet_p4);")
     df = df.Define("hadW_mass", "return hadW_p4.M();")
-    df = df.Define("bb_phi", "return ROOT::Math::VectorUtil::DeltaPhi(bjet1_p4, bjet2_p4);")
+    df = df.Define("bb_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(bjet1_p4, bjet2_p4);")
     df = df.Define("bb_deta", "return bjet1_p4.Eta() - bjet2_p4.Eta();")
     df = df.Define(
         "bb_pt", 
@@ -836,7 +836,7 @@ def defineTopCandP4(df):
             float lep_pt = lep1_p4.Pt();
             float lep_E = lep1_p4.E();
             float lep_pz = lep1_p4.Pz();
-            if (disc_top_sqr >= 0)
+            if (disc_top_sqr > 0)
                 return lambda_top*lep_pz/(lep_pt*lep_pt) + std::sqrt(disc_top_sqr);
             else
                 return lambda_top*lep_pz/(lep_pt*lep_pt);
@@ -848,7 +848,7 @@ def defineTopCandP4(df):
             float lep_pt = lep1_p4.Pt();
             float lep_E = lep1_p4.E();
             float lep_pz = lep1_p4.Pz();
-            if (disc_top_sqr >= 0)
+            if (disc_top_sqr > 0)
                 return lambda_top*lep_pz/(lep_pt*lep_pt) - std::sqrt(disc_top_sqr);
             else
                 return lambda_top*lep_pz/(lep_pt*lep_pt);
@@ -1114,21 +1114,21 @@ def defineTopVariables(df):
     df = df.Define(
         "lepT_mT",
         f"""
-            VectorXY nu_t;
+            VectorXY<float> nu_t;
             LorentzVectorM bjet_p4;
             if (top_solution_tag)
             {{
-                nu_t = VectorXY(nuFromT_pos_p4.Px(), nuFromT_pos_p4.Py());
+                nu_t = VectorXY<float>(nuFromT_pos_p4.Px(), nuFromT_pos_p4.Py());
                 bjet_p4 = tops[1].empty() ? LorentzVectorM() : tops[1][0];
             }}
             else
             {{
-                nu_t = VectorXY(nuFromT_neg_p4.Px(), nuFromT_neg_p4.Py());
+                nu_t = VectorXY<float>(nuFromT_neg_p4.Px(), nuFromT_neg_p4.Py());
                 bjet_p4 = tops[2].empty() ? LorentzVectorM() : tops[2][0];
             }}
-            VectorXY lep1_t = VectorXY(lep1_p4.Px(), lep1_p4.Py());
-            VectorXY bjet_t = VectorXY(bjet_p4.Px(), bjet_p4.Py());
-            VectorXY total_transverse_momentum = nu_t + lep1_t + bjet_t;
+            VectorXY<float> lep1_t = VectorXY<float>(lep1_p4.Px(), lep1_p4.Py());
+            VectorXY<float> bjet_t = VectorXY<float>(bjet_p4.Px(), bjet_p4.Py());
+            VectorXY<float> total_transverse_momentum = nu_t + lep1_t + bjet_t;
 
             float total_transverse_energy = std::sqrt(nu_t.Mag2())
                                           + std::sqrt(lep1_t.Mag2() + lep1_p4.M())
@@ -1146,9 +1146,9 @@ def defineTopVariables(df):
     df = df.Define("hadW_lepWfromT_deta", "return lepWfromT_p4.Eta() - hadW_p4.Eta();")
     df = df.Define("hadW_lepWfromT_dR", "return ROOT::Math::VectorUtil::DeltaR(lepWfromT_p4, hadW_p4);")
 
-    df = df.Define("Hbb_lepWfromT_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromT_p4, Hbb_p4);")
-    df = df.Define("Hbb_lepWfromT_deta", "return lepWfromT_p4.Eta() - Hbb_p4.Eta();")
-    df = df.Define("Hbb_lepWfromT_dR", "return ROOT::Math::VectorUtil::DeltaR(lepWfromT_p4, Hbb_p4);")
+    # df = df.Define("Hbb_lepWfromT_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromT_p4, Hbb_p4);")
+    # df = df.Define("Hbb_lepWfromT_deta", "return lepWfromT_p4.Eta() - Hbb_p4.Eta();")
+    # df = df.Define("Hbb_lepWfromT_dR", "return ROOT::Math::VectorUtil::DeltaR(lepWfromT_p4, Hbb_p4);")
 
     df = df.Define("bjet_lepWfromT_minDphi",
         """
@@ -1203,7 +1203,7 @@ def defineFeatureValidityFlags(df):
 
     df = df.Define("hadW_mass_valid", "return static_cast<int>(hadW_mass > 0.0f);")
 
-    df = df.Define("bb_phi_valid", "return static_cast<int>(bjet1_isValid && bjet2_isValid);")
+    df = df.Define("bb_dphi_valid", "return static_cast<int>(bjet1_isValid && bjet2_isValid);")
     df = df.Define("bb_deta_valid", "return static_cast<int>(bjet1_isValid && bjet2_isValid);")
     df = df.Define("bb_pt_valid", "return static_cast<int>(HbbCand_isValid);")
 
@@ -1218,9 +1218,9 @@ def defineFeatureValidityFlags(df):
     df = df.Define("hadW_lepWfromH_deta_valid", "return static_cast<int>(WhadCand_isValid);")
     df = df.Define("hadW_lepWfromH_dR_valid", "return static_cast<int>(WhadCand_isValid);")
 
-    df = df.Define("Hbb_lepWfromT_dphi_valid", "return static_cast<int>(HbbCand_isValid);")
-    df = df.Define("Hbb_lepWfromT_deta_valid", "return static_cast<int>(HbbCand_isValid);")
-    df = df.Define("Hbb_lepWfromT_dR_valid", "return static_cast<int>(HbbCand_isValid);")
+    # df = df.Define("Hbb_lepWfromT_dphi_valid", "return static_cast<int>(HbbCand_isValid);")
+    # df = df.Define("Hbb_lepWfromT_deta_valid", "return static_cast<int>(HbbCand_isValid);")
+    # df = df.Define("Hbb_lepWfromT_dR_valid", "return static_cast<int>(HbbCand_isValid);")
     df = df.Define("Hbb_lepWfromH_dphi_valid", "return static_cast<int>(HbbCand_isValid);")
     df = df.Define("Hbb_lepWfromH_deta_valid", "return static_cast<int>(HbbCand_isValid);")
     df = df.Define("Hbb_lepWfromH_dR_valid", "return static_cast<int>(HbbCand_isValid);")
@@ -1257,7 +1257,7 @@ def defineLepWCandP4(df):
 
     df = df.Define("nuFromH_pz_poz",
         """
-            if (disc_higgs_sqr >= 0)
+            if (disc_higgs_sqr > 0)
                 return -b/(2*a) + std::sqrt(disc_higgs_sqr)/(2*a);
             else
                 return -b/(2*a);
@@ -1266,7 +1266,7 @@ def defineLepWCandP4(df):
 
     df = df.Define("nuFromH_pz_neg",
         """
-            if (disc_higgs_sqr >= 0)
+            if (disc_higgs_sqr > 0)
                 return -b/(2*a) - std::sqrt(disc_higgs_sqr)/(2*a);
             else
                 return -b/(2*a);
