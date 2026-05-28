@@ -521,6 +521,22 @@ def AddDNNVariables(df):
         """
     )
 
+    df = df.Define("fatbjet_2prong", 
+        """
+            if (fatbjet_isValid)
+                return fatbjet_tau1 > 0.0 ? fatbjet_tau2/fatbjet_tau1 : -1.0;
+            return -1.0;
+        """
+    )
+
+    df = df.Define("fatbjet_3prong", 
+        """
+            if (fatbjet_isValid)
+                return fatbjet_tau2 > 0.0 ? fatbjet_tau3/fatbjet_tau2 : -1.0;
+            return -1.0;
+        """
+    )
+
     return df
 
 
@@ -1234,6 +1250,9 @@ def defineFeatureValidityFlags(df):
     df = df.Define("WW_pt_valid", "return static_cast<int>(WhadCand_isValid);")
     df = df.Define("WW_ptToE_valid", "return static_cast<int>(WhadCand_isValid);")
     df = df.Define("bb_ptToE_valid", "return static_cast<int>(bb_ptToE > 0.0f);")
+
+    df = df.Define("fatbjet_2prong_valid", "return static_cast<int>(fatbjet_isValid && fatbjet_tau1 > 0.0)")
+    df = df.Define("fatbjet_3prong_valid", "return static_cast<int>(fatbjet_isValid && fatbjet_tau2 > 0.0)")
 
     return df
 
