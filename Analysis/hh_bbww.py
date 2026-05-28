@@ -1199,6 +1199,7 @@ def defineFeatureValidityFlags(df):
     """
         Function computing computing masks indicating in which event certain 
         high-level features are valid. Requires features to be already defined.
+        Is needed for proper feature normalization.
     """
     df = df.Define("hadT_mass_valid", "return static_cast<int>(hadT_p4.M() > 0.0f);")
     df = df.Define("lepT_mass_valid", "return static_cast<int>(lepT_p4.M() > 0.0f);")
@@ -1330,7 +1331,8 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineCategories()
     dfForHistograms.df = defineTopCandP4(dfForHistograms.df)
     dfForHistograms.df = defineTopVariables(dfForHistograms.df)
-    dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
+    # I comment this out now to save computation time
+    # dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df) 
     dfForHistograms.addDYReweighting()
     dfForHistograms.calculateMT()
     dfForHistograms.defineCutFlow()
