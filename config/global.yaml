@@ -502,6 +502,49 @@ histTuple_flavors:
       - DoubleLep_DeepHME_mass
       - DoubleLep_DeepHME_mass_error
 
+      - disc_higgs_sqr
+      - disc_top_sqr
+      - hadT_mass
+      - lepT_mass
+      - WW_ptToE
+      - bb_ptToE
+      - hadT_pt
+      - lepT_pt
+      - hadT_constituentPtFrac
+      - lepT_constituentPtFrac
+      - TT_mass
+      - lepT_mT
+      - hadT_hadW_dphi
+      - hadT_hadW_deta
+      - hadT_hadW_dR
+      - hadW_leadbjet_dphi
+      - hadW_leadbjet_deta
+      - hadW_leadbjet_dR
+      - hadW_mass
+      - bb_dphi
+      - bb_deta
+      - bb_pt
+      - bb_mass
+      - hadW_lep_dphi
+      - hadW_lep_deta
+      - hadW_lep_dR
+      - hadW_lepWfromT_dphi
+      - hadW_lepWfromT_deta
+      - hadW_lepWfromT_dR
+      - hadW_lepWfromH_dphi
+      - hadW_lepWfromH_deta
+      - hadW_lepWfromH_dR
+      - Hbb_lepWfromH_dphi
+      - Hbb_lepWfromH_deta
+      - Hbb_lepWfromH_dR
+      - bjet_lep_minDr
+      - bjet_lep_minDphi
+      - bjet_lepWfromT_minDphi
+      - bjet_lepWfromH_minDphi
+      - WW_pt
+      - fatbjet_2prong
+      - fatbjet_3prong
+
       - event
 
     variables:
@@ -574,6 +617,45 @@ variables:
   # High Level Single Lepton
   - SingleLep_DeepHME_mass
   - SingleLep_DeepHME_mass_error
+  - disc_higgs_sqr
+  - disc_top_sqr
+  - hadT_mass
+  - lepT_mass
+  - WW_ptToE
+  - bb_ptToE
+  - hadT_pt
+  - lepT_pt
+  - hadT_constituentPtFrac
+  - lepT_constituentPtFrac
+  - TT_mass
+  - lepT_mT
+  - hadT_hadW_dphi
+  - hadT_hadW_deta
+  - hadT_hadW_dR
+  - hadW_leadbjet_dphi
+  - hadW_leadbjet_deta
+  - hadW_leadbjet_dR
+  - hadW_mass
+  - bb_dphi
+  - bb_deta
+  - bb_pt
+  - hadW_lep_dphi
+  - hadW_lep_deta
+  - hadW_lep_dR
+  - hadW_lepWfromT_dphi
+  - hadW_lepWfromT_deta
+  - hadW_lepWfromT_dR
+  - hadW_lepWfromH_dphi
+  - hadW_lepWfromH_deta
+  - hadW_lepWfromH_dR
+  - Hbb_lepWfromH_dphi
+  - Hbb_lepWfromH_deta
+  - Hbb_lepWfromH_dR
+  - bjet_lep_minDr
+  - bjet_lep_minDphi
+  - bjet_lepWfromT_minDphi
+  - bjet_lepWfromH_minDphi
+  - WW_pt
 
   # High Level Double Lepton
   - DoubleLep_DeepHME_mass
