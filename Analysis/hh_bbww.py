@@ -450,6 +450,14 @@ def AddDNNVariables(df):
     df = df.Define("hadW_lep_dR", "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, lep1_p4);")
     df = df.Define("hadW_lep_deta", "hadW_p4.Eta() - lep1_p4.Eta();")
 
+    df = df.Define("hadW_lepWfromH_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, lepWfromH_p4);")
+    df = df.Define("hadW_lepWfromH_deta", "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, lepWfromH_p4);")
+    df = df.Define("hadW_lepWfromH_dR", "hadW_p4.Eta() - lepWfromH_p4.Eta();")
+
+    df = df.Define("Hbb_lepWfromH_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, Hbb_p4);")
+    df = df.Define("Hbb_lepWfromH_deta", "return lepWfromH_p4.Eta() - Hbb_p4.Eta();")
+    df = df.Define("Hbb_lepWfromH_dR", "return ROOT::Math::VectorUtil::DeltaR(lepWfromH_p4, Hbb_p4);")
+
     return df
 
 
@@ -709,6 +717,19 @@ def defineJetSelections(df, isData):
                 return fatwjet_p4;
             else if (bjet1_isValid && bjet2_isValid)
                 return bjet1_p4.Pt() > bjet2_p4.Pt() ? bjet1_p4 : bjet2_p4;
+            else
+                return LorentzVectorM();
+        """
+    )
+
+    # define p4 of H->bb candidate
+    df = df.Define(
+        "Hbb_p4",
+        """
+            if (fatbjet_isValid)
+                return fatwjet_p4;
+            else if (bjet1_isValid && bjet2_isValid)
+                return bjet1_p4 + bjet2_p4;
             else
                 return LorentzVectorM();
         """
@@ -988,6 +1009,7 @@ def defineTopCandP4(df):
     )
 
     df = df.Define("lepT_p4", "return top_solution_tag ? lepT_pos_p4 : lepT_neg_p4;")
+    df = df.Define("lepWfromT_p4", "return top_solution_tag ? lepWFromT_pos_p4 : lepWFromT_neg_p4;")
 
     return df
 
@@ -1050,6 +1072,14 @@ def defineTopVariables(df):
     df = df.Define("hadT_hadW_deta", "return hadT_p4.Eta() - hadW_p4.Eta();")
     df = df.Define("hadT_hadW_dR", "return ROOT::Math::VectorUtil::DeltaR(hadT_p4, hadW_p4);")
 
+    df = df.Define("hadW_lepWfromT_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromT_p4, hadW_p4);")
+    df = df.Define("hadW_lepWfromT_deta", "return lepWfromT.Eta() - hadW_p4.Eta();")
+    df = df.Define("hadW_lepWfromT_dR", "return ROOT::Math::VectorUtil::DeltaR(lepWfromT_p4, hadW_p4);")
+
+    df = df.Define("Hbb_lepWfromT_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromT_p4, Hbb_p4);")
+    df = df.Define("Hbb_lepWfromT_deta", "return lepWfromT.Eta() - Hbb_p4.Eta();")
+    df = df.Define("Hbb_lepWfromT_dR", "return ROOT::Math::VectorUtil::DeltaR(lepWfromT_p4, Hbb_p4);")
+
     return df
 
 def defineFeatureValidityFlags(df):
@@ -1084,12 +1114,87 @@ def defineFeatureValidityFlags(df):
     df = df.Define("hadW_lep_dR_valid", "return static_cast<int>(WhadCand_isValid);")
     df = df.Define("hadW_lep_deta_valid", "return static_cast<int>(WhadCand_isValid);")
 
+    df = df.Define("hadW_lepWfromT_dphi_valid", "return static_cast<int>(WhadCand_isValid);")
+    df = df.Define("hadW_lepWfromT_deta_valid", "return static_cast<int>(WhadCand_isValid);")
+    df = df.Define("hadW_lepWfromT_dR_valid", "return static_cast<int>(WhadCand_isValid);")
+    df = df.Define("hadW_lepWfromH_dphi_valid", "return static_cast<int>(WhadCand_isValid);")
+    df = df.Define("hadW_lepWfromH_deta_valid", "return static_cast<int>(WhadCand_isValid);")
+    df = df.Define("hadW_lepWfromH_dR_valid", "return static_cast<int>(WhadCand_isValid);")
+
+    df = df.Define("Hbb_lepWfromT_dphi_valid", "return static_cast<int>(HbbCand_isValid);")
+    df = df.Define("Hbb_lepWfromT_deta_valid", "return static_cast<int>(HbbCand_isValid);")
+    df = df.Define("Hbb_lepWfromT_dR_valid", "return static_cast<int>(HbbCand_isValid);")
+    df = df.Define("Hbb_lepWfromH_dphi_valid", "return static_cast<int>(HbbCand_isValid);")
+    df = df.Define("Hbb_lepWfromH_deta_valid", "return static_cast<int>(HbbCand_isValid);")
+    df = df.Define("Hbb_lepWfromH_dR_valid", "return static_cast<int>(HbbCand_isValid);")
+
+    return df
+
+def defineLepWCandP4(df):
+    "Function computing p4 of leptonic W from H->WW decay assuming higgs mass constraint"
+
+    df = df.Define("mWhadLep_p4", "return hadW_p4 + lep1_p4;")
+
+    df = df.Define("lambda_higgs", 
+        """
+            float mh = 125.0f;
+            float mWhadLep = mWhadLep_p4.M();
+            float lambda_higgs = (mh*mh - mWhadLep*mWhadLep)/2 + PuppiMET_p4.Px()*mWhadLep_p4.px() + PuppiMET_p4.Py()*mWhadLep_p4.Py();
+            return lambda_higgs;
+        """
+    )
+    df = df.Define("a", "return mWhadLep_p4.Pz()*mWhadLep_p4.Pz() - mWhadLep_p4.E()*mWhadLep_p4.E();")
+    df = df.Define("b", "return 2*lambda_higgs*mWhadLep_p4.Pz();")
+    df = df.Define("c", "return lambda_higgs*lambda_higgs - mWhadLep_p4.E()*mWhadLep_p4.E()*PuppiMET_pt*PuppiMET_pt;")
+    df = df.Define("disc_higgs_sqr", "return b*b - 4*a*c;")
+
+    df = df.Define("nuFromH_pz_poz",
+        """
+            if (disc_higgs_sqr >= 0)
+                return -b/(2*a) + std::sqrt(disc_top_sqr)/(2*a);
+            else
+                return -b/(2*a);
+        """
+    )
+
+    df = df.Define("nuFromH_pz_neg",
+        """
+            if (disc_higgs_sqr >= 0)
+                return -b/(2*a) - std::sqrt(disc_top_sqr)/(2*a);
+            else
+                return -b/(2*a);
+        """
+    )
+
+    df = df.Define("nuFromH_E_pos", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nuFromH_pz_poz*nuFromH_pz_poz);")
+    df = df.Define("nuFromH_E_neg", "return std::sqrt(PuppiMET_pt*PuppiMET_pt + nuFromH_pz_neg*nuFromH_pz_neg)")
+
+    df = df.Define("nuFromH_pos_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nuFromH_pz_poz, nuFromH_E_pos);")
+    df = df.Define("nuFromH_neg_p4", "return LorentzVectorXYZ(PuppiMET_p4.Px(), PuppiMET_p4.Py(), nuFromH_pz_neg, nuFromH_E_neg);")
+
+    df = df.Define("lepWFromH_pos_p4", "return lep1_p4 + nuFromH_pos_p4;")
+    df = df.Define("lepWFromH_neg_p4", "return lep1_p4 + nuFromH_neg_p4;")
+
+    df = df.Define("Hww_pos_p4", "return lepWFromH_pos_p4 + hadW_p4;")
+    df = df.Define("Hww_neg_p4", "return lepWFromH_neg_p4 + hadW_p4;")
+
+    df = df.Define("higgs_solution_tag", 
+        """
+            float dphi_pos = std::abs(ROOT::Math::VectorUtil::DeltaPhi(Hbb_p4, Hww_pos_p4));
+            float dphi_neg = std::abs(ROOT::Math::VectorUtil::DeltaPhi(Hbb_p4, Hww_neg_p4));
+            return dphi_pos > dphi_neg;
+        """
+    )
+
+    df = df.Define("lepWfromH_p4", "return higgs_solution_tag ? lepWFromH_pos_p4 : lepWFromH_neg_p4;")
+
     return df
 
 def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineLeptonChannel()
     dfForHistograms.df = defineAllP4(dfForHistograms.df)
     dfForHistograms.df = defineJetSelections(dfForHistograms.df, isData)
+    dfForHistograms.df = defineLepWCandP4(dfForHistograms.df)
     dfForHistograms.df = AddDNNVariables(dfForHistograms.df)
     dfForHistograms.defineTriggers()
     dfForHistograms.defineLeptonPreselection()
