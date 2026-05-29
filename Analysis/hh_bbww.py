@@ -943,7 +943,7 @@ def defineTopCandP4(df):
     df = df.Define(
         "tops",
         f"""
-            RvecV<LorentzVectorM> tops(3, RVecLV{{}});
+            RVecVec<LorentzVectorM> tops(3, RVecLV{{}});
             if ((resolved || res2b) && !DL)
             {{
                 float lep_bjet1_dr = ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4);
