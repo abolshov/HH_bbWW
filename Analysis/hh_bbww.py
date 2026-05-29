@@ -799,10 +799,10 @@ def defineJetSelections(df, isData):
         f"bb_mass",
         """ 
             if (fatbjet_isValid)
-                return fatbjet_p4.M();
+                return static_cast<float>(fatbjet_p4.M());
             else if (bjet1_isValid && bjet2_isValid)
-                return (bjet1_p4 + bjet2_p4).M();
-            return std::decay_t<decltype(BJet_mass)>::value_type();
+                return static_cast<float>((bjet1_p4 + bjet2_p4).M());
+            return static_cast<float>(std::decay_t<decltype(BJet_mass)>::value_type());
             """,
     )
     df = df.Define(
