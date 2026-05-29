@@ -797,7 +797,13 @@ def defineJetSelections(df, isData):
 
     df = df.Define(
         f"bb_mass",
-        "bjet1_isValid && bjet2_isValid ? (bjet1_p4+bjet2_p4).mass() : std::decay_t<decltype(BJet_mass)>::value_type()",
+        """ 
+            if (fatbjet_isValid)
+                return fatbjet_p4.M();
+            else if (bjet1_isValid && bjet2_isValid)
+                return (bjet1_p4 + bjet2_p4).M();
+            return std::decay_t<decltype(BJet_mass)>::value_type();
+            """,
     )
     df = df.Define(
         f"bb_mass_PNetRegPtRawCorr",
