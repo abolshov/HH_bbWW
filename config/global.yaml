@@ -391,6 +391,14 @@ histTuple_flavors:
       - fatbjet_tau3
       - fatbjet_tau4
 
+      - fatwjet_mass_PNetCorr
+      - fatwjet_msoftdrop
+      - fatwjet_nConstituents
+      - fatwjet_tau1
+      - fatwjet_tau2
+      - fatwjet_tau3
+      - fatwjet_tau4
+
       - PuppiMET_pt
       - PuppiMET_phi
 
@@ -465,6 +473,7 @@ histTuple_flavors:
       - fatbjet_3prong
 
       - event
+      - valid
 
     variables:
       - DeepHME_mass
@@ -558,6 +567,7 @@ variables:
   - bb_dphi
   - bb_deta
   - bb_pt
+  - bb_mass
   - hadW_lep_dphi
   - hadW_lep_deta
   - hadW_lep_dR
