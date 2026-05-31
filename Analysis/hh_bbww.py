@@ -897,9 +897,9 @@ def defineTopCandP4(df):
             float lep_E = lep1_p4.E();
             float lep_pz = lep1_p4.Pz();
             if (disc_top_sqr > 0)
-                return lambda_top*lep_pz/(lep_pt*lep_pt) + std::sqrt(disc_top_sqr);
+                return static_cast<float>(lambda_top*lep_pz/(lep_pt*lep_pt) + std::sqrt(disc_top_sqr));
             else
-                return lambda_top*lep_pz/(lep_pt*lep_pt);
+                return static_cast<float>(lambda_top*lep_pz/(lep_pt*lep_pt));
         """,
     )
 
@@ -910,9 +910,9 @@ def defineTopCandP4(df):
             float lep_E = lep1_p4.E();
             float lep_pz = lep1_p4.Pz();
             if (disc_top_sqr > 0)
-                return lambda_top*lep_pz/(lep_pt*lep_pt) - std::sqrt(disc_top_sqr);
+                return static_cast<float>(lambda_top*lep_pz/(lep_pt*lep_pt) - std::sqrt(disc_top_sqr));
             else
-                return lambda_top*lep_pz/(lep_pt*lep_pt);
+                return static_cast<float>(lambda_top*lep_pz/(lep_pt*lep_pt));
         """,
     )
 
@@ -1435,9 +1435,9 @@ def defineLepWCandP4(df):
             if (std::abs(a) < eps)
                 return (std::abs(b) > eps) ? static_cast<float>(-c/b) : 0.0f;
             if (disc_higgs_sqr > 0)
-                return -b/(2*a) + std::sqrt(disc_higgs_sqr)/(2*a);
+                return static_cast<float>(-b/(2*a) + std::sqrt(disc_higgs_sqr)/(2*a));
             else
-                return -b/(2*a);
+                return static_cast<float>(-b/(2*a));
         """,
     )
 
@@ -1448,9 +1448,9 @@ def defineLepWCandP4(df):
             if (std::abs(a) < eps)
                 return (std::abs(b) > eps) ? static_cast<float>(-c/b) : 0.0f;
             if (disc_higgs_sqr > 0)
-                return -b/(2*a) - std::sqrt(disc_higgs_sqr)/(2*a);
+                return static_cast<float>(-b/(2*a) - std::sqrt(disc_higgs_sqr)/(2*a));
             else
-                return -b/(2*a);
+                return static_cast<float>(-b/(2*a));
         """,
     )
 
