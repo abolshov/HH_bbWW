@@ -722,6 +722,11 @@ def defineJetSelections(df, isData):
             f"Take(SelectedFatJet_{var}[FatWJet_Sel], FatWJet_idxSorted)",
         )
 
+    df = df.Define(
+        f"fatwjet_mass_PNetCorr",
+        "fatbjet_isValid ? FatWJet_mass[0] * FatWJet_particleNet_massCorr[0] : std::decay_t<decltype(FatWJet_mass)>::value_type()",
+    )
+
     df = df.Define("Nfatwjets", "FatWJet_pt.size()")
     df = df.Define("fatwjet_isValid", "(Nfatwjets > 0) && !DL")
     df = df.Define(
