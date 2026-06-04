@@ -797,7 +797,7 @@ def defineJetSelections(df, isData):
 
     df = df.Define(
         f"fatwjet_mass_PNetCorr",
-        "fatbjet_isValid ? FatWJet_mass[0] * FatWJet_particleNet_massCorr[0] : std::decay_t<decltype(FatWJet_mass)>::value_type()",
+        "fatwjet_isValid ? FatWJet_mass[0] * FatWJet_particleNet_massCorr[0] : std::decay_t<decltype(FatWJet_mass)>::value_type()",
     )
 
     df = df.Define("Nfatwjets", "FatWJet_pt.size()")
