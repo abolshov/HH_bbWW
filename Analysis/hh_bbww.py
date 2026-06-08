@@ -186,6 +186,15 @@ class DataFrameBuilderForHistograms(DataFrameBuilderBase):
         self.DefineAndAppend(
             "boosted", "inclusive && (fatbjet_isValid || fatwjet_isValid)"
         )
+        self.DefineAndAppend(
+            "boosted_H", "inclusive && (fatbjet_isValid && !fatwjet_isValid)"
+        )
+        self.DefineAndAppend(
+            "boosted_W", "inclusive && (!fatbjet_isValid && fatwjet_isValid)"
+        )
+        self.DefineAndAppend(
+            "boosted_HW", "inclusive && (fatbjet_isValid && fatwjet_isValid)"
+        )
         self.DefineAndAppend("resolved", "inclusive && !boosted")
         self.DefineAndAppend("res2b", "resolved && bjet1_isBTagged && bjet2_isBTagged")
         self.DefineAndAppend("recovery", "resolved && !res2b && bjet1_isBTagged")
@@ -388,14 +397,8 @@ def defineAllP4(df):
     return df
 
 
-def AddDNNVariables(df, isData=False):
-    df = df.Define("HT", f"Sum(centralJet_pt)")
-
+def AddDNNVariablesDL(df, isData=False):
     df = df.Define("dR_dilep", f"ROOT::Math::VectorUtil::DeltaR(lep1_p4, lep2_p4)")
-    df = df.Define(
-        "dR_dibjet",
-        f"ROOT::Math::VectorUtil::DeltaR(bjet1_p4, bjet2_p4)",
-    )
     df = df.Define(
         "dR_dilep_dibjet",
         f"ROOT::Math::VectorUtil::DeltaR((lep1_p4+lep2_p4), (bjet1_p4+bjet2_p4))",
@@ -408,24 +411,10 @@ def AddDNNVariables(df, isData=False):
         "dPhi_lep1_lep2", f"ROOT::Math::VectorUtil::DeltaPhi(lep1_p4,lep2_p4)"
     )
     df = df.Define(
-        "dPhi_jet1_jet2",
-        f"ROOT::Math::VectorUtil::DeltaPhi(bjet1_p4,bjet2_p4)",
-    )
-    df = df.Define(
         "dPhi_MET_dilep",
         f"ROOT::Math::VectorUtil::DeltaPhi(PuppiMET_p4,(lep1_p4+lep2_p4))",
     )
-    df = df.Define(
-        "dPhi_MET_dibjet",
-        f"ROOT::Math::VectorUtil::DeltaPhi(PuppiMET_p4,(bjet1_p4+bjet2_p4))",
-    )
-    df = df.Define("min_dR_lep0_jets", f"MinDeltaR(lep1_p4, centralJet_p4)")
-    df = df.Define("min_dR_lep1_jets", f"MinDeltaR(lep2_p4, centralJet_p4)")
 
-    df = df.Define(
-        "MT",
-        f"(lep1_legType > 0 && lep2_legType > 0) ? Calculate_TotalMT(lep1_p4, lep2_p4, PuppiMET_p4) : -100.",
-    )
     df = df.Define(
         "MT2",
         f"(lep1_legType > 0 && lep2_legType > 0) ? float(analysis::Calculate_MT2(lep1_p4, lep2_p4, bjet1_p4, bjet2_p4, PuppiMET_p4)) : -100.",
@@ -458,6 +447,7 @@ def AddDNNVariables(df, isData=False):
         f"(centralJet_pt.size() > 1) ? analysis::Calculate_CosDTheta(bjet1_p4, bjet2_p4) : -100.",
     )
 
+    # repeated variables
     df = df.Define("diLep_p4", "(lep1_p4+lep2_p4)")
     df = df.Define(
         f"ll_mass",
@@ -502,147 +492,6 @@ def AddDNNVariables(df, isData=False):
     # fixed transverse mass
     df = df.Define("mT_fix", "sqrt(2.0 * pT_fix * PuppiMET_pt * (1.0 - cos(dphi_fix)))")
 
-    # single lepton features
-    df = df.Define(
-        "hadW_leadbjet_dphi",
-        "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, leadbjet_p4);",
-    )
-    df = df.Define("hadW_leadbjet_deta", "return hadW_p4.Eta() - leadbjet_p4.Eta();")
-    df = df.Define(
-        "hadW_leadbjet_dR",
-        "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, leadbjet_p4);",
-    )
-    df = df.Define("hadW_mass", "return hadW_p4.M();")
-    df = df.Define(
-        "bb_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(bjet1_p4, bjet2_p4);"
-    )
-    df = df.Define("bb_deta", "return bjet1_p4.Eta() - bjet2_p4.Eta();")
-    df = df.Define(
-        "bb_pt",
-        """
-            if (fatbjet_isValid)
-                return static_cast<float>(fatbjet_p4.Pt());
-            else if (bjet1_isValid && bjet2_isValid)
-                return static_cast<float>((bjet1_p4 + bjet2_p4).Pt());
-            return 0.0f;
-        """,
-    )
-    df = df.Define(
-        "hadW_lep_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, lep1_p4);"
-    )
-    df = df.Define(
-        "hadW_lep_dR", "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, lep1_p4);"
-    )
-    df = df.Define("hadW_lep_deta", "return hadW_p4.Eta() - lep1_p4.Eta();")
-
-    df = df.Define(
-        "hadW_lepWfromH_dphi",
-        "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, lepWfromH_p4);",
-    )
-    df = df.Define(
-        "hadW_lepWfromH_dR",
-        "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, lepWfromH_p4);",
-    )
-    df = df.Define("hadW_lepWfromH_deta", "hadW_p4.Eta() - lepWfromH_p4.Eta();")
-
-    df = df.Define(
-        "Hbb_lepWfromH_dphi",
-        "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, Hbb_p4);",
-    )
-    df = df.Define("Hbb_lepWfromH_deta", "return lepWfromH_p4.Eta() - Hbb_p4.Eta();")
-    df = df.Define(
-        "Hbb_lepWfromH_dR",
-        "return ROOT::Math::VectorUtil::DeltaR(lepWfromH_p4, Hbb_p4);",
-    )
-
-    df = df.Define(
-        "bjet_lep_minDr",
-        """
-            RVecF drs;
-            if (fatbjet_isValid)
-                drs.push_back(ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4));
-            if (bjet1_isValid)
-                drs.push_back(ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4));
-            if (bjet2_isValid)
-                drs.push_back(ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4));
-
-            auto it = std::min_element(drs.begin(), drs.end());
-            if (it != drs.end())
-                return static_cast<float>(*it);
-            return -1.0f;
-        """,
-    )
-
-    df = df.Define(
-        "bjet_lep_minDphi",
-        """
-            RVecF dphis;
-            if (fatbjet_isValid)
-                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lep1_p4, fatbjet_p4));
-            if (bjet1_isValid)
-                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lep1_p4, bjet1_p4));
-            if (bjet2_isValid)
-                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lep1_p4, bjet2_p4));
-
-            auto it = std::min_element(dphis.begin(), dphis.end());
-            if (it != dphis.end())
-                return static_cast<float>(*it);
-            return 5.0f;
-        """,
-    )
-
-    df = df.Define(
-        "bjet_lepWfromH_minDphi",
-        """
-            RVecF dphis;
-            if (fatbjet_isValid)
-                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, fatbjet_p4));
-            if (bjet1_isValid)
-                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, bjet1_p4));
-            if (bjet2_isValid)
-                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, bjet2_p4));
-
-            auto it = std::min_element(dphis.begin(), dphis.end());
-            if (it != dphis.end())
-                return static_cast<float>(*it);
-            return 5.0f;
-        """,
-    )
-
-    df = df.Define("WW_pt", "return static_cast<float>(Hww_p4.Pt());")
-    df = df.Define(
-        "WW_ptToE",
-        "return static_cast<float>(Hww_p4.E() > 0.0 ? WW_pt/Hww_p4.E() : -1.0f);",
-    )
-    df = df.Define(
-        "bb_ptToE",
-        """
-            if (fatbjet_isValid)
-                return static_cast<float>(bb_pt/fatbjet_p4.E());
-            else if (bjet1_isValid && bjet2_isValid)
-                return static_cast<float>(bb_pt/(bjet1_p4 + bjet2_p4).E());
-            return -1.0f;
-        """,
-    )
-
-    df = df.Define(
-        "fatbjet_2prong",
-        """
-            if (fatbjet_isValid)
-                return fatbjet_tau1 > 0.0 ? fatbjet_tau2/fatbjet_tau1 : -1.0;
-            return -1.0;
-        """,
-    )
-
-    df = df.Define(
-        "fatbjet_3prong",
-        """
-            if (fatbjet_isValid)
-                return fatbjet_tau2 > 0.0 ? fatbjet_tau3/fatbjet_tau2 : -1.0;
-            return -1.0;
-        """,
-    )
-
     df = df.Define("nExtraLeps", "nExtraMuon + nExtraElectron")
 
     df = df.Define(
@@ -685,6 +534,8 @@ def defineJetSelections(df, isData):
         "eta",
         "mass",
         "particleNetWithMass_HbbvsQCD",
+        "FatJet_particleNet_XqqVsQCD",
+        "FatJet_particleNetWithMass_WvsQCD",
         "particleNet_massCorr",
         "msoftdrop",
         "nConstituents",
@@ -1590,21 +1441,195 @@ def defineLepWCandP4(df):
 
     return df
 
+def AddDNNVariablesSL(dfForHistograms.df, isData=False):
+    # single lepton features
+    df = df.Define(
+        "hadW_leadbjet_dphi",
+        "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, leadbjet_p4);",
+    )
+    df = df.Define("hadW_leadbjet_deta", "return hadW_p4.Eta() - leadbjet_p4.Eta();")
+    df = df.Define(
+        "hadW_leadbjet_dR",
+        "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, leadbjet_p4);",
+    )
+    df = df.Define("hadW_mass", "return hadW_p4.M();")
+    df = df.Define(
+        "bb_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(bjet1_p4, bjet2_p4);"
+    )
+    df = df.Define("bb_deta", "return bjet1_p4.Eta() - bjet2_p4.Eta();")
+    df = df.Define(
+        "bb_pt",
+        """
+            if (fatbjet_isValid)
+                return static_cast<float>(fatbjet_p4.Pt());
+            else if (bjet1_isValid && bjet2_isValid)
+                return static_cast<float>((bjet1_p4 + bjet2_p4).Pt());
+            return 0.0f;
+        """,
+    )
+    df = df.Define(
+        "hadW_lep_dphi", "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, lep1_p4);"
+    )
+    df = df.Define(
+        "hadW_lep_dR", "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, lep1_p4);"
+    )
+    df = df.Define("hadW_lep_deta", "return hadW_p4.Eta() - lep1_p4.Eta();")
+
+    df = df.Define(
+        "hadW_lepWfromH_dphi",
+        "return ROOT::Math::VectorUtil::DeltaPhi(hadW_p4, lepWfromH_p4);",
+    )
+    df = df.Define(
+        "hadW_lepWfromH_dR",
+        "return ROOT::Math::VectorUtil::DeltaR(hadW_p4, lepWfromH_p4);",
+    )
+    df = df.Define("hadW_lepWfromH_deta", "hadW_p4.Eta() - lepWfromH_p4.Eta();")
+
+    df = df.Define(
+        "Hbb_lepWfromH_dphi",
+        "return ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, Hbb_p4);",
+    )
+    df = df.Define("Hbb_lepWfromH_deta", "return lepWfromH_p4.Eta() - Hbb_p4.Eta();")
+    df = df.Define(
+        "Hbb_lepWfromH_dR",
+        "return ROOT::Math::VectorUtil::DeltaR(lepWfromH_p4, Hbb_p4);",
+    )
+
+    df = df.Define(
+        "bjet_lep_minDr",
+        """
+            RVecF drs;
+            if (fatbjet_isValid)
+                drs.push_back(ROOT::Math::VectorUtil::DeltaR(lep1_p4, fatbjet_p4));
+            if (bjet1_isValid)
+                drs.push_back(ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet1_p4));
+            if (bjet2_isValid)
+                drs.push_back(ROOT::Math::VectorUtil::DeltaR(lep1_p4, bjet2_p4));
+
+            auto it = std::min_element(drs.begin(), drs.end());
+            if (it != drs.end())
+                return static_cast<float>(*it);
+            return -1.0f;
+        """,
+    )
+
+    df = df.Define(
+        "bjet_lep_minDphi",
+        """
+            RVecF dphis;
+            if (fatbjet_isValid)
+                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lep1_p4, fatbjet_p4));
+            if (bjet1_isValid)
+                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lep1_p4, bjet1_p4));
+            if (bjet2_isValid)
+                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lep1_p4, bjet2_p4));
+
+            auto it = std::min_element(dphis.begin(), dphis.end());
+            if (it != dphis.end())
+                return static_cast<float>(*it);
+            return 5.0f;
+        """,
+    )
+
+    df = df.Define(
+        "bjet_lepWfromH_minDphi",
+        """
+            RVecF dphis;
+            if (fatbjet_isValid)
+                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, fatbjet_p4));
+            if (bjet1_isValid)
+                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, bjet1_p4));
+            if (bjet2_isValid)
+                dphis.push_back(ROOT::Math::VectorUtil::DeltaPhi(lepWfromH_p4, bjet2_p4));
+
+            auto it = std::min_element(dphis.begin(), dphis.end());
+            if (it != dphis.end())
+                return static_cast<float>(*it);
+            return 5.0f;
+        """,
+    )
+
+    df = df.Define("WW_pt", "return static_cast<float>(Hww_p4.Pt());")
+    df = df.Define(
+        "WW_ptToE",
+        "return static_cast<float>(Hww_p4.E() > 0.0 ? WW_pt/Hww_p4.E() : -1.0f);",
+    )
+    df = df.Define(
+        "bb_ptToE",
+        """
+            if (fatbjet_isValid)
+                return static_cast<float>(bb_pt/fatbjet_p4.E());
+            else if (bjet1_isValid && bjet2_isValid)
+                return static_cast<float>(bb_pt/(bjet1_p4 + bjet2_p4).E());
+            return -1.0f;
+        """,
+    )
+
+    df = df.Define(
+        "fatbjet_2prong",
+        """
+            if (fatbjet_isValid)
+                return fatbjet_tau1 > 0.0 ? fatbjet_tau2/fatbjet_tau1 : -1.0;
+            return -1.0;
+        """,
+    )
+
+    df = df.Define(
+        "fatbjet_3prong",
+        """
+            if (fatbjet_isValid)
+                return fatbjet_tau2 > 0.0 ? fatbjet_tau3/fatbjet_tau2 : -1.0;
+            return -1.0;
+        """,
+    )
+
+def AddDNNVariablesCommon(df, isData=False):
+    df = df.Define("HT", f"Sum(centralJet_pt)")
+
+    df = df.Define(
+        "dR_dibjet",
+        f"ROOT::Math::VectorUtil::DeltaR(bjet1_p4, bjet2_p4)",
+    )
+
+    df = df.Define(
+        "dPhi_jet1_jet2",
+        f"ROOT::Math::VectorUtil::DeltaPhi(bjet1_p4,bjet2_p4)",
+    )
+
+    df = df.Define(
+        "dPhi_MET_dibjet",
+        f"ROOT::Math::VectorUtil::DeltaPhi(PuppiMET_p4,(bjet1_p4+bjet2_p4))",
+    )
+    df = df.Define("min_dR_lep0_jets", f"MinDeltaR(lep1_p4, centralJet_p4)")
+    df = df.Define("min_dR_lep1_jets", f"MinDeltaR(lep2_p4, centralJet_p4)")
+
+    df = df.Define(
+        "MT",
+        """
+            if (lep1_legType > 0 && lep2_legType > 0)
+                return static_cast<float>(Calculate_TotalMT(lep1_p4, lep2_p4, PuppiMET_p4));
+            else (lep1_legType > 0 && lep2_legType < 1)
+                return static_cast<float>(Calculate_MT(lep1_p4, PuppiMET_p4));
+            return -1.0f;
+        """,
+    )
 
 def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineLeptonChannel()
     dfForHistograms.df = defineAllP4(dfForHistograms.df)
     dfForHistograms.calculateMT()
     dfForHistograms.df = defineJetSelections(dfForHistograms.df, isData)
-    dfForHistograms.df = defineLepWCandP4(dfForHistograms.df)
-    dfForHistograms.df = AddDNNVariables(dfForHistograms.df, isData)
     dfForHistograms.defineTriggers()
     dfForHistograms.defineLeptonPreselection()
     dfForHistograms.defineQCDRegions()
     dfForHistograms.defineControlRegions()
     dfForHistograms.defineCategories()
+    dfForHistograms.df = AddDNNVariablesCommon(dfForHistograms.df, isData)
+    dfForHistograms.df = AddDNNVariablesDL(dfForHistograms.df, isData)
+    dfForHistograms.df = AddDNNVariablesSL(dfForHistograms.df, isData)
     dfForHistograms.df = defineTopCandP4(dfForHistograms.df)
     dfForHistograms.df = defineTopVariables(dfForHistograms.df)
+    dfForHistograms.df = defineLepWCandP4(dfForHistograms.df)
     # I comment this out now to save computation time
     # dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
