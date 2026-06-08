@@ -1441,7 +1441,8 @@ def defineLepWCandP4(df):
 
     return df
 
-def AddDNNVariablesSL(dfForHistograms.df, isData=False):
+
+def AddDNNVariablesSL(df, isData=False):
     # single lepton features
     df = df.Define(
         "hadW_leadbjet_dphi",
@@ -1583,6 +1584,7 @@ def AddDNNVariablesSL(dfForHistograms.df, isData=False):
         """,
     )
 
+
 def AddDNNVariablesCommon(df, isData=False):
     df = df.Define("HT", f"Sum(centralJet_pt)")
 
@@ -1613,6 +1615,7 @@ def AddDNNVariablesCommon(df, isData=False):
             return -1.0f;
         """,
     )
+
 
 def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineLeptonChannel()
