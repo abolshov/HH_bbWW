@@ -1627,7 +1627,7 @@ def addDeepHMERelErr(df):
     # calling without DeepHME will result in a crash
     df = df.Define(
         "DeepHME_mass_rel_error",
-        "static_cast<float>(DeepHME_mass > 0.0 ? DeepHME_mass_error/DeepHME_mass : -1.0f);",
+        "DeepHME_mass > 0.0 ? static_cast<float>(DeepHME_mass_error)/static_cast<float>(DeepHME_mass) : -1.0f;",
     )
     return df
 
@@ -1651,6 +1651,7 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     # I comment this out now to save computation time
     # dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
     # this is a placeholder, calling without DeepHME loaded will result in a crash
+    # also needs to be disabled for CI
     dfForHistograms.df = addDeepHMERelErr(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
     dfForHistograms.defineCutFlow()
