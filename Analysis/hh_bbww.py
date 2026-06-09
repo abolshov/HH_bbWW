@@ -184,17 +184,16 @@ class DataFrameBuilderForHistograms(DataFrameBuilderBase):
         )
         self.DefineAndAppend("inclusive", "HbbCand_isValid && (DL || WhadCand_isValid)")
         self.DefineAndAppend(
-            "boosted", "inclusive && (fatbjet_isValid || fatwjet_isValid)"
-        )
-        self.DefineAndAppend(
             "boosted_H", "inclusive && (fatbjet_isValid && !fatwjet_isValid)"
         )
         self.DefineAndAppend(
-            "boosted_W", "inclusive && (!fatbjet_isValid && fatwjet_isValid)"
+            "boosted_W",
+            "inclusive && (!fatbjet_isValid && fatwjet_isValid && (bjet1_isBTagged && bjet2_isBTagged))",
         )
         self.DefineAndAppend(
             "boosted_HW", "inclusive && (fatbjet_isValid && fatwjet_isValid)"
         )
+        self.DefineAndAppend("boosted", "boosted_H || boosted_W || boosted_HW")
         self.DefineAndAppend("resolved", "inclusive && !boosted")
         self.DefineAndAppend("res2b", "resolved && bjet1_isBTagged && bjet2_isBTagged")
         self.DefineAndAppend("recovery", "resolved && !res2b && bjet1_isBTagged")
@@ -615,16 +614,19 @@ def defineJetSelections(df, isData):
     )
 
     df = df.Define("Nfatjets", "SelectedFatJet_pt.size()")
-    df = df.Define("AllTrue_FatJet", "SelectedFatJet_pt > 0.0")
+    df = df.Define(
+        "hadWcand_FatJet",
+        "SelectedFatJet_pt > 0.0 && SelectedFatJet_msoftdrop > 20.0 && SelectedFatJet_ParticleNetWithMass_WvsQCD > 0.1",
+    )
     # Create a mask removing FatJets that are chosen as the FatBJet
     df = df.Define(
         "FatWJet_HbbBoostedSel",
-        "RemoveOverlaps(SelectedFatJet_p4, AllTrue_FatJet, FatBJet_p4, 0.1)",
+        "RemoveOverlaps(SelectedFatJet_p4, hadWcand_FatJet, FatBJet_p4, 0.1)",
     )
     # Create a mask removing FatJets that overlap within 0.8 dR of the Jets chosen as BJets
     df = df.Define(
         "FatWJet_HbbResolvedSel",
-        "RemoveOverlaps(SelectedFatJet_p4, AllTrue_FatJet, BJet_p4, 0.8)",
+        "RemoveOverlaps(SelectedFatJet_p4, hadWcand_FatJet, BJet_p4, 0.8)",
     )
 
     df = df.Define(
@@ -1619,6 +1621,17 @@ def AddDNNVariablesCommon(df, isData=False):
     return df
 
 
+def addDeepHMERelErr(df):
+    # this function can only be called if DeepHME is loaded to dataframe
+    # it is a placeholder for know
+    # calling without DeepHME will result in a crash
+    df = df.Define(
+        "DeepHME_mass_rel_error",
+        "static_cast<float>(DeepHME_mass > 0.0 ? DeepHME_mass_error/DeepHME_mass ? -1.0f);",
+    )
+    return df
+
+
 def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.defineLeptonChannel()
     dfForHistograms.df = defineAllP4(dfForHistograms.df)
@@ -1637,6 +1650,8 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.df = defineTopVariables(dfForHistograms.df)
     # I comment this out now to save computation time
     # dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
+    # this is a placeholder, calling without DeepHME loaded will result in a crash
+    dfForHistograms.df = addDeepHMERelErr(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
     dfForHistograms.defineCutFlow()
     return dfForHistograms
