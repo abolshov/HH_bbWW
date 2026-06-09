@@ -534,8 +534,8 @@ def defineJetSelections(df, isData):
         "eta",
         "mass",
         "particleNetWithMass_HbbvsQCD",
-        "FatJet_particleNet_XqqVsQCD",
-        "FatJet_particleNetWithMass_WvsQCD",
+        "particleNet_XqqVsQCD",
+        "particleNetWithMass_WvsQCD",
         "particleNet_massCorr",
         "msoftdrop",
         "nConstituents",
@@ -1583,6 +1583,7 @@ def AddDNNVariablesSL(df, isData=False):
             return -1.0;
         """,
     )
+    return df
 
 
 def AddDNNVariablesCommon(df, isData=False):
@@ -1610,11 +1611,12 @@ def AddDNNVariablesCommon(df, isData=False):
         """
             if (lep1_legType > 0 && lep2_legType > 0)
                 return static_cast<float>(Calculate_TotalMT(lep1_p4, lep2_p4, PuppiMET_p4));
-            else (lep1_legType > 0 && lep2_legType < 1)
+            else if (lep1_legType > 0 && lep2_legType < 1)
                 return static_cast<float>(Calculate_MT(lep1_p4, PuppiMET_p4));
             return -1.0f;
         """,
     )
+    return df
 
 
 def PrepareDfForHistograms(dfForHistograms, isData):
@@ -1622,17 +1624,17 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     dfForHistograms.df = defineAllP4(dfForHistograms.df)
     dfForHistograms.calculateMT()
     dfForHistograms.df = defineJetSelections(dfForHistograms.df, isData)
+    dfForHistograms.df = AddDNNVariablesCommon(dfForHistograms.df, isData)
+    dfForHistograms.df = AddDNNVariablesDL(dfForHistograms.df, isData)
     dfForHistograms.defineTriggers()
     dfForHistograms.defineLeptonPreselection()
     dfForHistograms.defineQCDRegions()
     dfForHistograms.defineControlRegions()
     dfForHistograms.defineCategories()
-    dfForHistograms.df = AddDNNVariablesCommon(dfForHistograms.df, isData)
-    dfForHistograms.df = AddDNNVariablesDL(dfForHistograms.df, isData)
-    dfForHistograms.df = AddDNNVariablesSL(dfForHistograms.df, isData)
     dfForHistograms.df = defineTopCandP4(dfForHistograms.df)
-    dfForHistograms.df = defineTopVariables(dfForHistograms.df)
     dfForHistograms.df = defineLepWCandP4(dfForHistograms.df)
+    dfForHistograms.df = AddDNNVariablesSL(dfForHistograms.df, isData)
+    dfForHistograms.df = defineTopVariables(dfForHistograms.df)
     # I comment this out now to save computation time
     # dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
