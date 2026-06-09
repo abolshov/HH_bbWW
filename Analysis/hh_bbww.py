@@ -616,7 +616,7 @@ def defineJetSelections(df, isData):
     df = df.Define("Nfatjets", "SelectedFatJet_pt.size()")
     df = df.Define(
         "hadWcand_FatJet",
-        "SelectedFatJet_pt > 0.0 && SelectedFatJet_msoftdrop > 20.0 && SelectedFatJet_ParticleNetWithMass_WvsQCD > 0.1",
+        "SelectedFatJet_pt > 0.0 && SelectedFatJet_msoftdrop > 20.0 && SelectedFatJet_particleNetWithMass_WvsQCD > 0.1",
     )
     # Create a mask removing FatJets that are chosen as the FatBJet
     df = df.Define(
@@ -1627,7 +1627,7 @@ def addDeepHMERelErr(df):
     # calling without DeepHME will result in a crash
     df = df.Define(
         "DeepHME_mass_rel_error",
-        "static_cast<float>(DeepHME_mass > 0.0 ? DeepHME_mass_error/DeepHME_mass ? -1.0f);",
+        "static_cast<float>(DeepHME_mass > 0.0 ? DeepHME_mass_error/DeepHME_mass : -1.0f);",
     )
     return df
 
