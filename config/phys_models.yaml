@@ -48,5 +48,16 @@ Production_Model:
     - GluGluToRadion_SingleLepton
     - GluGluToBulkGraviton_DoubleLepton
     - GluGluToBulkGraviton_SingleLepton
-  data:
-    - Data_Full
+  data: []
+    # - Data_Full
+
+Dev_Model:
+  name: "Model for development"
+  backgrounds:
+    - ST_dev
+    - VV_dev
+    - W_dev
+    - SingleHiggs_dev
+  signals:
+    - XtoHHto2B2W_SingleLepton
+  data: []

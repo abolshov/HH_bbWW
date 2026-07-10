@@ -437,3 +437,35 @@ custom_CI_Data:
   color: "kAzure+10"
   datasets:
     - Muon0_Run2023D_v1
+
+ST_dev:
+  name: "ST"
+  color: "kPink+1"
+  datasets:
+    - TbarWplustoLNu2Q
+    - TWminustoLNu2Q
+
+SingleHiggs_dev:
+  name: "Single Higgs"
+  color: "kRed"
+  datasets:
+    - ggZH_Hto2B_Zto2L
+    - WminusH_Hto2B_WtoLNu
+    - WplusH_Hto2B_WtoLNu
+    - TTHtoNon2B_M125
+    - TTHto2B_M125
+
+W_dev:
+  name: "W"
+  color: "kGreen"  # eliminates need for plot.yaml
+  datasets:
+    - WtoLNu_2J_amcatnloFXFX
+
+VV_dev:
+  name: "VV"
+  color: "kGreen"
+  datasets:
+    - WWtoLNu2Q_powheg
+    - WZtoLNu2Q_powheg
+    - ZZto2L2Q_powheg
+    - ZZto4L_powheg

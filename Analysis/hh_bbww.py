@@ -1652,7 +1652,7 @@ def PrepareDfForHistograms(dfForHistograms, isData):
     # dfForHistograms.df = defineFeatureValidityFlags(dfForHistograms.df)
     # this is a placeholder, calling without DeepHME loaded will result in a crash
     # also needs to be disabled for CI
-    # dfForHistograms.df = addDeepHMERelErr(dfForHistograms.df)
+    dfForHistograms.df = addDeepHMERelErr(dfForHistograms.df)
     dfForHistograms.addDYReweighting()
     dfForHistograms.defineCutFlow()
     return dfForHistograms
