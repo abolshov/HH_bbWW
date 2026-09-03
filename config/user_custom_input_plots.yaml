@@ -1,0 +1,141 @@
+fs_default: T3_CH_CERNBOX:/store/user/abolshov/HH_bbWW/
+# fs_anaTuple: T3_CH_CERNBOX:/store/user/abolshov/HH_bbWW/
+fs_anaTuple: T3_US_FNALLPC:/store/group/lpcflaf/HH_bbWW/
+fs_anaCacheTuple: T3_US_FNALLPC:/store/group/lpcflaf/HH_bbWW/
+# fs_anaCacheTuple: T3_CH_CERNBOX:/store/user/abolshov/HH_bbWW/
+# fs_HistTuple: T3_US_FNALLPC:/store/user/abolshov/hist_tuples/
+
+phys_model: Run3_Model
+analysis_config_area: config
+compute_unc_variations: false
+compute_unc_histograms: false
+store_noncentral: false
+
+histTuple_flavor: TwoStageDNN_Inputs
+histTuple_flavors:
+  TwoStageDNN_Inputs:
+    fullResolution_variables: []
+
+    variables:
+      - TwoStageDNN_M300_Signal
+      - TwoStageDNN_M400_Signal
+      - TwoStageDNN_M500_Signal
+      - TwoStageDNN_M550_Signal
+      - TwoStageDNN_M600_Signal
+      - TwoStageDNN_M650_Signal
+      - TwoStageDNN_M700_Signal
+      - TwoStageDNN_M800_Signal
+      - TwoStageDNN_M900_Signal
+      - TwoStageDNN_M1000_Signal
+
+      - TwoStageDNN_M300_TT
+      - TwoStageDNN_M400_TT
+      - TwoStageDNN_M500_TT
+      - TwoStageDNN_M550_TT
+      - TwoStageDNN_M600_TT
+      - TwoStageDNN_M650_TT
+      - TwoStageDNN_M700_TT
+      - TwoStageDNN_M800_TT
+      - TwoStageDNN_M900_TT
+      - TwoStageDNN_M1000_TT
+
+      - TwoStageDNN_M300_ST
+      - TwoStageDNN_M400_ST
+      - TwoStageDNN_M500_ST
+      - TwoStageDNN_M550_ST
+      - TwoStageDNN_M600_ST
+      - TwoStageDNN_M650_ST
+      - TwoStageDNN_M700_ST
+      - TwoStageDNN_M800_ST
+      - TwoStageDNN_M900_ST
+      - TwoStageDNN_M1000_ST
+
+      - TwoStageDNN_M300_DY
+      - TwoStageDNN_M400_DY
+      - TwoStageDNN_M500_DY
+      - TwoStageDNN_M550_DY
+      - TwoStageDNN_M600_DY
+      - TwoStageDNN_M650_DY
+      - TwoStageDNN_M700_DY
+      - TwoStageDNN_M800_DY
+      - TwoStageDNN_M900_DY
+      - TwoStageDNN_M1000_DY
+
+      - TwoStageDNN_M300_WJets
+      - TwoStageDNN_M400_WJets
+      - TwoStageDNN_M500_WJets
+      - TwoStageDNN_M550_WJets
+      - TwoStageDNN_M600_WJets
+      - TwoStageDNN_M650_WJets
+      - TwoStageDNN_M700_WJets
+      - TwoStageDNN_M800_WJets
+      - TwoStageDNN_M900_WJets
+      - TwoStageDNN_M1000_WJets
+
+      - TwoStageDNN_M300_H
+      - TwoStageDNN_M400_H
+      - TwoStageDNN_M500_H
+      - TwoStageDNN_M550_H
+      - TwoStageDNN_M600_H
+      - TwoStageDNN_M650_H
+      - TwoStageDNN_M700_H
+      - TwoStageDNN_M800_H
+      - TwoStageDNN_M900_H
+      - TwoStageDNN_M1000_H
+
+      - TwoStageDNN_M300_VV
+      - TwoStageDNN_M400_VV
+      - TwoStageDNN_M500_VV
+      - TwoStageDNN_M550_VV
+      - TwoStageDNN_M600_VV
+      - TwoStageDNN_M650_VV
+      - TwoStageDNN_M700_VV
+      - TwoStageDNN_M800_VV
+      - TwoStageDNN_M900_VV
+      - TwoStageDNN_M1000_VV
+
+      - lep1_pt
+      - lep1_eta
+      - lep1_phi
+
+      - bjet1_pt
+      - bjet1_phi
+      - bjet1_eta
+      - bjet1_mass
+      - bjet1_btagPNetB
+
+      - bjet2_pt
+      - bjet2_phi
+      - bjet2_eta
+      - bjet2_mass
+      - bjet2_btagPNetB
+
+      - PuppiMET_pt
+      - PuppiMET_phi
+
+      - HT
+      - bb_dR
+      - met_bb_dphi
+      - bb_CosTheta
+
+      - DeepHME_mass
+      - DeepHME_mass_error
+
+      - Hbb_lepWfromH_dR
+      - Lep1Jet1Jet2_mass
+      - WW_pt
+      - WW_ptToE
+      - bb_deta
+      - bb_dphi
+      - bb_mass
+      - bb_pt
+      - bb_ptToE
+      - hadT_constituentPtFrac
+      - hadT_hadW_dR
+      - hadT_mass
+      - hadT_pt
+      - hadW_mass
+      - lepT_constituentPtFrac
+      - lepT_mass
+      - lepT_mT
+      - lepT_pt

@@ -1,0 +1,12 @@
+fs_default: T3_CH_CERNBOX:/store/user/abolshov/HH_bbWW/
+# fs_anaTuple: T3_CH_CERNBOX:/store/user/abolshov/HH_bbWW/
+fs_anaTuple: T3_US_FNALLPC:/store/group/lpcflaf/HH_bbWW/
+fs_anaCacheTuple: T3_US_FNALLPC:/store/group/lpcflaf/HH_bbWW/
+# fs_anaCacheTuple: T3_CH_CERNBOX:/store/user/abolshov/HH_bbWW/
+# fs_HistTuple: T3_US_FNALLPC:/store/user/abolshov/hist_tuples/
+
+phys_model: Run3_Model
+analysis_config_area: config
+compute_unc_variations: false
+compute_unc_histograms: false
+store_noncentral: false
