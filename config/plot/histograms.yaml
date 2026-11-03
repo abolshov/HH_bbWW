@@ -2411,242 +2411,243 @@ DNN_m1500_vs_HME:
   blind: True
   var_list: [ DNN_M1500_Signal, DeepHME_mass ]
 
-# Two-stage DNN
+# Two-stage DNN, scores saved as recomputed logits bounded by +-23.03
+# (logit_clip_eps 1e-10 in config/global.yaml)
 TwoStageDNN_M250_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M250 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M250 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M260_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M260 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M260 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M270_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M270 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M270 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M280_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M280 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M280 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M300_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M300 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M300 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M320_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M320 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M320 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M350_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M350 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M350 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M360_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M360 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M360 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M400_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M400 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M400 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M450_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M450 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M450 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M500_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M500 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M500 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M550_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M550 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M550 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M600_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M600 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M600 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M650_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M650 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M650 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M700_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M700 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M700 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M750_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M750 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M750 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M800_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M800 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M800 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M850_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M850 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M850 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M900_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M900 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M900 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1000_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1000 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1000 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1100_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1100 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1100 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1200_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1200 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1200 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1300_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1300 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1300 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1400_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1400 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1400 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1500_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1500 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1500 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1600_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1600 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1600 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1700_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1700 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1700 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1800_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1800 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1800 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M1900_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M1900 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M1900 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_M2000_binary:
-  x_bins: "100|0.0:1.0"
-  x_title: Binary DNN M2000 score
+  x_bins: "94|-23.5:23.5"
+  x_title: Binary DNN M2000 logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
@@ -2656,14 +2657,14 @@ TwoStageDNN_M2000_binary:
 binary_DNN_m250_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 100, 150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 150, 200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
+      - { y_bin: [ 100, 150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 150, 200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M250 in HMEbins"
   y_title: "Events"
@@ -2676,14 +2677,14 @@ binary_DNN_m250_vs_HME:
 binary_DNN_m260_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 100, 150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 150, 200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
+      - { y_bin: [ 100, 150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 150, 200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M260 in HMEbins"
   y_title: "Events"
@@ -2696,14 +2697,14 @@ binary_DNN_m260_vs_HME:
 binary_DNN_m270_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 100, 150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 150, 200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
+      - { y_bin: [ 100, 150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 150, 200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M270 in HMEbins"
   y_title: "Events"
@@ -2716,14 +2717,14 @@ binary_DNN_m270_vs_HME:
 binary_DNN_m280_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 100, 150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 150, 200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
+      - { y_bin: [ 100, 150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 150, 200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M280 in HMEbins"
   y_title: "Events"
@@ -2736,14 +2737,14 @@ binary_DNN_m280_vs_HME:
 binary_DNN_m300_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 100, 150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 150, 200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
+      - { y_bin: [ 100, 150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 150, 200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M300 in HMEbins"
   y_title: "Events"
@@ -2756,14 +2757,14 @@ binary_DNN_m300_vs_HME:
 binary_DNN_m320_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 120, 170 ], x_bins: "50|0:1" }
-      - { y_bin: [ 170, 220 ], x_bins: "50|0:1" }
-      - { y_bin: [ 220, 270 ], x_bins: "50|0:1" }
-      - { y_bin: [ 270, 320 ], x_bins: "50|0:1" }
-      - { y_bin: [ 320, 370 ], x_bins: "50|0:1" }
-      - { y_bin: [ 370, 420 ], x_bins: "50|0:1" }
-      - { y_bin: [ 420, 470 ], x_bins: "50|0:1" }
-      - { y_bin: [ 470, 520 ], x_bins: "50|0:1" }
+      - { y_bin: [ 120, 170 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 170, 220 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 220, 270 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 270, 320 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 320, 370 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 370, 420 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 420, 470 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 470, 520 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M320 in HMEbins"
   y_title: "Events"
@@ -2776,14 +2777,14 @@ binary_DNN_m320_vs_HME:
 binary_DNN_m350_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 150, 200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
+      - { y_bin: [ 150, 200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M350 in HMEbins"
   y_title: "Events"
@@ -2796,14 +2797,14 @@ binary_DNN_m350_vs_HME:
 binary_DNN_m360_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 160, 210 ], x_bins: "50|0:1" }
-      - { y_bin: [ 210, 260 ], x_bins: "50|0:1" }
-      - { y_bin: [ 260, 310 ], x_bins: "50|0:1" }
-      - { y_bin: [ 310, 360 ], x_bins: "50|0:1" }
-      - { y_bin: [ 360, 410 ], x_bins: "50|0:1" }
-      - { y_bin: [ 410, 460 ], x_bins: "50|0:1" }
-      - { y_bin: [ 460, 510 ], x_bins: "50|0:1" }
-      - { y_bin: [ 510, 560 ], x_bins: "50|0:1" }
+      - { y_bin: [ 160, 210 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 210, 260 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 260, 310 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 310, 360 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 360, 410 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 410, 460 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 460, 510 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 510, 560 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M360 in HMEbins"
   y_title: "Events"
@@ -2816,14 +2817,14 @@ binary_DNN_m360_vs_HME:
 binary_DNN_m400_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 200, 250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
+      - { y_bin: [ 200, 250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M400 in HMEbins"
   y_title: "Events"
@@ -2836,14 +2837,14 @@ binary_DNN_m400_vs_HME:
 binary_DNN_m450_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 250, 300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
+      - { y_bin: [ 250, 300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M450 in HMEbins"
   y_title: "Events"
@@ -2856,14 +2857,14 @@ binary_DNN_m450_vs_HME:
 binary_DNN_m500_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 300, 350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
+      - { y_bin: [ 300, 350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M500 in HMEbins"
   y_title: "Events"
@@ -2876,14 +2877,14 @@ binary_DNN_m500_vs_HME:
 binary_DNN_m550_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 350, 400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
+      - { y_bin: [ 350, 400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M550 in HMEbins"
   y_title: "Events"
@@ -2896,14 +2897,14 @@ binary_DNN_m550_vs_HME:
 binary_DNN_m600_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 400, 450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
+      - { y_bin: [ 400, 450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M600 in HMEbins"
   y_title: "Events"
@@ -2916,14 +2917,14 @@ binary_DNN_m600_vs_HME:
 binary_DNN_m650_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 450, 500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
+      - { y_bin: [ 450, 500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M650 in HMEbins"
   y_title: "Events"
@@ -2936,14 +2937,14 @@ binary_DNN_m650_vs_HME:
 binary_DNN_m700_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 500, 550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 850, 900 ], x_bins: "50|0:1" }
+      - { y_bin: [ 500, 550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 850, 900 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M700 in HMEbins"
   y_title: "Events"
@@ -2956,14 +2957,14 @@ binary_DNN_m700_vs_HME:
 binary_DNN_m750_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 550, 600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 850, 900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 900, 950 ], x_bins: "50|0:1" }
+      - { y_bin: [ 550, 600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 850, 900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 900, 950 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M750 in HMEbins"
   y_title: "Events"
@@ -2976,14 +2977,14 @@ binary_DNN_m750_vs_HME:
 binary_DNN_m800_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 600, 650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 850, 900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 900, 950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 950, 1000 ], x_bins: "50|0:1" }
+      - { y_bin: [ 600, 650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 850, 900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 900, 950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 950, 1000 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M800 in HMEbins"
   y_title: "Events"
@@ -2996,14 +2997,14 @@ binary_DNN_m800_vs_HME:
 binary_DNN_m850_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 650, 700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 850, 900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 900, 950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 950, 1000 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1000, 1050 ], x_bins: "50|0:1" }
+      - { y_bin: [ 650, 700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 850, 900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 900, 950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 950, 1000 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1000, 1050 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M850 in HMEbins"
   y_title: "Events"
@@ -3016,14 +3017,14 @@ binary_DNN_m850_vs_HME:
 binary_DNN_m900_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 700, 750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 750, 800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 850, 900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 900, 950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 950, 1000 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1000, 1050 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1050, 1100 ], x_bins: "50|0:1" }
+      - { y_bin: [ 700, 750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 750, 800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 850, 900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 900, 950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 950, 1000 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1000, 1050 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1050, 1100 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M900 in HMEbins"
   y_title: "Events"
@@ -3036,14 +3037,14 @@ binary_DNN_m900_vs_HME:
 binary_DNN_m1000_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 800, 850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 850, 900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 900, 950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 950, 1000 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1000, 1050 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1050, 1100 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1100, 1150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1150, 1200 ], x_bins: "50|0:1" }
+      - { y_bin: [ 800, 850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 850, 900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 900, 950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 950, 1000 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1000, 1050 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1050, 1100 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1100, 1150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1150, 1200 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1000 in HMEbins"
   y_title: "Events"
@@ -3056,14 +3057,14 @@ binary_DNN_m1000_vs_HME:
 binary_DNN_m1100_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 900, 950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 950, 1000 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1000, 1050 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1050, 1100 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1100, 1150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1150, 1200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1200, 1250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1250, 1300 ], x_bins: "50|0:1" }
+      - { y_bin: [ 900, 950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 950, 1000 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1000, 1050 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1050, 1100 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1100, 1150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1150, 1200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1200, 1250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1250, 1300 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1100 in HMEbins"
   y_title: "Events"
@@ -3076,14 +3077,14 @@ binary_DNN_m1100_vs_HME:
 binary_DNN_m1200_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1000, 1050 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1050, 1100 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1100, 1150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1150, 1200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1200, 1250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1250, 1300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1300, 1350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1350, 1400 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1000, 1050 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1050, 1100 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1100, 1150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1150, 1200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1200, 1250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1250, 1300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1300, 1350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1350, 1400 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1200 in HMEbins"
   y_title: "Events"
@@ -3096,14 +3097,14 @@ binary_DNN_m1200_vs_HME:
 binary_DNN_m1300_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1100, 1150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1150, 1200 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1200, 1250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1250, 1300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1300, 1350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1350, 1400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1400, 1450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1450, 1500 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1100, 1150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1150, 1200 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1200, 1250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1250, 1300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1300, 1350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1350, 1400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1400, 1450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1450, 1500 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1300 in HMEbins"
   y_title: "Events"
@@ -3116,14 +3117,14 @@ binary_DNN_m1300_vs_HME:
 binary_DNN_m1400_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1200, 1250 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1250, 1300 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1300, 1350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1350, 1400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1400, 1450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1450, 1500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1500, 1550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1550, 1600 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1200, 1250 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1250, 1300 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1300, 1350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1350, 1400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1400, 1450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1450, 1500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1500, 1550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1550, 1600 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1400 in HMEbins"
   y_title: "Events"
@@ -3136,14 +3137,14 @@ binary_DNN_m1400_vs_HME:
 binary_DNN_m1500_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1300, 1350 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1350, 1400 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1400, 1450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1450, 1500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1500, 1550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1550, 1600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1600, 1650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1650, 1700 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1300, 1350 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1350, 1400 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1400, 1450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1450, 1500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1500, 1550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1550, 1600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1600, 1650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1650, 1700 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1500 in HMEbins"
   y_title: "Events"
@@ -3156,14 +3157,14 @@ binary_DNN_m1500_vs_HME:
 binary_DNN_m1600_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1400, 1450 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1450, 1500 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1500, 1550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1550, 1600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1600, 1650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1650, 1700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1700, 1750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1750, 1800 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1400, 1450 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1450, 1500 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1500, 1550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1550, 1600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1600, 1650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1650, 1700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1700, 1750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1750, 1800 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1600 in HMEbins"
   y_title: "Events"
@@ -3176,14 +3177,14 @@ binary_DNN_m1600_vs_HME:
 binary_DNN_m1700_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1500, 1550 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1550, 1600 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1600, 1650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1650, 1700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1700, 1750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1750, 1800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1800, 1850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1850, 1900 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1500, 1550 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1550, 1600 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1600, 1650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1650, 1700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1700, 1750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1750, 1800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1800, 1850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1850, 1900 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1700 in HMEbins"
   y_title: "Events"
@@ -3196,14 +3197,14 @@ binary_DNN_m1700_vs_HME:
 binary_DNN_m1800_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1600, 1650 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1650, 1700 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1700, 1750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1750, 1800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1800, 1850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1850, 1900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1900, 1950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1950, 2000 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1600, 1650 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1650, 1700 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1700, 1750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1750, 1800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1800, 1850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1850, 1900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1900, 1950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1950, 2000 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1800 in HMEbins"
   y_title: "Events"
@@ -3216,14 +3217,14 @@ binary_DNN_m1800_vs_HME:
 binary_DNN_m1900_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1700, 1750 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1750, 1800 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1800, 1850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1850, 1900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1900, 1950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1950, 2000 ], x_bins: "50|0:1" }
-      - { y_bin: [ 2000, 2050 ], x_bins: "50|0:1" }
-      - { y_bin: [ 2050, 2100 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1700, 1750 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1750, 1800 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1800, 1850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1850, 1900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1900, 1950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1950, 2000 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 2000, 2050 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 2050, 2100 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M1900 in HMEbins"
   y_title: "Events"
@@ -3236,14 +3237,14 @@ binary_DNN_m1900_vs_HME:
 binary_DNN_m2000_vs_HME:
   2d:
     combined_bins:
-      - { y_bin: [ 1800, 1850 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1850, 1900 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1900, 1950 ], x_bins: "50|0:1" }
-      - { y_bin: [ 1950, 2000 ], x_bins: "50|0:1" }
-      - { y_bin: [ 2000, 2050 ], x_bins: "50|0:1" }
-      - { y_bin: [ 2050, 2100 ], x_bins: "50|0:1" }
-      - { y_bin: [ 2100, 2150 ], x_bins: "50|0:1" }
-      - { y_bin: [ 2150, 2200 ], x_bins: "50|0:1" }
+      - { y_bin: [ 1800, 1850 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1850, 1900 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1900, 1950 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 1950, 2000 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 2000, 2050 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 2050, 2100 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 2100, 2150 ], x_bins: "47|-23.5:23.5" }
+      - { y_bin: [ 2150, 2200 ], x_bins: "47|-23.5:23.5" }
   x_rebin: True
   x_title: "Binary DNN M2000 in HMEbins"
   y_title: "Events"
@@ -3255,56 +3256,56 @@ binary_DNN_m2000_vs_HME:
 
 # Multiclass DNN, mass-independent
 TwoStageDNN_Signal:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN Signal score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN Signal logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_TT:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN TT score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN TT logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_ST:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN ST score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN ST logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_WJets:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN WJets score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN WJets logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_DY:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN DY score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN DY logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_H:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN H score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN H logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
   blind: True
 
 TwoStageDNN_VV:
-  x_bins: "100|0.0:1.0"
-  x_title: Multiclass DNN VV score
+  x_bins: "94|-23.5:23.5"
+  x_title: Multiclass DNN VV logit
   y_title: Events
   use_log_y: True
   divide_by_bin_width: False
