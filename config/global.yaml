@@ -342,7 +342,24 @@ payload_producers:
       binary_name_pattern: parametric_binary_nParity{train_parity}.onnx
       multiclass_name_pattern: multiclass_nParity{train_parity}.onnx
       mass_feature: X_mass
-      num_classes: 7
+      # Per model: number of output nodes, what the model returns (type: logit |
+      # probability), the activation turning its logits into probabilities (softmax |
+      # sigmoid), and what the producer saves (save_as: logit | probability |
+      # recomputed_logit). recomputed_logit is log(p / (1 - p)) of every node, with p
+      # clipped to [logit_clip_eps, 1 - logit_clip_eps]; raw logits cannot be saved for a
+      # model returning probabilities. A binary model with 2 nodes also needs signal_node.
+      multiclass_output:
+        num_nodes: 7
+        type: logit
+        activation: softmax
+        save_as: probability
+      binary_output:
+        num_nodes: 2
+        type: logit
+        activation: softmax
+        signal_node: 1
+        save_as: logit
+      logit_clip_eps: 1.0e-7
     class_names:
       - Signal
       - TT
