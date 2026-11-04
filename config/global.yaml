@@ -352,13 +352,13 @@ payload_producers:
         num_nodes: 7
         type: logit
         activation: softmax
-        save_as: recomputed_logit
+        save_as: probability
       binary_output:
         num_nodes: 2
         type: logit
         activation: softmax
         signal_node: 1
-        save_as: recomputed_logit
+        save_as: logit
       # recomputed_logit is bounded by +-log((1 - eps) / eps) = +-23.03 for 1e-10; the
       # TwoStageDNN histogram ranges in config/plot/histograms.yaml (+-23.5) follow it.
       logit_clip_eps: 1.0e-10
