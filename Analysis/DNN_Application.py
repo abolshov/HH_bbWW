@@ -730,7 +730,8 @@ class TwoStageDNNProducer:
                         f"the last binary feature in {binary_cfg_path}."
                     )
 
-                load_features.update(binary_features)
+                # the mass column is filled per hypothesis, the X_mass branch is never read
+                load_features.update(binary_features[:-1])
                 load_features.update(
                     self.dnn_configs[channel][category]["multiclass"]["features"]
                 )
