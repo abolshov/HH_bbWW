@@ -290,7 +290,7 @@ class DataFrameBuilderForHistograms(DataFrameBuilderBase):
 
         SL_CR_active = False
         for QCDReg in self.config["QCDRegions"]:
-            # The regions are named SR_SL_M<mass> and CR_SL_<class>_M<mass> below.
+            # The regions are named SR_SL and CR_SL_<class> below.
             if QCDReg.startswith("SR_SL") or QCDReg.startswith("CR_SL"):
                 SL_CR_active = True
 
@@ -300,42 +300,21 @@ class DataFrameBuilderForHistograms(DataFrameBuilderBase):
             )
             self.df = self.df.Define("tau_veto", f"num_extra_tau == 0;")
 
-            # Individual mass signal regions
-            masspoints = self.config["masspoints"]
-            for mp in masspoints:
-                classes = ["Signal", "TT", "ST", "WJets", "DY", "H", "VV"]
-                scores = ", ".join(f"TwoStageDNN_M{mp}_{c}" for c in classes)
-                self.df = self.df.Define(
-                    f"predicted_class_M{mp}", f"hh_bbww::ArgMax({{{scores}}})"
-                )
+            # Mass-independent signal and control regions
+            classes = ["Signal", "TT", "ST", "WJets", "DY", "H", "VV"]
+            scores = ", ".join(f"TwoStageDNN_{c}" for c in classes)
+            self.df = self.df.Define(
+                "predicted_class", f"hh_bbww::ArgMax({{{scores}}})"
+            )
 
+            self.DefineAndAppend(
+                "SR_SL",
+                "return predicted_class == 0 && Iso && event_selection && tau_veto;",
+            )
+            for class_idx, class_name in enumerate(classes[1:], start=1):
                 self.DefineAndAppend(
-                    f"SR_SL_M{mp}",
-                    f"return predicted_class_M{mp} == 0 && Iso && event_selection && tau_veto;",
-                )
-                self.DefineAndAppend(
-                    f"CR_SL_TT_M{mp}",
-                    f"return predicted_class_M{mp} == 1 && Iso && event_selection && tau_veto;",
-                )
-                self.DefineAndAppend(
-                    f"CR_SL_ST_M{mp}",
-                    f"return predicted_class_M{mp} == 2 && Iso && event_selection && tau_veto;",
-                )
-                self.DefineAndAppend(
-                    f"CR_SL_WJets_M{mp}",
-                    f"return predicted_class_M{mp} == 3 && Iso && event_selection && tau_veto;",
-                )
-                self.DefineAndAppend(
-                    f"CR_SL_DY_M{mp}",
-                    f"return predicted_class_M{mp} == 4 && Iso && event_selection && tau_veto;",
-                )
-                self.DefineAndAppend(
-                    f"CR_SL_H_M{mp}",
-                    f"return predicted_class_M{mp} == 5 && Iso && event_selection && tau_veto;",
-                )
-                self.DefineAndAppend(
-                    f"CR_SL_VV_M{mp}",
-                    f"return predicted_class_M{mp} == 6 && Iso && event_selection && tau_veto;",
+                    f"CR_SL_{class_name}",
+                    f"return predicted_class == {class_idx} && Iso && event_selection && tau_veto;",
                 )
 
     def calculateMT(self):
