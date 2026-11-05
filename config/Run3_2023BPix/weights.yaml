@@ -84,6 +84,13 @@ norm:
     expression: weight_base_fsr{scale}_rel * final_weight
     name: ps_fsr_{}
 
+  qcd_scale:
+    expression: weight_base_qcd_scale{scale}_rel * final_weight
+    name: QCDscale_shape_{process}_{}
+  pdf:
+    expression: weight_base_pdf{scale}_rel * final_weight
+    name: pdf_shape_{process}_{}
+
 shape:
   JER:
     name: CMS_res_j_2023BPix_{}
