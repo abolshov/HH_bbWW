@@ -342,6 +342,11 @@ class DataFrameBuilderForHistograms(DataFrameBuilderBase):
                     f"return predicted_class == {class_idx} && Iso && event_selection && tau_veto;",
                 )
 
+            self.DefineAndAppend(
+                "OS_AntiIso_SR",
+                "return predicted_class == 0 && OS_AntiIso && tau_veto;",
+            )
+
     def calculateMT(self):
         self.df = self.df.Define(
             "lep1_MT", f"(lep1_legType > 0) ? Calculate_MT(lep1_p4, PuppiMET_p4) : 0.0"
