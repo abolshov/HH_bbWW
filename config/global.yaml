@@ -609,13 +609,15 @@ QCDRegions:
 
   # SL signal and control regions
   # if you are running SL Hist*Task, you might want to uncomment these so that signal regions and SRs are created for the SL channel
-  # - SR_SL
+  - SR_SL
   # - CR_SL_TT
   # - CR_SL_ST
   # - CR_SL_WJets
   # - CR_SL_DY
   # - CR_SL_H
   # - CR_SL_VV
+
+  - OS_AntiIso_SR
 
 histTuple_selectors:
   - QCDRegions
