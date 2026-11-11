@@ -18,8 +18,7 @@ fits:
   res2b: { low: [ 98.1200, 0.538263 ], high: [ -18.9189, 1.378378 ] }
   recovery: { low: [ 98.1200, 0.538263 ], high: [ -18.9189, 1.378378 ] }  # = res2b
   boosted: { low: [ 64.2077, 0.685021 ], high: [ 135.9084, 1.109257 ] }
-# windows[MX][category] = [low, high] in GeV, on the stored grid; signal_fraction = share of that category's
-# signal inside the window (Run3_22_23, spin 0).
+# windows[MX][category] = [low, high] GeV; signal_fraction = the category's signal inside it
 windows:
   250: { res2b: [ 230, 330 ], recovery: [ 230, 330 ], boosted: [ 230, 420 ] }
   260: { res2b: [ 230, 340 ], recovery: [ 230, 340 ], boosted: [ 240, 430 ] }
