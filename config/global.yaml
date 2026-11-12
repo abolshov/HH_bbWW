@@ -530,7 +530,12 @@ payload_producers:
 
 region: All
 region_default: SR
+# What is histogrammed where (FLAF booking plugin, Analysis/hist_booking.py): each histTuple
+# flavour's `regions` (histTuple_flavors below) and `sub_regions`. The plugin fills the list
+# custom_regions names (QCDRegions) with the active flavour's regions.
+hist_booking_module: Analysis.hist_booking
 custom_regions: QCDRegions
+
 custom_categories: ""
 custom_subcategories: [ ]
 
@@ -604,26 +609,6 @@ categories:
   # - baseline_boosted
   # - baseline_resolved
 
-QCDRegions:
-  - OS_Iso
-  - SR
-  - TT_CR
-  - DY_CR
-  # - W_CR
-  # - SR_mbb
-
-  # SL signal and control regions
-  # if you are running SL Hist*Task, you might want to uncomment these so that signal regions and SRs are created for the SL channel
-  - SR_SL
-  - CR_SL_TT
-  - CR_SL_ST
-  - CR_SL_WJets
-  - CR_SL_DY
-  - CR_SL_H
-  - CR_SL_VV
-
-  - SR_SL_Fakeable
-
 histTuple_selectors:
   - QCDRegions
   - categories
@@ -681,6 +666,29 @@ histTuple_flavor: binary_DNN_outputs
 histTuple_flavors:
   binary_DNN_outputs:
     fullResolution_variables: [ ]
+
+    # The regions histogrammed (and kept in the histTuples, histTuple_selectors), each a boolean
+    # column (Analysis/hh_bbww.py). The other flavours reuse this list (*all_regions) unless they
+    # need their own.
+    regions: &all_regions
+      - OS_Iso
+      - SR
+      - TT_CR
+      - DY_CR
+      # - W_CR
+      # - SR_mbb
+
+      # SL signal and control regions
+      # if you are running SL Hist*Task, you might want to uncomment these so that signal regions and SRs are created for the SL channel
+      - SR_SL
+      - CR_SL_TT
+      - CR_SL_ST
+      - CR_SL_WJets
+      - CR_SL_DY
+      - CR_SL_H
+      - CR_SL_VV
+
+      - SR_SL_Fakeable
 
     variables:
       - TwoStageDNN_M250_binary
@@ -776,6 +784,7 @@ histTuple_flavors:
         vars: [ TwoStageDNN_M2000_binary, DeepHME_mass ]
 
   DNN_Training:
+    regions: *all_regions
     fullResolution_variables:
       - lep1_pt
       - lep1_eta
@@ -937,6 +946,7 @@ histTuple_flavors:
       - lep1_pt
 
   Control_Plots:
+    regions: *all_regions
     fullResolution_variables:
       # Add one default fullres for CI to validate it works
       - lep1_pt
@@ -1100,6 +1110,9 @@ histTuple_flavors:
   # Every variable is booked per variation, channel and category, so `default` does not
   # fit the CI pod's memory once a process has more than one dataset.
   CI:
+    # The CI chain: OS_Iso and the mass-independent single-lepton signal region of the two-stage
+    # DNN, produced and plotted; the CI_SL card reads the looser OS_Iso (see CI/CI_card_SL.yaml).
+    regions: [ OS_Iso, SR_SL ]
     # One fullres variable, to keep that path tested.
     fullResolution_variables:
       - lep1_pt
@@ -1123,6 +1136,7 @@ histTuple_flavors:
         vars: [ DNN_M300_Signal, DeepHME_mass ]
 
   DL_DNN_Inputs:
+    regions: *all_regions
     # DL DNN Inputs
     fullResolution_variables: [ ]
 
@@ -1176,6 +1190,7 @@ histTuple_flavors:
       - DeepHME_mass
 
   Signal_Extraction_DL:
+    regions: *all_regions
     # DNN Outputs (Shapes)
     fullResolution_variables: [ ]
 
@@ -1337,7 +1352,129 @@ histTuple_flavors:
       - name: DNN_m1500_vs_HME
         vars: [ DNN_M1500_Signal, DeepHME_mass ]
 
+  Signal_Extraction_DL_window:
+    # Signal_Extraction_DL with the 2D DNN_m<MX>_vs_HME replaced by sub-regions: the variables of
+    # mass MX (signal_params in histograms.yaml) and DeepHME_mass are also filled in
+    # SR/TT_CR/DY_CR_HMESub_m<MX>, the base region within the frozen HME range of MX
+    # (config/sub_regions/hme_DL_v2610.yaml); DNN_M<MX>_Signal there is the slice of the 2D.
+    fullResolution_variables: [ ]
+
+    regions: [ SR, TT_CR, DY_CR ]
+    sub_regions:
+      - name: HMESub
+        cuts: config/sub_regions/hme_DL_v2610.yaml
+        regions: [ SR, TT_CR, DY_CR ]
+        points: all
+
+    variables:
+      - DeepHME_mass
+
+      - DNN_M250_Signal
+      - DNN_M260_Signal
+      - DNN_M270_Signal
+      - DNN_M280_Signal
+      - DNN_M300_Signal
+      - DNN_M320_Signal
+      - DNN_M350_Signal
+      - DNN_M360_Signal
+      - DNN_M400_Signal
+      - DNN_M450_Signal
+      - DNN_M500_Signal
+      - DNN_M550_Signal
+      - DNN_M600_Signal
+      - DNN_M650_Signal
+      - DNN_M700_Signal
+      - DNN_M750_Signal
+      - DNN_M800_Signal
+      - DNN_M850_Signal
+      - DNN_M900_Signal
+      - DNN_M1000_Signal
+      - DNN_M1100_Signal
+      - DNN_M1200_Signal
+      - DNN_M1300_Signal
+      - DNN_M1400_Signal
+      - DNN_M1500_Signal
+
+      - DNN_M250_TT
+      - DNN_M260_TT
+      - DNN_M270_TT
+      - DNN_M280_TT
+      - DNN_M300_TT
+      - DNN_M320_TT
+      - DNN_M350_TT
+      - DNN_M360_TT
+      - DNN_M400_TT
+      - DNN_M450_TT
+      - DNN_M500_TT
+      - DNN_M550_TT
+      - DNN_M600_TT
+      - DNN_M650_TT
+      - DNN_M700_TT
+      - DNN_M750_TT
+      - DNN_M800_TT
+      - DNN_M850_TT
+      - DNN_M900_TT
+      - DNN_M1000_TT
+      - DNN_M1100_TT
+      - DNN_M1200_TT
+      - DNN_M1300_TT
+      - DNN_M1400_TT
+      - DNN_M1500_TT
+
+      - DNN_M250_DY
+      - DNN_M260_DY
+      - DNN_M270_DY
+      - DNN_M280_DY
+      - DNN_M300_DY
+      - DNN_M320_DY
+      - DNN_M350_DY
+      - DNN_M360_DY
+      - DNN_M400_DY
+      - DNN_M450_DY
+      - DNN_M500_DY
+      - DNN_M550_DY
+      - DNN_M600_DY
+      - DNN_M650_DY
+      - DNN_M700_DY
+      - DNN_M750_DY
+      - DNN_M800_DY
+      - DNN_M850_DY
+      - DNN_M900_DY
+      - DNN_M1000_DY
+      - DNN_M1100_DY
+      - DNN_M1200_DY
+      - DNN_M1300_DY
+      - DNN_M1400_DY
+      - DNN_M1500_DY
+
+      - DNN_M250_Other
+      - DNN_M260_Other
+      - DNN_M270_Other
+      - DNN_M280_Other
+      - DNN_M300_Other
+      - DNN_M320_Other
+      - DNN_M350_Other
+      - DNN_M360_Other
+      - DNN_M400_Other
+      - DNN_M450_Other
+      - DNN_M500_Other
+      - DNN_M550_Other
+      - DNN_M600_Other
+      - DNN_M650_Other
+      - DNN_M700_Other
+      - DNN_M750_Other
+      - DNN_M800_Other
+      - DNN_M850_Other
+      - DNN_M900_Other
+      - DNN_M1000_Other
+      - DNN_M1100_Other
+      - DNN_M1200_Other
+      - DNN_M1300_Other
+      - DNN_M1400_Other
+      - DNN_M1500_Other
+
   TwoStageDNN_Outputs:
+    regions: *all_regions
     # DNN Outputs (Shapes)
     fullResolution_variables: [ ]
 
