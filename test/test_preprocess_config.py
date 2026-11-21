@@ -92,8 +92,14 @@ class DLCards(unittest.TestCase):
                 "Minor": ["VV", "VVV", "H", "W"],
             },
         )
+        # no boosted control regions: the boosted category is fitted in the SR only
+        categories = card()["categories"]
+        self.assertIn("SR_boosted", categories)
+        self.assertNotIn("TT_boosted", categories)
+        self.assertNotIn("DY_boosted", categories)
         self.assertEqual(m.dropped_in("SR_res2b"), {"W"})
-        self.assertEqual(m.dropped_in("TT_boosted"), {"W", "DY_M_10to50"})
+        self.assertEqual(m.dropped_in("TT_res2b"), {"W", "DY_M_10to50"})
+        self.assertEqual(m.dropped_in("TT_recovery"), {"DY_M_10to50"})
         self.assertEqual(m.dropped_in("SR_recovery"), set())
         self.assertEqual(m.member_uncs["QCD_scale_TT"], [("TT", (-0.036, 0.025))])
         self.assertEqual(m.member_uncs["QCD_scale_ttV"], [("ttV", (-0.12, 0.12))])
@@ -102,7 +108,8 @@ class DLCards(unittest.TestCase):
             m.tilts("eE", "DY_res2b"), [("CMS_bbww_dycr_shape_res2b", "DY", 0.04)]
         )
         self.assertEqual(
-            m.tilts("muMu", "TT_boosted"), [("CMS_bbww_ttcr_shape_boosted", "TT", 0.02)]
+            m.tilts("muMu", "TT_recovery"),
+            [("CMS_bbww_ttcr_shape_recovery", "TT", 0.02)],
         )
         self.assertEqual(m.tilts("eE", "SR_res2b"), [])
         self.assertEqual(len(m.templates), 7)
@@ -123,6 +130,52 @@ class DLCards(unittest.TestCase):
     def test_binning_file_is_binning_only(self):
         with open(BINNING) as f:
             check_binning_config(yaml.safe_load(f), BINNING)
+
+
+SL = os.path.join(ANA, "config", "Datacards", "SL")
+SL_BINNING = os.path.join(SL, "binning_eqsig_SL_v2610.yaml")
+
+
+class SLCards(unittest.TestCase):
+    def test_both_spins_parse(self):
+        for spin in (0, 2):
+            PreprocessModel(load_card_config(os.path.join(SL, f"sl_spin{spin}.yaml")))
+
+    def test_model(self):
+        m = PreprocessModel(load_card_config(os.path.join(SL, "sl_spin0.yaml")))
+        self.assertEqual(
+            m.members,
+            {
+                "TT": ["TT", "ttV"],
+                "W": ["W"],
+                "ST": ["ST"],
+                "DY": ["DY_M_10to50", "DY_M_50"],
+                "Minor": ["VV", "VVV", "H"],
+            },
+        )
+        # DY: a trace in the TT CR whose heavy events break the gates there
+        self.assertEqual(m.dropped_in("TT_boosted"), {"DY_M_10to50", "DY_M_50"})
+        self.assertEqual(m.dropped_in("W_recovery"), set())
+        self.assertEqual(m.dropped_in("SR_res2b"), set())
+        # the DL numbers, with the SL process names
+        self.assertEqual(m.member_uncs["QCD_scale_TT"], [("TT", (-0.036, 0.025))])
+        self.assertEqual(m.member_uncs["QCD_scale_DY"], [("DY_M_50", (-0.011, 0.007))])
+        self.assertEqual(len(m.member_uncs["PDF_alphas"]), 6)
+        # no DY template, low-mass estimate or CR tilt (yet)
+        self.assertEqual(m.templates, {})
+        self.assertIsNone(m.lowmass)
+        self.assertEqual(m.tilts("e", "TT_res2b"), [])
+
+    def test_binning_file_is_binning_only(self):
+        with open(SL_BINNING) as f:
+            cfg = yaml.safe_load(f)
+        check_binning_config(cfg, SL_BINNING)
+        # the CRs are named by their base region, as Binning.region() reads the inputs
+        card = load_card_config(os.path.join(SL, "sl_spin0.yaml"))
+        bases = {d.split("_HMESub_")[0] for d in card["input_categories"].values()} - {
+            "SR_SL"
+        }
+        self.assertEqual(set(cfg["control_region_bins"]), bases)
 
 
 class Strict(unittest.TestCase):
