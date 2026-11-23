@@ -53,12 +53,27 @@ uses this same model (`phys_model: Run3_Model` in `config/user_custom.yaml`; see
 README). The single-Higgs background group is `H` (ggH, VBFH, VH and tt̄H summed into that
 one histogram). For fast local tests, use `TestModel`
 in your [`user_custom.yaml`](https://cms-flaf.github.io/FLAF/configuration/user-custom/) instead.
-It holds three backgrounds — `custom_CI_Background_TT`, one t̄t dataset (t̄t is not stitched),
+It holds three simulated backgrounds — `custom_CI_Background_TT`, one t̄t dataset (t̄t is not stitched),
 `custom_CI_Background_DY` and `custom_CI_Background_W`, one DY and one W dataset carrying the
-stitchers the era configures — plus one signal and one data process. Each CI background mirrors the `processors:` of the real
+stitchers the era configures — plus one signal and one data process, and, like `Run3_Model`, the data-driven `Fakes`
+([Single-lepton fakes](analysis.md#single-lepton-fakes)), which has no datasets. Each CI background mirrors the `processors:` of the real
 process it stands for, so the [stitching](https://cms-flaf.github.io/FLAF/concepts/stitching/)
 is exercised over the whole anaTuple → merge chain; keep them in step when you change the real
 ones.
+
+`SL_CrossMassSignals` is a study model, never the model of the limits or of the plots of results: the six signal
+processes only, with `apply_signal_params: false`, so that every binary DNN `TwoStageDNN_M<MX>_binary` is filled
+for the signals of every mass (the limit models fill it for the signal of mass MX only). The booking still puts the
+score of MX in the HME sub-regions of MX only, so its histograms hold, in the window and side bins of each mass,
+every signal in that mass's score — the input of the s/√b blinding of the SL binary DNNs
+([Control plots](analysis.md#control-plots)). It is filled once, nominal only, from the existing histTuples into a
+version and histogram storage of its own: in a `user_custom` file `phys_model: SL_CrossMassSignals`,
+`compute_unc_histograms: false` (nominal only; the upstream settings stay the production's) and `fs_Hists` /
+`fs_default` of its own, then `HistMergerTask --version <new> --HistTupleProducerTask-version <production>
+--ana-version <production's> --variables <the binary DNNs>` (a new `--version`: with the production's own, the
+local law job files of the two runs would be shared). Launch it only after `HistTupleProducerTask --version
+<production> --print-status 0`, with the same `--era`, `--user-custom` and `--ana-version`, shows the histTuples
+complete in every era: anything missing would be produced into the production's version and storage.
 
 ## Next
 

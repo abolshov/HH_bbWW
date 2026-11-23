@@ -18,6 +18,7 @@ Run3_Model:
     - ttV
     - W
     - H
+    - Fakes
     # - QCD_PT
   signals: &Run3_Model_signals
     - GluGluToRadion_bbWW_1L
@@ -45,8 +46,23 @@ Run3_Model_DYSplit:
     - ttV
     - W
     - H
+    - Fakes
   signals: *Run3_Model_signals
   data: *Run3_Model_data
+
+# The signals of every mass point in the binary DNN of every mass, for the plot blinding of the SL binary DNNs
+# (user, 2026-11-21: the s/sqrt(b) of the other masses' signals in the HME side bins of a mass): filled once,
+# nominal only (compute_unc_histograms false; the upstream settings stay the production's), under a --version and
+# histogram storage of its own, from the existing histTuples (--HistTupleProducerTask-version <the production's>,
+# and its --ana-version) — only after --print-status shows them complete in every era: anything missing would be
+# produced into the production's version and storage. Never the model of the limits or of the plots of results: there each binary DNN keeps the signal
+# of its own mass (signal_params in config/plot/histograms.yaml); the booking still puts the score of a mass in that
+# mass's sub-regions only.
+SL_CrossMassSignals:
+  name: "Signals of all masses in every binary DNN (blinding study)"
+  backgrounds: [ ]
+  signals: *Run3_Model_signals
+  apply_signal_params: false
 
 OnlyData:
   name: "Only Data"
@@ -61,6 +77,7 @@ TestModel:
     - custom_CI_Background_TT
     - custom_CI_Background_DY
     - custom_CI_Background_W
+    - Fakes
   signals: # WARNING: for 2024 no signal sample available, using a file from bbtt signals..
     - custom_CI_Signal
     - custom_CI_Signal_SL
